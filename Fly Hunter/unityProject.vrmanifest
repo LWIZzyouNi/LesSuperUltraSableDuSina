@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.flyhunter.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\ProjectUnity\\LesSablesDuSina\\Fly Hunter\\actions.json",
+      "action_manifest_path": "D:\\ProjectUnity\\LesSuperSablesDuSina\\Fly Hunter\\actions.json",
       "strings": {
         "en_us": {
           "name": "Fly Hunter [Testing]"
