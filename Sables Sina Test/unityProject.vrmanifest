@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.867879.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\dylan\\Documents\\867879\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "867879 [Testing]"
+        }
+      }
+    }
+  ]
+}
