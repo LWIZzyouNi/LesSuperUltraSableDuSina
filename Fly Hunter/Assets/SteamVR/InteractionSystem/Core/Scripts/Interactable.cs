@@ -60,12 +60,12 @@ namespace Valve.VR.InteractionSystem
 
         [Tooltip("Set whether or not you want this interactible to highlight when hovering over it")]
         public bool highlightOnHover = true;
-        protected MeshRenderer[] highlightRenderers;
-        protected MeshRenderer[] existingRenderers;
-        protected GameObject highlightHolder;
-        protected SkinnedMeshRenderer[] highlightSkinnedRenderers;
-        protected SkinnedMeshRenderer[] existingSkinnedRenderers;
-        protected static Material highlightMat;
+        public MeshRenderer[] highlightRenderers;
+        public MeshRenderer[] existingRenderers;
+        public GameObject highlightHolder;
+        public SkinnedMeshRenderer[] highlightSkinnedRenderers;
+        public SkinnedMeshRenderer[] existingSkinnedRenderers;
+        public static Material highlightMat;
         [Tooltip("An array of child gameObjects to not render a highlight for. Things like transparent parts, vfx, etc.")]
         public GameObject[] hideHighlight;
 
