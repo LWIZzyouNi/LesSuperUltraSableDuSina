@@ -19,8 +19,10 @@ public class CanBeDrag : MonoBehaviour
     private Vector3 initialPos;
 
     private bool isZoomed = false;
+    private bool isDeZoomed = false;
     private bool isLocked = false;
 
+    public float rotationSpeed = 5f;
 
     // Use this for initialization
     void Start()
@@ -48,10 +50,10 @@ public class CanBeDrag : MonoBehaviour
         // Mouse (+Keyboard) Inputs
 
         OnMouseClick();
-
+        /*
         Debug.Log("Zoom " + isZoomed);
         Debug.Log("Lock " + isLocked);
-
+        */
         if (isZoomed)
         {
             //dist = Vector3.Distance(goToPos.position, transform.position);
@@ -59,6 +61,7 @@ public class CanBeDrag : MonoBehaviour
             {
                 Debug.Log("Je suis à ma position parfaite");
                 isLocked = true;
+                isZoomed = false;
             }
 
             Zoom();
@@ -67,10 +70,16 @@ public class CanBeDrag : MonoBehaviour
         if (isLocked)
         {
             //dist = Vector3.Distance(goToPos.position, transform.position);
+            Rotation();
+        }
+
+        if(isDeZoomed)
+        {
             if (initialPos == transform.position)
             {
                 Debug.Log("Je suis à ma position de départ");
                 isLocked = false;
+                isDeZoomed = false;
             }
 
             Dezoom();
@@ -86,11 +95,13 @@ public class CanBeDrag : MonoBehaviour
 
     private void Zoom()
     {
+        Debug.Log("J'avance!");
         transform.position = Vector3.MoveTowards(transform.position, goToPos, Time.deltaTime * moveSpeed);
     }
 
     private void Dezoom()
     {
+        Debug.Log("Je recule!");
         transform.position = Vector3.MoveTowards(transform.position, initialPos, Time.deltaTime * moveSpeed);
     }
 
@@ -109,8 +120,35 @@ public class CanBeDrag : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Mouse0)) && isLocked)
         {
             Debug.Log("Click to dezoom");
-            isZoomed = false;
+            isDeZoomed = true;
+        }
+    }
+
+    private void Rotation()
+    {
+        int tempHorizontalAxis = 0;
+        int tempVerticalAxis = 0;
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            tempVerticalAxis--;
         }
 
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            tempVerticalAxis++;
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            tempHorizontalAxis++;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            tempHorizontalAxis--;
+        }
+        
+        transform.Rotate(tempHorizontalAxis, tempVerticalAxis, 0);
     }
 }
