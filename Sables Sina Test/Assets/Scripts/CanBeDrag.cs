@@ -5,9 +5,6 @@ using Valve.VR;
 
 public class CanBeDrag : MonoBehaviour
 {
-    // private float dist = 0f;
-    // public float distPerfect = 1f;
-
     public SteamVR_Action_Boolean m_GrabAction = null;
 
     private SteamVR_Behaviour_Pose m_Pose = null;
@@ -18,9 +15,9 @@ public class CanBeDrag : MonoBehaviour
     private Vector3 goToPos;
     private Vector3 initialPos;
 
-    private bool isZoomed = false;
+    public bool isZoomed = false;
     private bool isDeZoomed = false;
-    private bool isLocked = false;
+    public bool isLocked = false;
 
     public bool canRotate = true;
     public int rotationSpeed = 1;
@@ -51,18 +48,15 @@ public class CanBeDrag : MonoBehaviour
         // Mouse (+Keyboard) Inputs
 
         OnMouseClick();
-        /*
-        Debug.Log("Zoom " + isZoomed);
-        Debug.Log("Lock " + isLocked);
-        */
+       
         if (isZoomed)
         {
-            //dist = Vector3.Distance(goToPos.position, transform.position);
             if(goToPos == transform.position)
             {
                 Debug.Log("Je suis à ma position parfaite");
                 isLocked = true;
                 isZoomed = false;
+                canRotate = true;
             }
 
             Zoom();
@@ -70,7 +64,6 @@ public class CanBeDrag : MonoBehaviour
 
         if (isLocked)
         {
-            //dist = Vector3.Distance(goToPos.position, transform.position);
             if (canRotate)
             {
                 Rotation();
@@ -79,6 +72,8 @@ public class CanBeDrag : MonoBehaviour
 
         if(isDeZoomed)
         {
+            canRotate = false;
+
             if (initialPos == transform.position)
             {
                 Debug.Log("Je suis à ma position de départ");
@@ -88,13 +83,6 @@ public class CanBeDrag : MonoBehaviour
 
             Dezoom();
         }
-
-        /*
-        if (dist <= distPerfect)
-        {
-            isZoomed = false;
-        }
-        */
     }
 
     private void Zoom()
