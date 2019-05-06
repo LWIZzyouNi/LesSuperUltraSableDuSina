@@ -5,8 +5,8 @@ using Valve.VR;
 
 public class CanBeDrag : MonoBehaviour
 {
-    private float Dist = 0f;
-    public float DistPerfect = 1f;
+    // private float dist = 0f;
+    // public float distPerfect = 1f;
 
     public SteamVR_Action_Boolean m_GrabAction = null;
 
@@ -15,9 +15,10 @@ public class CanBeDrag : MonoBehaviour
     public Outline outlineScript;
 
     public float moveSpeed = 5f;
-    private Transform goToPos;
-    private bool isZoomed = false;
+    private Vector3 goToPos;
+    private Vector3 initialPos;
 
+    private bool isZoomed = false;
     private bool isLocked = false;
 
 
@@ -25,11 +26,15 @@ public class CanBeDrag : MonoBehaviour
     void Start()
     {
         goToPos = HeadSetManager.s_Singleton.GetTrsDest();
+
+        initialPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // VR Inputs
+
         /* if (m_GrabAction.GetStateDown(m_Pose.inputSource))
          {
              if (isLocked == false)
@@ -40,37 +45,72 @@ public class CanBeDrag : MonoBehaviour
          }
          */
 
+        // Mouse (+Keyboard) Inputs
+
+        OnMouseClick();
+
+        Debug.Log("Zoom " + isZoomed);
+        Debug.Log("Lock " + isLocked);
+
         if (isZoomed)
         {
-            Dist = Vector3.Distance(goToPos.position, transform.position);
-            Debug.Log("Je suis à ma position parfaite");
+            //dist = Vector3.Distance(goToPos.position, transform.position);
+            if(goToPos == transform.position)
+            {
+                Debug.Log("Je suis à ma position parfaite");
+                isLocked = true;
+            }
 
             Zoom();
         }
 
-        if (Dist <= DistPerfect)
+        if (isLocked)
+        {
+            //dist = Vector3.Distance(goToPos.position, transform.position);
+            if (initialPos == transform.position)
+            {
+                Debug.Log("Je suis à ma position de départ");
+                isLocked = false;
+            }
+
+            Dezoom();
+        }
+
+        /*
+        if (dist <= distPerfect)
         {
             isZoomed = false;
         }
+        */
     }
 
     private void Zoom()
     {
-        transform.position = Vector3.MoveTowards(transform.position, goToPos.position, Time.deltaTime * moveSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, goToPos, Time.deltaTime * moveSpeed);
     }
 
-   
-    private void OnMouseDown()
+    private void Dezoom()
     {
-        if(outlineScript.isBordered)
+        transform.position = Vector3.MoveTowards(transform.position, initialPos, Time.deltaTime * moveSpeed);
+    }
+
+
+    private void OnMouseClick()
+    {
+        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isBordered)
         {
-            if (!isLocked)
+            if (!isZoomed)
             {
-                isLocked = true;
+                Debug.Log("Click to zoom");
                 isZoomed = true;
             }
-        }
-      
-    }
 
+            if ((Input.GetKeyDown(KeyCode.Mouse0)) && isLocked)
+            {
+                Debug.Log("Click to dezoom");
+                isZoomed = false;
+            }
+        }
+
+    }
 }

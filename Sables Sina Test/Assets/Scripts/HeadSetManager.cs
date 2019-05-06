@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeadSetManager : MonoBehaviour
 {
 
-    public Transform targetObject;
+    public Vector3 targetObject;
 
     public static HeadSetManager s_Singleton;
 
@@ -30,11 +30,11 @@ public class HeadSetManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
-    public Transform GetTrsDest()
+    public Vector3 GetTrsDest()
     {
+        targetObject = this.transform.position;
         return targetObject;
     }
 }
