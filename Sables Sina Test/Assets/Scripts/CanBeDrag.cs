@@ -22,6 +22,7 @@ public class CanBeDrag : MonoBehaviour
     private bool isDeZoomed = false;
     private bool isLocked = false;
 
+    public bool canRotate = true;
     public int rotationSpeed = 1;
 
     // Use this for initialization
@@ -70,7 +71,10 @@ public class CanBeDrag : MonoBehaviour
         if (isLocked)
         {
             //dist = Vector3.Distance(goToPos.position, transform.position);
-            Rotation();
+            if (canRotate)
+            {
+                Rotation();
+            }
         }
 
         if(isDeZoomed)
