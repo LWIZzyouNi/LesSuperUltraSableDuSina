@@ -104,12 +104,12 @@ public class CanBeDrag : MonoBehaviour
                 Debug.Log("Click to zoom");
                 isZoomed = true;
             }
+        }
 
-            if ((Input.GetKeyDown(KeyCode.Mouse0)) && isLocked)
-            {
-                Debug.Log("Click to dezoom");
-                isZoomed = false;
-            }
+        if ((Input.GetKeyDown(KeyCode.Mouse0)) && isLocked)
+        {
+            Debug.Log("Click to dezoom");
+            isZoomed = false;
         }
 
     }
