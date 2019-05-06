@@ -22,7 +22,7 @@ public class CanBeDrag : MonoBehaviour
     private bool isDeZoomed = false;
     private bool isLocked = false;
 
-    public float rotationSpeed = 5f;
+    public int rotationSpeed = 1;
 
     // Use this for initialization
     void Start()
@@ -108,7 +108,7 @@ public class CanBeDrag : MonoBehaviour
 
     private void OnMouseClick()
     {
-        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isBordered)
+        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isBordered && isLocked == false)
         {
             if (!isZoomed)
             {
@@ -148,7 +148,10 @@ public class CanBeDrag : MonoBehaviour
         {
             tempHorizontalAxis--;
         }
-        
+
+        tempHorizontalAxis *= rotationSpeed;
+        tempVerticalAxis *= rotationSpeed;
+
         transform.Rotate(tempHorizontalAxis, tempVerticalAxis, 0);
     }
 }
