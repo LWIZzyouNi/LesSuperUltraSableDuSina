@@ -5,14 +5,13 @@ using UnityEngine;
 public class Use_Element : MonoBehaviour {
 
     public CanBeDrag m_MyScript;
+    public Interacting m_MyScript2;
 
     private Animator anim;
 
-    public Transform parentXAxis;
-
     // Use this for initialization
-    void Start () {
-
+    void Start ()
+    {
         anim = GetComponent<Animator>();
     }
 	
@@ -20,7 +19,6 @@ public class Use_Element : MonoBehaviour {
 	void Update ()
     {
         OnMouseClick();
-
     }
 
     private void OnMouseClick()
@@ -32,13 +30,8 @@ public class Use_Element : MonoBehaviour {
             {
                 // Joue("nomDeLanimation")
                 anim.Play("NewAnim");
-                Rotate();
+                m_MyScript2.Rotate();
             }
         }
-    }
-
-    private void Rotate()
-    {
-        parentXAxis.GetComponent<Transform>().Rotate(Vector3.right, 90f);
     }
 }
