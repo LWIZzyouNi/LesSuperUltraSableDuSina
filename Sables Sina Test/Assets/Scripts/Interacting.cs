@@ -15,6 +15,8 @@ public class Interacting : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        Debug.Log(transform.rotation.x);
     }
     
     void Update()
@@ -26,9 +28,10 @@ public class Interacting : MonoBehaviour
     {
         float rotateValue = 90f;
 
-        transform.Rotate(Vector3.right, rotateValue);
-
-        anim.Play("Rotation01");
+        transform.rotation *= Quaternion.AngleAxis(rotateValue, Vector3.left);
+        //transform.Rotate(Vector3.right, rotateValue);
+        Debug.Log("Rotation");
+        Debug.Log(transform.rotation.x);
     }
     
 }

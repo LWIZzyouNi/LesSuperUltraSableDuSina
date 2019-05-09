@@ -8,6 +8,7 @@ public class Use_Element : MonoBehaviour {
     public Interacting m_MyScript2;
 
     private Animator anim;
+    public Animator parentAnim;
 
     // Use this for initialization
     void Start ()
@@ -19,6 +20,7 @@ public class Use_Element : MonoBehaviour {
 	void Update ()
     {
         OnMouseClick();
+        
     }
 
     private void OnMouseClick()
@@ -30,6 +32,8 @@ public class Use_Element : MonoBehaviour {
             {
                 // Joue("nomDeLanimation")
                 anim.Play("NewAnim");
+                parentAnim.SetBool("Activate", true);
+                parentAnim.Play("Rotation01");
                 m_MyScript2.Rotate();
             }
         }
