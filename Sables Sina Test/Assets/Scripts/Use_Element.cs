@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Element_CanBeUse : MonoBehaviour {
+public class Use_Element : MonoBehaviour {
 
     public CanBeDrag m_MyScript;
 
     private Animator anim;
 
-	// Use this for initialization
-	void Start () {
+    public Transform parentXAxis;
+
+    // Use this for initialization
+    void Start () {
 
         anim = GetComponent<Animator>();
-
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        OnClickMouse();
+        OnMouseClick();
 
     }
 
-    private void OnClickMouse()
+    private void OnMouseClick()
     {
         if(m_MyScript.isLocked)
         {
@@ -31,7 +32,13 @@ public class Element_CanBeUse : MonoBehaviour {
             {
                 // Joue("nomDeLanimation")
                 anim.Play("NewAnim");
+                Rotate();
             }
         }
+    }
+
+    private void Rotate()
+    {
+        parentXAxis.GetComponent<Transform>().Rotate(Vector3.right, 90f);
     }
 }

@@ -1,4 +1,4 @@
-﻿Shader "Custom/ApplyTexture"
+﻿Shader "Custom/DefaultTexture"
 {
 	Properties
 	{

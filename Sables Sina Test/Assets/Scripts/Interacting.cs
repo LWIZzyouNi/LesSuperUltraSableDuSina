@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 
-public class Interactable : MonoBehaviour
+public class Interacting : MonoBehaviour
 {
 
     [HideInInspector]

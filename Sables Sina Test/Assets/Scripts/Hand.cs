@@ -10,8 +10,8 @@ public class Hand : MonoBehaviour {
     private SteamVR_Behaviour_Pose m_Pose = null;
     private FixedJoint m_Joint = null;
 
-    private Interactable m_CurrentInterectable = null;
-    public List<Interactable> m_ContactInterectables = new List<Interactable>();
+    private Interacting m_CurrentInterectable = null;
+    public List<Interacting> m_ContactInterectables = new List<Interacting>();
 
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class Hand : MonoBehaviour {
         if (!other.gameObject.CompareTag("Interectable"))
             return;
 
-        m_ContactInterectables.Add(other.gameObject.GetComponent<Interactable>());
+        m_ContactInterectables.Add(other.gameObject.GetComponent<Interacting>());
     }
 
     private void OnTriggerExit(Collider other)
@@ -51,7 +51,7 @@ public class Hand : MonoBehaviour {
         if (!other.gameObject.CompareTag("Interectable"))
             return;
 
-        m_ContactInterectables.Remove(other.gameObject.GetComponent<Interactable>());
+        m_ContactInterectables.Remove(other.gameObject.GetComponent<Interacting>());
     }
 
     public void Pickup()
@@ -97,13 +97,13 @@ public class Hand : MonoBehaviour {
         m_CurrentInterectable = null;
     }
 
-    private Interactable GetNearestInterectable()
+    private Interacting GetNearestInterectable()
     {
-        Interactable nearest = null;
+        Interacting nearest = null;
         float minDistance = float.MaxValue;
         float distance = 0.0f;
 
-        foreach(Interactable interectable in m_ContactInterectables)
+        foreach(Interacting interectable in m_ContactInterectables)
         {
             distance = (interectable.transform.position - transform.position).sqrMagnitude;
 
