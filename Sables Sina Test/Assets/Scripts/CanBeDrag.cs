@@ -53,7 +53,7 @@ public class CanBeDrag : MonoBehaviour
         {
             if(goToPos == transform.position)
             {
-                Debug.Log("Je suis à ma position parfaite");
+                //Debug.Log("Je suis à ma position parfaite");
                 isLocked = true;
                 isZoomed = false;
                 canRotate = true;
@@ -76,7 +76,7 @@ public class CanBeDrag : MonoBehaviour
 
             if (initialPos == transform.position)
             {
-                Debug.Log("Je suis à ma position de départ");
+                //Debug.Log("Je suis à ma position de départ");
                 isLocked = false;
                 isDeZoomed = false;
             }
@@ -87,13 +87,13 @@ public class CanBeDrag : MonoBehaviour
 
     private void Zoom()
     {
-        Debug.Log("J'avance!");
+        //Debug.Log("J'avance!");
         transform.position = Vector3.MoveTowards(transform.position, goToPos, Time.deltaTime * moveSpeed);
     }
 
     private void Dezoom()
     {
-        Debug.Log("Je recule!");
+        //Debug.Log("Je recule!");
         transform.position = Vector3.MoveTowards(transform.position, initialPos, Time.deltaTime * moveSpeed);
     }
 
@@ -104,14 +104,14 @@ public class CanBeDrag : MonoBehaviour
         {
             if (!isZoomed)
             {
-                Debug.Log("Click to zoom");
+                //Debug.Log("Click to zoom");
                 isZoomed = true;
             }
         }
 
         if ((Input.GetKeyDown(KeyCode.Mouse0)) && isLocked)
         {
-            Debug.Log("Click to dezoom");
+            //Debug.Log("Click to dezoom");
             isDeZoomed = true;
         }
     }

@@ -81,5 +81,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.6784314, g: 0.21568629, b: 0.21568629, a: 1}
-    - _DistortColor: {r: 1, g: 0.88149357, b: 0, a: 1}
+    - _DistortColor: {r: 1, g: 0.6300466, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
