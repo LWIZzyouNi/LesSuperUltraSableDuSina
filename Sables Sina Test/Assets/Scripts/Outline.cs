@@ -10,12 +10,14 @@ public class Outline : MonoBehaviour {
     public bool isBordered = false;
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 

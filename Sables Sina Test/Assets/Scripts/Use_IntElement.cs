@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Use_Element : MonoBehaviour {
+public class Use_IntElement : MonoBehaviour {
 
-    private Outline m_MyScript;
+    private Outline_IntElement m_MyScript;
     private Interacting m_MyScript2;
     private CanBeDrag m_MyScript3;
 
@@ -23,7 +23,7 @@ public class Use_Element : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
 
-        m_MyScript = GetComponentInParent<Outline>();
+        m_MyScript = GetComponentInParent<Outline_IntElement>();
         m_MyScript2 = GetComponentInParent<Interacting>();
         m_MyScript3 = GetComponentInParent<CanBeDrag>();
     }
@@ -37,10 +37,10 @@ public class Use_Element : MonoBehaviour {
 
     private void OnMouseClick()
     {
-        if(m_MyScript.isBordered)
+        if(m_MyScript.elementisBordered)
         {
             // Lorsque l'objet est lock, donc zoomé, les éléments interactifs sur l'objet sont activables / utilisables lorsqu'on clique droit.
-            if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.isBordered && m_MyScript3.isLocked)
+            if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.elementisBordered && m_MyScript3.isLocked)
             {
                 m_MyScript2.Rotate();
 
