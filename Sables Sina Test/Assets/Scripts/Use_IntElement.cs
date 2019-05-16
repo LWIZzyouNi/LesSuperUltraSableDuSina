@@ -8,6 +8,10 @@ public class Use_IntElement : MonoBehaviour {
     private Interacting m_MyScript2;
     private CanBeDrag m_MyScript3;
 
+    [Header("GameObject")]
+    public GameObject axis01;
+    public GameObject axis02;
+
     private Animator anim;
     public Animator parentAnim;
 
@@ -16,7 +20,10 @@ public class Use_IntElement : MonoBehaviour {
     private bool state03 = false;
     private bool state04 = false;
     private bool canPlay = false;
-    private bool isRotating = false;
+    public bool isRotating = false;
+
+    private bool perfectRot01 = false;
+    private bool perfectRot02 = false;
 
     // Use this for initialization
     void Start ()
@@ -31,23 +38,37 @@ public class Use_IntElement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        
         OnMouseClick();
+        //print(axis01.transform.eulerAngles.x);
+
+        if (axis01.transform.rotation.w == -1.0)
+        {
+            Debug.Log(transform.rotation.w);
+            print("Perfect Rotation");
+        }
         
     }
 
     private void OnMouseClick()
     {
-        if(m_MyScript.elementisBordered)
+        if (m_MyScript.elementisBordered)
         {
+            if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.elementisBordered && m_MyScript3.isLocked)
+            {
+                m_MyScript2.XAxis++;
+                isRotating = true;
+            }
+            
             // Lorsque l'objet est lock, donc zoomé, les éléments interactifs sur l'objet sont activables / utilisables lorsqu'on clique droit.
             if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.elementisBordered && m_MyScript3.isLocked)
             {
-                m_MyScript2.Rotate();
+                //m_MyScript2.Rotate();
 
                 canPlay = false;
                 isRotating = true;
 
-                // Si l'objet tourne, que le premier état de l'animation ne s'est pas joué, l'animation lui correspondant ne peut pas se jouer..
+                // Si l'objet tourne, que le premier état de l'animation ne s'est pas joué, et que l'animation lui correspondant ne peut pas se jouer..
                 if (isRotating && !state01 && !canPlay)
                 {
                     // Le premier état de l'animation peut se jouer (autrement dit, l'animation du premier état sera considérée comme jouée)..
@@ -63,7 +84,7 @@ public class Use_IntElement : MonoBehaviour {
                     // L'animation lui correspondant peut se jouer..
                     canPlay = true;
 
-                    if(canPlay)
+                    if (canPlay)
                     {
                         // L'animation, correspondant au premier état se joue ("NomDeLanimation")..
                         //parentAnim.Play("RotationAxis01");
@@ -74,7 +95,7 @@ public class Use_IntElement : MonoBehaviour {
                     }
                 }
 
-                // Si l'objet tourne, que le second état de l'animation ne s'est pas joué, l'animation lui correspondant ne peut pas se jouer..
+                // Si l'objet tourne, que le second état de l'animation ne s'est pas joué, et que l'animation lui correspondant ne peut pas se jouer..
                 if (isRotating && !state02 && !canPlay)
                 {
                     // Le second état de l'animation peut se jouer (autrement dit, l'animation du deuxième état sera considérée comme jouée)..
@@ -95,7 +116,7 @@ public class Use_IntElement : MonoBehaviour {
                     }
                 }
 
-                // Si l'objet tourne, que le troisième état de l'animation ne s'est pas joué, l'animation lui correspondant ne peut pas se jouer..
+                // Si l'objet tourne, que le troisième état de l'animation ne s'est pas joué, et que l'animation lui correspondant ne peut pas se jouer..
                 if (isRotating && !state03 && !canPlay)
                 {
                     // Le troisième état de l'animation peut se jouer (autrement dit, l'animation du troisième état sera considérée comme jouée)..
@@ -116,14 +137,14 @@ public class Use_IntElement : MonoBehaviour {
                     }
                 }
 
-                // Si l'objet tourne, que le quatrième état de l'animation ne s'est pas joué, l'animation lui correspondant ne peut pas se jouer..
+                // Si l'objet tourne, que le quatrième état de l'animation ne s'est pas joué, et que l'animation lui correspondant ne peut pas se jouer..
                 if (isRotating && !state04 && !canPlay)
                 {
                     // Le quatrième état de l'animation peut se jouer (autrement dit, l'animation du quatrième état sera considérée comme jouée)..
                     state04 = true;
 
                     // Reset de la boucle pour un tour à 360°..
-                    if(state04)
+                    if (state04)
                     {
                         state01 = false;
                         state02 = false;
