@@ -5,34 +5,28 @@ using UnityEngine;
 public class Use_IntElement : MonoBehaviour {
 
     private Outline_IntElement m_MyScript;
-    private Interacting m_MyScript2;
     private CanBeDrag m_MyScript3;
-
-    [Header("GameObject")]
-    public GameObject axis01;
-    public GameObject axis02;
-
+    
     private Animator anim;
     public Animator parentAnim;
 
+    // États animation
     private bool state01 = false;
     private bool state02 = false;
     private bool state03 = false;
     private bool state04 = false;
     private bool canPlay = false;
     public bool isRotating = false;
-
-    private bool perfectRot01 = false;
-    private bool perfectRot02 = false;
+    
+    public AudioSource audioSrc_AxisRota;
 
     // Use this for initialization
     void Start ()
     {
-        anim = GetComponent<Animator>();
-
-        m_MyScript = GetComponentInParent<Outline_IntElement>();
-        m_MyScript2 = GetComponentInParent<Interacting>();
+        m_MyScript = GetComponent<Outline_IntElement>();
         m_MyScript3 = GetComponentInParent<CanBeDrag>();
+
+        audioSrc_AxisRota = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -42,12 +36,6 @@ public class Use_IntElement : MonoBehaviour {
         OnMouseClick();
         //print(axis01.transform.eulerAngles.x);
 
-        if (axis01.transform.rotation.w == -1.0)
-        {
-            Debug.Log(transform.rotation.w);
-            print("Perfect Rotation");
-        }
-        
     }
 
     private void OnMouseClick()
@@ -56,7 +44,6 @@ public class Use_IntElement : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.elementisBordered && m_MyScript3.isLocked)
             {
-                m_MyScript2.XAxis++;
                 isRotating = true;
             }
             

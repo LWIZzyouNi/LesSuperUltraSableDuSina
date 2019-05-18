@@ -26,6 +26,7 @@ public class CanBeDrag : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         goToPos = HeadSetManager.s_Singleton.GetTrsDest();
 
         initialPos = transform.position;
