@@ -105,7 +105,7 @@ public class CanBeDrag : MonoBehaviour
 
     private void OnMouseClick()
     {
-        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isBordered && !isLocked && isInteractive)
+        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isOutlined && !isLocked && isInteractive)
         {
             if (!isZoomed)
             {

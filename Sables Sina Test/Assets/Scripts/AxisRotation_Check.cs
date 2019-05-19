@@ -26,7 +26,7 @@ public class AxisRotation_Check : MonoBehaviour
 
     public AudioSource audioSrc_EnigmaIsComplete;
 
-    public Use_IntElement[] m_MyScript;
+    public RotateAxis[] m_MyScript;
 
     public GameManager m_MyGM;
     private CanBeDrag m_DragScript;
@@ -37,7 +37,7 @@ public class AxisRotation_Check : MonoBehaviour
     void Start()
     {
         audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
-        m_MyScript = GetComponentsInChildren<Use_IntElement>();
+        m_MyScript = GetComponentsInChildren<RotateAxis>();
 
         m_DragScript = GetComponent<CanBeDrag>();
         m_OutlineScript = GetComponent<Outline>();
@@ -147,8 +147,8 @@ public class AxisRotation_Check : MonoBehaviour
             m_DragScript.isInteractive = false;
             m_DragScript.canRotate = false;
 
-            m_OutlineScript.GetComponent<Renderer>().material = m_OutlineScript.nonBordered;
-            m_OutlineScript.isBordered = false;
+            m_OutlineScript.GetComponent<Renderer>().material = m_OutlineScript.nonOutlined;
+            m_OutlineScript.isOutlined = false;
 
         }
     }

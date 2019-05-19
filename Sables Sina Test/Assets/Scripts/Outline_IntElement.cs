@@ -3,44 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Outline_IntElement : MonoBehaviour {
+    
+    public Material elementNonOutlined;
+    public Material elementOutlined;
 
-    public Material elementBordered;
-    public Material elementNonBordered;
+    public bool elementIsOutlined = false;
 
-    public bool elementisBordered = false;
-
-    private CanBeDrag m_MyScript;
+    private CanBeDrag m_DragScript;
+    private Illuminate m_IlluminateScript;
 
     // Use this for initialization
     void Start ()
     {
-        m_MyScript = GetComponentInParent<CanBeDrag>();
-
+        m_DragScript = GetComponentInParent<CanBeDrag>();
+        m_IlluminateScript = GetComponentInParent<Illuminate>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (!m_MyScript.isLocked && elementisBordered)
+        if (!m_DragScript.isLocked && elementIsOutlined)
         {
-            GetComponent<Renderer>().material = elementNonBordered;
-            elementisBordered = false;
+            GetComponent<Renderer>().material = elementNonOutlined;
+            elementIsOutlined = false;
             Debug.Log("Can't Outline");
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "LaserPointer" && m_MyScript.isLocked)
+        if (other.gameObject.tag == "LaserPointer" && m_DragScript.isLocked)
         {
-            GetComponent<Renderer>().material = elementBordered;
-            elementisBordered = true;
+            GetComponent<Renderer>().material = elementOutlined;
+            elementIsOutlined = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        elementisBordered = false;
-        GetComponent<Renderer>().material = elementNonBordered;
+        if(!m_IlluminateScript.isIlluminated)
+        {
+            elementIsOutlined = false;
+            GetComponent<Renderer>().material = elementNonOutlined;
+        }
     }
 }

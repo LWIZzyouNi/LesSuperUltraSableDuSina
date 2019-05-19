@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 146900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 458974}
   - {fileID: 402434}
@@ -284,9 +284,24 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013889601590}
   - component: {fileID: 20000014031267948}
-  - component: {fileID: 114752774279423214}
   m_Layer: 0
   m_Name: HeadSetCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1029778639137802
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4623629356058712}
+  - component: {fileID: 114738423893868960}
+  m_Layer: 0
+  m_Name: PosToReach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,11 +314,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014254142504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4623629356058712}
   m_Father: {fileID: 420908}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4623629356058712
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1029778639137802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3, z: 2}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
+  m_Father: {fileID: 4000013889601590}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20000014031267948
 Camera:
@@ -471,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handType: 2
-  controllerPose: {fileID: 114000010110554832}
+  controllerPose: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -489,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GrabAction:
-    actionPath: /actions/default/in/GrabPinch
+    actionPath: 
     needsReinit: 0
   m_ContactInterectables: []
 --- !u!114 &114659540253193696
@@ -507,18 +536,18 @@ MonoBehaviour:
     actionPath: 
     needsReinit: 0
   m_ContactInterectables: []
---- !u!114 &114752774279423214
+--- !u!114 &114738423893868960
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014254142504}
+  m_GameObject: {fileID: 1029778639137802}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47fa4dcfb67858a4a877a76ac644cf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 4000013889601590}
+  targetObject: {x: 0, y: 0, z: 0}
 --- !u!114 &114807699728808914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -531,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handType: 1
-  controllerPose: {fileID: 114000010876603736}
+  controllerPose: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
