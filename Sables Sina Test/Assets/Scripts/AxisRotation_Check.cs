@@ -28,11 +28,12 @@ public class AxisRotation_Check : MonoBehaviour
 
     public RotateAxis[] m_MyScript;
 
-    public GameManager m_MyGM;
+    public GameManager m_MyGameManager;
     private CanBeDrag m_DragScript;
     private Outline m_OutlineScript;
 
-    public bool enigmaIsSolved = false;
+    private bool enigmaIsSolved = false;
+    private bool isNumberAdded = false;
 
     void Start()
     {
@@ -127,21 +128,24 @@ public class AxisRotation_Check : MonoBehaviour
             enigmaIsSolved = true;
             Debug.Log(enigmaIsSolved);
 
-            // Une énigme est résolue
-            m_MyGM.enigmeCompleteNumber++;
-
-            if(enigmaIsSolved)
+            if(!isNumberAdded)
             {
-                perfectRot01 = false;
-                perfectRot02 = false;
-                perfectRot03 = false;
-                perfectRot04 = false;
-                perfectRot05 = false;
+                // Une énigme est résolue
+                m_MyGameManager.enigmeCompleteNumber++;
+                audioSrc_EnigmaIsComplete.Play();
             }
         }
 
-        else if (enigmaIsSolved)
+        if (enigmaIsSolved)
         {
+            perfectRot01 = false;
+            perfectRot02 = false;
+            perfectRot03 = false;
+            perfectRot04 = false;
+            perfectRot05 = false;
+
+            isNumberAdded = true;
+
             m_DragScript.Dezoom();
             m_DragScript.isLocked = false;
             m_DragScript.isInteractive = false;

@@ -41,7 +41,13 @@ public class Outline_IntElement : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if(!m_IlluminateScript.isIlluminated)
+        if(other.gameObject.tag == "Board_Box" && !m_IlluminateScript.isIlluminated)
+        {
+            elementIsOutlined = false;
+            GetComponent<Renderer>().material = elementNonOutlined;
+        }
+
+        else
         {
             elementIsOutlined = false;
             GetComponent<Renderer>().material = elementNonOutlined;

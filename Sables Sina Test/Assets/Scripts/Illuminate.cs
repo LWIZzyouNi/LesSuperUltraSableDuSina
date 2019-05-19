@@ -7,7 +7,7 @@ public class Illuminate : MonoBehaviour {
     private Outline_IntElement m_Outline_IntElem_Script;
     private CanBeDrag m_DragScript;
 
-    public Material nonIlluminated;
+    public Material notIlluminated;
     public Material illuminated;
 
     public bool isIlluminated = false;
@@ -29,21 +29,37 @@ public class Illuminate : MonoBehaviour {
 
     private void IlluminateBox()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && m_Outline_IntElem_Script.elementIsOutlined && m_DragScript.isLocked)
+        if(Input.GetKeyDown(KeyCode.Space) && m_DragScript.isLocked)
         {
-            GetComponent<Renderer>().material = illuminated;
-            m_Outline_IntElem_Script.GetComponent<Renderer>().material = m_Outline_IntElem_Script.elementOutlined;
-            m_Outline_IntElem_Script.elementIsOutlined = false;
-            isIlluminated = true;
-            Debug.Log(isIlluminated);
-        }
+            if (m_Outline_IntElem_Script.elementIsOutlined && !isIlluminated)
+            {
+                GetComponent<Renderer>().material = illuminated;
+                isIlluminated = true;
+                Debug.Log(isIlluminated);
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Space) && !m_Outline_IntElem_Script.elementIsOutlined && m_DragScript.isLocked && isIlluminated)
+            else if (m_Outline_IntElem_Script.elementIsOutlined && isIlluminated)
+            {
+                GetComponent<Renderer>().material = notIlluminated;
+                isIlluminated = false;
+                Debug.Log(isIlluminated);
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collider other)
+    {
+        if(other.gameObject.tag == "LaserPointer")
         {
-            GetComponent<Renderer>().material = nonIlluminated;
-            isIlluminated = false;
             m_Outline_IntElem_Script.elementIsOutlined = true;
-            Debug.Log(isIlluminated);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "LaserPointer")
+        {
+            m_Outline_IntElem_Script.elementIsOutlined = false;
         }
     }
 }

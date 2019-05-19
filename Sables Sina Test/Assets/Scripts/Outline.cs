@@ -33,8 +33,7 @@ public class Outline : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        GetComponent<Renderer>().material = nonOutlined;
-        isOutlined = false;
+            GetComponent<Renderer>().material = nonOutlined;
+            isOutlined = false;
     }
-
 }
