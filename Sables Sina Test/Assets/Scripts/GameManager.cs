@@ -7,9 +7,6 @@ public class GameManager : MonoBehaviour
     public int enigmeNumber;
     public int enigmeCompleteNumber = 0;
 
-    [SerializeField]
-    private AxisRotation_Check m_MyScript;
-
     public static GameManager s_Singleton;
 
     public GameObject[] loupiotes;
