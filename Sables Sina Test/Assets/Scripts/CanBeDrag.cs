@@ -16,11 +16,11 @@ public class CanBeDrag : MonoBehaviour
     private Vector3 initialPos;
 
     public bool isZoomed = false;
-    private bool isDeZoomed = false;
+    public bool isDeZoomed = false;
     public bool isLocked = false;
     public bool isInteractive = true;
 
-    public bool canRotate = true;
+    public bool canRotate = false;
     public int rotationSpeed = 1;
 
     // Use this for initialization
@@ -58,7 +58,10 @@ public class CanBeDrag : MonoBehaviour
                 //Debug.Log("Je suis à ma position parfaite");
                 isLocked = true;
                 isZoomed = false;
-                canRotate = true;
+                if(gameObject.tag == "Rotating")
+                {
+                    canRotate = true;
+                }
             }
 
             Zoom();
