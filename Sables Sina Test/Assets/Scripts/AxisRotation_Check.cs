@@ -28,6 +28,8 @@ public class AxisRotation_Check : MonoBehaviour
 
     public Use_IntElement[] m_MyScript;
 
+    public GameManager m_MyGM;
+
     public bool enigmaIsSolved = false;
 
     void Start()
@@ -44,7 +46,16 @@ public class AxisRotation_Check : MonoBehaviour
         {
             enigmaIsSolved = true;
             Debug.Log(enigmaIsSolved);
+            m_MyGM.enigmeCompleteNumber++;
+            print("merde");
+            perfectRot01 = false;
+            perfectRot02 = false;
+            perfectRot03 = false;
+            perfectRot04 = false;
+            perfectRot05 = false;
         }
+
+
     }
 
     public void Check_AxisRotation()

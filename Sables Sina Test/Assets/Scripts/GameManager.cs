@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int enigmeNumber = 0;
+    public int enigmeNumber;
     public int enigmeCompleteNumber = 0;
 
     [SerializeField]
@@ -37,12 +37,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Validation();
-        /*
-        if(m_MyScript.enigmaIsSolved)
-        {
-            enigmeCompleteNumber = 1;
-        }
-        */
     }
 
     void Validation()
