@@ -7,8 +7,26 @@ public class GameManager : MonoBehaviour
     private int enigmeNumber = 0;
     public int enigmeCompleteNumber = 0;
 
+    [SerializeField]
+    private AxisRotation_Check m_MyScript;
+
+    public static GameManager s_Singleton;
+
     public GameObject[] loupiotes;
-    
+
+    private void Awake()
+    {
+        if(s_Singleton != null)
+        {
+            Destroy(gameObject);
+        }
+
+        else
+        {
+            s_Singleton = this;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -19,13 +37,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Validation();
+
+        if(m_MyScript.enigmaIsSolved)
+        {
+            enigmeCompleteNumber = 1;
+        }
     }
 
     void Validation()
     {
         for (int i = 0; i < enigmeCompleteNumber; i++)
         {
-            loupiotes[i].GetComponent<Loupiote>().activated = true;
+            loupiotes[i].GetComponent<Display_EnigmaIsSolved>().activated = true;
         }
     }
 }
