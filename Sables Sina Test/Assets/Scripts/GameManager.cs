@@ -37,13 +37,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Validation();
-
-        if(m_MyScript.enigmaIsSolved)
-        {
-            enigmeCompleteNumber++;
-
-            print("merde");
-        }
     }
 
     void Validation()
