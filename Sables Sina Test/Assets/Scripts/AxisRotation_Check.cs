@@ -45,6 +45,8 @@ public class AxisRotation_Check : MonoBehaviour
             enigmaIsSolved = true;
             Debug.Log(enigmaIsSolved);
         }
+
+
     }
 
     public void Check_AxisRotation()

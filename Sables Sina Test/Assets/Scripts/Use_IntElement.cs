@@ -42,16 +42,9 @@ public class Use_IntElement : MonoBehaviour {
     {
         if (m_MyScript.elementisBordered)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.elementisBordered && m_MyScript3.isLocked)
-            {
-                isRotating = true;
-            }
-            
             // Lorsque l'objet est lock, donc zoomé, les éléments interactifs sur l'objet sont activables / utilisables lorsqu'on clique droit.
             if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.elementisBordered && m_MyScript3.isLocked)
             {
-                //m_MyScript2.Rotate();
-
                 canPlay = false;
                 isRotating = true;
 
