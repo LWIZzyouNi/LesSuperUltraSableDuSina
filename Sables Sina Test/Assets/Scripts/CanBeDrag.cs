@@ -18,7 +18,7 @@ public class CanBeDrag : MonoBehaviour
     public bool isZoomed = false;
     private bool isDeZoomed = false;
     public bool isLocked = false;
-    public bool isInteractive = false;
+    public bool isInteractive = true;
 
     public bool canRotate = true;
     public int rotationSpeed = 1;
@@ -102,7 +102,7 @@ public class CanBeDrag : MonoBehaviour
 
     private void OnMouseClick()
     {
-        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isBordered && !isLocked && !isInteractive)
+        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isBordered && !isLocked && isInteractive)
         {
             if (!isZoomed)
             {
