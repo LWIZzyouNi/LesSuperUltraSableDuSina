@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int enigmeNumber;
+    private int enigmeNumber = 0;
     public int enigmeCompleteNumber = 0;
 
     public static GameManager s_Singleton;
 
     public GameObject[] loupiotes;
+    public GameObject[] door;
+
+    public int roomNumber = 1;
+    public bool canPassRoom = true;
 
     private void Awake()
     {
@@ -41,6 +45,14 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < enigmeCompleteNumber; i++)
         {
             loupiotes[i].GetComponent<Display_EnigmaIsSolved>().activated = true;
+
+            if(enigmeCompleteNumber == enigmeNumber && canPassRoom == true)
+            {
+                int tmpDoorDetector = roomNumber - 1;
+                door[tmpDoorDetector].GetComponent<OpenDoor>().activated = true;
+                roomNumber++;
+                canPassRoom = false;
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ public class AxisRotation_Check : MonoBehaviour
 
     // Vérifie la position parfaite de chaque axe
     [HideInInspector]
-    public bool perfectRot01 = false;
+    public bool perfectRot01 = true;
     [HideInInspector]
     public bool perfectRot02 = true;
     [HideInInspector]
