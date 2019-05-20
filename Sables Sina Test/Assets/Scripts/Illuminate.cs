@@ -23,43 +23,46 @@ public class Illuminate : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        IlluminateBox();
+        //IlluminateBox();
 
     }
-
+    /*
     private void IlluminateBox()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && m_DragScript.isLocked)
-        {
-            if (m_Outline_IntElem_Script.elementIsOutlined && !isIlluminated)
-            {
-                GetComponent<Renderer>().material = illuminated;
-                isIlluminated = true;
-                Debug.Log(isIlluminated);
-            }
+            
 
             else if (m_Outline_IntElem_Script.elementIsOutlined && isIlluminated)
             {
-                GetComponent<Renderer>().material = notIlluminated;
-                isIlluminated = false;
-                Debug.Log(isIlluminated);
+                
             }
-        }
     }
-
-    private void OnCollisionEnter(Collider other)
+    */
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "LaserPointer")
+        if(other.gameObject.tag == "LaserPointer" && !isIlluminated && m_DragScript.isLocked)
         {
-            m_Outline_IntElem_Script.elementIsOutlined = true;
+            GetComponent<Renderer>().material = illuminated;
+            isIlluminated = true;
+            Debug.Log(isIlluminated);
+        }
+
+        else if (other.gameObject.tag == "LaserPointer" && isIlluminated && m_DragScript.isLocked)
+        {
+            GetComponent<Renderer>().material = notIlluminated;
+            isIlluminated = false;
+            Debug.Log(isIlluminated);
         }
     }
 
+    /*
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "LaserPointer")
+        if (other.gameObject.tag == "LaserPointer" && !isIlluminated && m_DragScript.isLocked)
         {
-            m_Outline_IntElem_Script.elementIsOutlined = false;
+            GetComponent<Renderer>().material = notIlluminated;
+            isIlluminated = false;
+            Debug.Log(isIlluminated);
         }
     }
+    */
 }
