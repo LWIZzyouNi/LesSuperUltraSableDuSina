@@ -15,6 +15,8 @@ public class Boxes_Check : MonoBehaviour {
     private bool enigmaIsSolved = false;
     private bool isNumberAdded = false;
 
+    public int caseNumber = 0;
+
     // Use this for initialization
     void Start ()
     {
@@ -74,7 +76,7 @@ public class Boxes_Check : MonoBehaviour {
     private void EnigmaIsSolved()
     {
         if (boxes[0].GetComponent<Illuminate>().isIlluminated && boxes[5].GetComponent<Illuminate>().isIlluminated 
-                    && boxes[10].GetComponent<Illuminate>().isIlluminated  && boxes[12].GetComponent<Illuminate>().isIlluminated)
+                    && boxes[10].GetComponent<Illuminate>().isIlluminated  && boxes[12].GetComponent<Illuminate>().isIlluminated && caseNumber == 4)
         {
             enigmaIsSolved = true;
             Debug.Log(enigmaIsSolved);
@@ -84,8 +86,6 @@ public class Boxes_Check : MonoBehaviour {
                 m_MyGameManager.enigmeCompleteNumber++;
                 audioSrc_EnigmaIsComplete.Play();
             }
-            
-
         }
 
         if (enigmaIsSolved)
