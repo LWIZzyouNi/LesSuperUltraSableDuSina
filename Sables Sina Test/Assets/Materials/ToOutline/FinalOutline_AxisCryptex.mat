@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FinalOutline
+  m_Name: FinalOutline_AxisCryptex
   m_Shader: {fileID: 4800000, guid: f5f64096186560d409bf10da7d617738, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -80,6 +80,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6784314, g: 0.21568629, b: 0.21568629, a: 1}
-    - _DistortColor: {r: 1, g: 0.84313726, b: 0, a: 1}
+    - _Color: {r: 0.6784314, g: 0.21568628, b: 0.21568628, a: 0}
+    - _DistortColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

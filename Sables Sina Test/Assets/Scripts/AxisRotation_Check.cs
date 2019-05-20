@@ -26,41 +26,34 @@ public class AxisRotation_Check : MonoBehaviour
 
     public AudioSource audioSrc_EnigmaIsComplete;
 
-    public Use_IntElement[] m_MyScript;
+    public RotateAxis[] m_MyScript;
 
-    public GameManager m_MyGM;
+    public GameManager m_MyGameManager;
+    private CanBeDrag m_DragScript;
+    private Outline m_OutlineScript;
 
-    public bool enigmaIsSolved = false;
+    private bool enigmaIsSolved = false;
+    private bool isNumberAdded = false;
 
     void Start()
     {
         audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
-        m_MyScript = GetComponentsInChildren<Use_IntElement>();
+        m_MyScript = GetComponentsInChildren<RotateAxis>();
+
+        m_DragScript = GetComponent<CanBeDrag>();
+        m_OutlineScript = GetComponent<Outline>();
     }
     
     void Update()
     {
-        //Check_AxisRotation();
+        Check_AxisRotation();
 
-        if (perfectRot01 && perfectRot02 && perfectRot03 && perfectRot04 && perfectRot05)
-        {
-            enigmaIsSolved = true;
-            Debug.Log(enigmaIsSolved);
-            m_MyGM.enigmeCompleteNumber++;
-            print("merde");
-            perfectRot01 = false;
-            perfectRot02 = false;
-            perfectRot03 = false;
-            perfectRot04 = false;
-            perfectRot05 = false;
-        }
-
-
+        EnigmaIsSolved();
     }
 
     public void Check_AxisRotation()
     {
-        if (axis01.transform.rotation.w == -1.0)
+        if (axis01.transform.rotation.x == 0 && !enigmaIsSolved)
         {
             perfectRot01 = true;
             //Debug.Log(transform.rotation.w);
@@ -74,7 +67,7 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot01);
         }
 
-        if (axis02.transform.rotation.w == -1.0)
+        if (axis02.transform.rotation.x == 0 && !enigmaIsSolved)
         {
             perfectRot02 = true;
             Debug.Log(transform.rotation.w);
@@ -87,7 +80,7 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot02);
         }
 
-        if (axis03.transform.rotation.w == -1.0)
+        if (axis03.transform.rotation.x == 0 && !enigmaIsSolved)
         {
             perfectRot03 = true;
             Debug.Log(transform.rotation.w);
@@ -100,7 +93,7 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot03);
         }
 
-        if (axis04.transform.rotation.w == -1.0)
+        if (axis04.transform.rotation.x == 0 && !enigmaIsSolved)
         {
             perfectRot04 = true;
             Debug.Log(transform.rotation.w);
@@ -113,7 +106,7 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot04);
         }
 
-        if (axis05.transform.rotation.w == -1.0)
+        if (axis05.transform.rotation.w == -1.0 && !enigmaIsSolved)
         {
             perfectRot05 = true;
             Debug.Log(transform.rotation.w);
@@ -127,6 +120,42 @@ public class AxisRotation_Check : MonoBehaviour
         }
     }
 
+    private void EnigmaIsSolved()
+    {
+        if (perfectRot01 && perfectRot02 && perfectRot03 && perfectRot04 && perfectRot05)
+        {
+            // L'énigme est résolue
+            enigmaIsSolved = true;
+            Debug.Log(enigmaIsSolved);
+
+            if(!isNumberAdded)
+            {
+                // Une énigme est résolue
+                m_MyGameManager.enigmeCompleteNumber++;
+                audioSrc_EnigmaIsComplete.Play();
+            }
+        }
+
+        if (enigmaIsSolved)
+        {
+            perfectRot01 = false;
+            perfectRot02 = false;
+            perfectRot03 = false;
+            perfectRot04 = false;
+            perfectRot05 = false;
+
+            isNumberAdded = true;
+
+            m_DragScript.Dezoom();
+            m_DragScript.isLocked = false;
+            m_DragScript.isInteractive = false;
+            m_DragScript.canRotate = false;
+
+            m_OutlineScript.GetComponent<Renderer>().material = m_OutlineScript.nonOutlined;
+            m_OutlineScript.isOutlined = false;
+
+        }
+    }
 }
 
 
