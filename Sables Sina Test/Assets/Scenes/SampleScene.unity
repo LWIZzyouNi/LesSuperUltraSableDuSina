@@ -125,17 +125,15 @@ GameObject:
   - component: {fileID: 51422942}
   - component: {fileID: 51422941}
   - component: {fileID: 51422940}
-  - component: {fileID: 51422946}
   - component: {fileID: 51422939}
   - component: {fileID: 51422945}
-  - component: {fileID: 51422947}
   m_Layer: 0
   m_Name: '- BallBoard -'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &51422939
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -146,7 +144,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -166,7 +164,7 @@ MonoBehaviour:
   handType02: 2
   leftHand: {fileID: 747356018}
   rightHand: {fileID: 1793946434}
-  buttonGrabAction:
+  buttonAction:
     actionPath: /actions/default/in/Teleport
     needsReinit: 0
   outlineScript: {fileID: 51422941}
@@ -177,7 +175,6 @@ MonoBehaviour:
   isInteractive: 1
   canRotate: 0
   rotationSpeed: 1
-  onResetButton: 0
 --- !u!114 &51422941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +246,6 @@ Transform:
   - {fileID: 655304958}
   - {fileID: 1196758781}
   - {fileID: 1080442191}
-  - {fileID: 1100626777}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -260,118 +256,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 51422938}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.99999994}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &51422946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 51422938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615731eb93ca6934e940e681e60b8a1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enigmaIsSolved: 0
---- !u!82 &51422947
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 51422938}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 918ee1b51fd32d748a66d520586569ba, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &74720647
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +272,6 @@ GameObject:
   - component: {fileID: 74720652}
   - component: {fileID: 74720651}
   - component: {fileID: 74720650}
-  - component: {fileID: 74720649}
   m_Layer: 0
   m_Name: BallBoard_BoxPart02
   m_TagString: Untagged
@@ -404,21 +292,6 @@ Transform:
   m_Father: {fileID: 1196758781}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!54 &74720649
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 74720647}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &74720650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -802,7 +675,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -919,7 +799,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -1033,6 +920,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -1219,7 +1113,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -1234,7 +1135,6 @@ GameObject:
   - component: {fileID: 241892284}
   - component: {fileID: 241892283}
   - component: {fileID: 241892282}
-  - component: {fileID: 241892281}
   m_Layer: 0
   m_Name: BallBoard_Platform09
   m_TagString: Untagged
@@ -1255,21 +1155,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &241892281
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 241892279}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &241892282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1368,6 +1253,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -1485,6 +1377,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -1801,6 +1700,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67da92791937c340821f970847b3c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
   parentAnim: {fileID: 275188096}
   isRotating: 0
   audioSrc_AxisRota: {fileID: 275188099}
@@ -1856,7 +1762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &310184821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1872,7 +1778,7 @@ MonoBehaviour:
   handType02: 2
   leftHand: {fileID: 747356018}
   rightHand: {fileID: 1793946434}
-  buttonGrabAction:
+  buttonAction:
     actionPath: /actions/default/in/Teleport
     needsReinit: 0
   outlineScript: {fileID: 310184822}
@@ -1883,7 +1789,6 @@ MonoBehaviour:
   isInteractive: 1
   canRotate: 0
   rotationSpeed: 1
-  onResetButton: 0
 --- !u!114 &310184822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,7 +1865,7 @@ Transform:
   m_GameObject: {fileID: 310184820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.38, y: 1.5, z: 9.22}
-  m_LocalScale: {x: 1.2264472, y: 1.2264472, z: 0.06364239}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.06}
   m_Children:
   - {fileID: 2014005617}
   - {fileID: 219269069}
@@ -2320,7 +2225,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -2333,11 +2245,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4766350178383806, guid: 81d0e32efb18b8a4d97e317583d9d9dc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.383
+      value: -1.203
       objectReference: {fileID: 0}
     - target: {fileID: 4766350178383806, guid: 81d0e32efb18b8a4d97e317583d9d9dc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.764
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4766350178383806, guid: 81d0e32efb18b8a4d97e317583d9d9dc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2370,7 +2282,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1981191534337172, guid: 81d0e32efb18b8a4d97e317583d9d9dc, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81d0e32efb18b8a4d97e317583d9d9dc, type: 2}
@@ -2560,7 +2472,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -2606,7 +2525,6 @@ GameObject:
   - component: {fileID: 463161596}
   - component: {fileID: 463161595}
   - component: {fileID: 463161594}
-  - component: {fileID: 463161593}
   m_Layer: 0
   m_Name: BallBoard_Platform06
   m_TagString: Untagged
@@ -2627,21 +2545,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &463161593
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 463161591}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &463161594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2740,6 +2643,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -2926,7 +2836,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -3075,6 +2992,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -3162,7 +3086,7 @@ GameObject:
   - component: {fileID: 557967779}
   m_Layer: 0
   m_Name: BallBoard_Ball
-  m_TagString: Board_Ball
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3180,7 +3104,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!135 &557967780
 SphereCollider:
@@ -3243,7 +3167,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 557967778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.414, y: 0.428, z: -1.1153347}
+  m_LocalPosition: {x: -0.416, y: 0.39250004, z: -1.1153347}
   m_LocalScale: {x: 0.025, y: 0.025, z: 0.3333333}
   m_Children: []
   m_Father: {fileID: 51422944}
@@ -3291,7 +3215,6 @@ GameObject:
   - component: {fileID: 590119080}
   - component: {fileID: 590119079}
   - component: {fileID: 590119078}
-  - component: {fileID: 590119077}
   m_Layer: 0
   m_Name: BallBoard_Platform07
   m_TagString: Untagged
@@ -3312,21 +3235,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &590119077
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 590119075}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &590119078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3624,6 +3532,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67da92791937c340821f970847b3c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
   parentAnim: {fileID: 607409702}
   isRotating: 0
   audioSrc_AxisRota: {fileID: 607409705}
@@ -3671,6 +3586,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -3894,165 +3816,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
---- !u!43 &693272210
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 9
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_VertexData:
-    serializedVersion: 2
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimized: 0
 --- !u!1 &707734763
 GameObject:
   m_ObjectHideFlags: 0
@@ -4097,6 +3871,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -4187,7 +3968,6 @@ GameObject:
   - component: {fileID: 756659308}
   - component: {fileID: 756659307}
   - component: {fileID: 756659306}
-  - component: {fileID: 756659305}
   m_Layer: 0
   m_Name: BallBoard_BoxPart04
   m_TagString: Untagged
@@ -4208,21 +3988,6 @@ Transform:
   m_Father: {fileID: 1196758781}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!54 &756659305
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 756659303}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &756659306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4390,7 +4155,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -4507,204 +4279,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
---- !u!1 &904151250
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 904151251}
-  - component: {fileID: 904151254}
-  - component: {fileID: 904151253}
-  - component: {fileID: 904151252}
-  - component: {fileID: 904151255}
-  - component: {fileID: 904151256}
-  m_Layer: 0
-  m_Name: Goal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &904151251
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 904151250}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.345, y: -0.3642, z: -1.25}
-  m_LocalScale: {x: 0.16013627, y: 0.036389247, z: 0.6643933}
-  m_Children: []
-  m_Father: {fileID: 1196758781}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &904151252
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 904151250}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &904151253
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 904151250}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &904151254
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 904151250}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &904151255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 904151250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9cfafa27bce5e84fba16fbecb81a298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballBoard: {fileID: 51422938}
---- !u!82 &904151256
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 904151250}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 918ee1b51fd32d748a66d520586569ba, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &904401150
 GameObject:
   m_ObjectHideFlags: 0
@@ -4818,7 +4403,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -4866,6 +4458,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -4983,6 +4582,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -5067,7 +4673,6 @@ GameObject:
   - component: {fileID: 982537207}
   - component: {fileID: 982537206}
   - component: {fileID: 982537205}
-  - component: {fileID: 982537204}
   m_Layer: 0
   m_Name: BallBoard_Platform10
   m_TagString: Untagged
@@ -5088,21 +4693,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &982537204
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 982537202}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &982537205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5270,7 +4860,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -5285,7 +4882,6 @@ GameObject:
   - component: {fileID: 1004827352}
   - component: {fileID: 1004827351}
   - component: {fileID: 1004827350}
-  - component: {fileID: 1004827349}
   m_Layer: 0
   m_Name: BallBoard_Platform01
   m_TagString: Untagged
@@ -5306,21 +4902,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1004827349
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1004827347}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1004827350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5386,7 +4967,6 @@ GameObject:
   - component: {fileID: 1024976647}
   - component: {fileID: 1024976646}
   - component: {fileID: 1024976645}
-  - component: {fileID: 1024976644}
   m_Layer: 0
   m_Name: BallBoard_Platform03
   m_TagString: Untagged
@@ -5407,21 +4987,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1024976644
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1024976642}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1024976645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5492,7 +5057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1026086206
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5807,6 +5372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67da92791937c340821f970847b3c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
   parentAnim: {fileID: 1027647744}
   isRotating: 0
   audioSrc_AxisRota: {fileID: 1027647747}
@@ -5854,6 +5426,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -6098,6 +5677,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67da92791937c340821f970847b3c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
   parentAnim: {fileID: 1064125824}
   isRotating: 0
   audioSrc_AxisRota: {fileID: 1064125818}
@@ -6267,7 +5853,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -6458,236 +6044,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
---- !u!1 &1100626776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1100626777}
-  - component: {fileID: 1100626781}
-  - component: {fileID: 1100626780}
-  - component: {fileID: 1100626779}
-  - component: {fileID: 1100626778}
-  - component: {fileID: 1100626782}
-  - component: {fileID: 1100626783}
-  - component: {fileID: 1100626784}
-  m_Layer: 0
-  m_Name: ResetButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1100626777
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0.39, z: -1.3}
-  m_LocalScale: {x: 0.072639994, y: 0.072639994, z: 0.9685333}
-  m_Children: []
-  m_Father: {fileID: 51422944}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1100626778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eade6bcad13a4cd4fa20ed4dae362a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 557967778}
-  audioSRC: {fileID: 1100626784}
---- !u!65 &1100626779
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1100626780
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1100626781
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1100626782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76857f54b1cbcfa4aa975b722d57b38d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonOutlined: {fileID: 2100000, guid: b9c969e542460234d987350e2b8f8a06, type: 2}
-  outlined: {fileID: 2100000, guid: 161c47f18b251ae4e9e7eb2545e2298b, type: 2}
-  isOutlined: 0
---- !u!54 &1100626783
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!82 &1100626784
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100626776}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ca0f976ff76b04644a1332f3be4f344b, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1123397488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,7 +6066,6 @@ GameObject:
   - component: {fileID: 1123397493}
   - component: {fileID: 1123397492}
   - component: {fileID: 1123397491}
-  - component: {fileID: 1123397490}
   m_Layer: 0
   m_Name: BallBoard_Platform04
   m_TagString: Untagged
@@ -6720,21 +6086,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1123397490
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1123397488}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1123397491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6963,6 +6314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67da92791937c340821f970847b3c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
   parentAnim: {fileID: 1150045394}
   isRotating: 0
   audioSrc_AxisRota: {fileID: 1150045395}
@@ -7148,7 +6506,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -7315,7 +6680,7 @@ MonoBehaviour:
   handType02: 2
   leftHand: {fileID: 747356018}
   rightHand: {fileID: 1793946434}
-  buttonGrabAction:
+  buttonAction:
     actionPath: /actions/default/in/Teleport
     needsReinit: 0
   outlineScript: {fileID: 1191128370}
@@ -7326,7 +6691,6 @@ MonoBehaviour:
   isInteractive: 1
   canRotate: 0
   rotationSpeed: 1
-  onResetButton: 0
 --- !u!82 &1191128376
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7431,9 +6795,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196758781}
+  - component: {fileID: 1196758782}
   m_Layer: 0
   m_Name: '- BallBoard_Box -'
-  m_TagString: Untagged
+  m_TagString: Board_Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7452,10 +6817,21 @@ Transform:
   - {fileID: 74720648}
   - {fileID: 756659304}
   - {fileID: 1933060822}
-  - {fileID: 904151251}
   m_Father: {fileID: 51422944}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1196758782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1196758780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16758418, y: 0.05201602, z: 0.80974895}
+  m_Center: {x: -0.34476566, y: -0.36262053, z: -1.2376642}
 --- !u!1 &1210777038
 GameObject:
   m_ObjectHideFlags: 0
@@ -7598,12 +6974,56 @@ Prefab:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1843580992}
+      objectReference: {fileID: 1445909324}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 693272210}
-    m_RemovedComponents: []
+      objectReference: {fileID: 1680025170}
+    - target: {fileID: 114000010110554832, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 2}
+      propertyPath: poseAction.actionPath
+      value: /actions/default/in/Pose
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010110554832, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 2}
+      propertyPath: poseAction.needsReinit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010876603736, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 2}
+      propertyPath: poseAction.actionPath
+      value: /actions/default/in/Pose
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010876603736, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 2}
+      propertyPath: poseAction.needsReinit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114192009312351362, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 2}
+      propertyPath: buttonAction.actionPath
+      value: /actions/default/in/GrabGrip
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807699728808914, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 2}
+      propertyPath: buttonAction.actionPath
+      value: /actions/default/in/GrabGrip
+      objectReference: {fileID: 0}
+    - target: {fileID: 458974, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 402434, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114659540253193696, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+    - {fileID: 114563466439737580, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1317882671 stripped
@@ -7611,6 +7031,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2,
     type: 2}
   m_PrefabInternal: {fileID: 1317882670}
+--- !u!21 &1445909324
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1547041946
 GameObject:
   m_ObjectHideFlags: 0
@@ -7655,6 +7108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -7772,6 +7232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -8005,7 +7472,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -8094,6 +7568,161 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!43 &1680025170
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 9
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_VertexData:
+    serializedVersion: 2
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimized: 0
 --- !u!1 &1705032047
 GameObject:
   m_ObjectHideFlags: 0
@@ -8138,6 +7767,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -8228,7 +7864,6 @@ GameObject:
   - component: {fileID: 1832015350}
   - component: {fileID: 1832015349}
   - component: {fileID: 1832015348}
-  - component: {fileID: 1832015347}
   m_Layer: 0
   m_Name: BallBoard_Platform08
   m_TagString: Untagged
@@ -8249,21 +7884,6 @@ Transform:
   m_Father: {fileID: 655304958}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1832015347
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1832015345}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1832015348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8431,43 +8051,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
---- !u!21 &1843580992
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1875678012
 GameObject:
   m_ObjectHideFlags: 0
@@ -8512,6 +8106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -8585,6 +8186,91 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1875678012}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1904190023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904190027}
+  - component: {fileID: 1904190026}
+  - component: {fileID: 1904190025}
+  - component: {fileID: 1904190024}
+  m_Layer: 0
+  m_Name: Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1904190024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904190023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1904190025
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904190023}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1904190026
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904190023}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1904190027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904190023}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 10.42}
+  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1933060821
 GameObject:
   m_ObjectHideFlags: 0
@@ -8596,7 +8282,6 @@ GameObject:
   - component: {fileID: 1933060826}
   - component: {fileID: 1933060825}
   - component: {fileID: 1933060824}
-  - component: {fileID: 1933060823}
   m_Layer: 0
   m_Name: BallBoard_BoxPart03
   m_TagString: Untagged
@@ -8617,21 +8302,6 @@ Transform:
   m_Father: {fileID: 1196758781}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!54 &1933060823
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1933060821}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1933060824
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8697,7 +8367,6 @@ GameObject:
   - component: {fileID: 1963586575}
   - component: {fileID: 1963586574}
   - component: {fileID: 1963586573}
-  - component: {fileID: 1963586572}
   m_Layer: 0
   m_Name: BallBoard_BoxPart01
   m_TagString: Untagged
@@ -8718,21 +8387,6 @@ Transform:
   m_Father: {fileID: 1196758781}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1963586572
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1963586570}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1963586573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8900,7 +8554,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Boxes_Check_Script: {fileID: 0}
+  handType01: 1
+  handType02: 2
+  leftHand: {fileID: 747356018}
+  rightHand: {fileID: 1793946434}
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_Boxes_Check_Script: {fileID: 310184828}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
   isIlluminated: 0
@@ -8915,7 +8576,6 @@ GameObject:
   - component: {fileID: 2054771104}
   - component: {fileID: 2054771103}
   - component: {fileID: 2054771102}
-  - component: {fileID: 2054771101}
   m_Layer: 0
   m_Name: BallBoard_Platform02
   m_TagString: Untagged
@@ -8931,26 +8591,11 @@ Transform:
   m_GameObject: {fileID: 2054771099}
   m_LocalRotation: {x: -0, y: -0, z: -0.28594375, w: 0.95824647}
   m_LocalPosition: {x: -0.4282, y: 0.3779, z: -1.1153347}
-  m_LocalScale: {x: 0.05261872, y: 0.0037638373, z: -0.31814042}
+  m_LocalScale: {x: 0.05261872, y: 0.0037638373, z: 0.33}
   m_Children: []
   m_Father: {fileID: 655304958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -33.231003}
---- !u!54 &2054771101
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2054771099}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &2054771102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9149,6 +8794,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}
@@ -9367,6 +9019,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459675f1267f26046b130f03af51930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handType01: 0
+  handType02: 0
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  buttonAction:
+    actionPath: 
+    needsReinit: 0
   m_Boxes_Check_Script: {fileID: 0}
   notIlluminated: {fileID: 2100000, guid: 4f3b14c9014b1e74bbb7a32f02093a7d, type: 2}
   illuminated: {fileID: 2100000, guid: e1b1171cf16b8cb45b1e858f48080d56, type: 2}

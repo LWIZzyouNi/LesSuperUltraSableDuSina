@@ -6,6 +6,7 @@ using Valve.VR;
 
 public class LaserPointer : MonoBehaviour {
 
+    [Header("Controller Components")]
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean buttonAction;
@@ -40,11 +41,13 @@ public class LaserPointer : MonoBehaviour {
             {
                 hitPoint = hit.point;
                 ShowLaser(hit);
+                Debug.Log("isActive");
             }
         }
         else // 3
         {
             laser.SetActive(false);
+            Debug.Log("isNotActive");
         }
 
 
@@ -63,16 +66,4 @@ public class LaserPointer : MonoBehaviour {
                                                 laserTransform.localScale.y,
                                                 hit.distance);
     }
-
-    /* Temporary, just to test with mouse
-    void OnMouseOver()
-    {
-        GetComponent<Renderer>().material = interectable.bordered;
-    }
-
-    void OnMouseExit()
-    {
-        GetComponent<Renderer>().material = interectable.nonBordered;
-    }
-    */
 }
