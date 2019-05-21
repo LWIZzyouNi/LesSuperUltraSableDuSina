@@ -20,7 +20,7 @@ public class LaserPointer : MonoBehaviour {
     void Start () {
 
         // 1
-        laser = Instantiate(laserPrefab);
+        //laser = Instantiate(laserPrefab);
         // 2
         laserTransform = laser.transform;
 
@@ -63,16 +63,4 @@ public class LaserPointer : MonoBehaviour {
                                                 laserTransform.localScale.y,
                                                 hit.distance);
     }
-
-    /* Temporary, just to test with mouse
-    void OnMouseOver()
-    {
-        GetComponent<Renderer>().material = interectable.bordered;
-    }
-
-    void OnMouseExit()
-    {
-        GetComponent<Renderer>().material = interectable.nonBordered;
-    }
-    */
 }

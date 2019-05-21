@@ -30,7 +30,7 @@ public class Illuminate : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "LaserPointer" && !isIlluminated && m_DragScript.isLocked)
+        if(other.gameObject.CompareTag("LaserPointer") && !isIlluminated && m_DragScript.isLocked)
         {
             GetComponent<Renderer>().material = illuminated;
             isIlluminated = true;
@@ -38,7 +38,7 @@ public class Illuminate : MonoBehaviour {
             Debug.Log(isIlluminated);
         }
 
-        else if (other.gameObject.tag == "LaserPointer" && isIlluminated && m_DragScript.isLocked)
+        else if (other.gameObject.CompareTag("LaserPointer") && isIlluminated && m_DragScript.isLocked)
         {
             GetComponent<Renderer>().material = notIlluminated;
             isIlluminated = false;

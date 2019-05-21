@@ -9,21 +9,10 @@ public class Outline : MonoBehaviour {
 
     public bool isOutlined = false;
 
-    // Use this for initialization
-    void Start ()
-    {
-
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "LaserPointer")
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.CompareTag("LaserPointer"))
         {
             GetComponent<Renderer>().material = outlined;
             isOutlined = true;
