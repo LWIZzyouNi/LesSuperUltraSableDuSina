@@ -6,6 +6,7 @@ using Valve.VR;
 
 public class LaserPointer : MonoBehaviour {
 
+    [Header("Controller Components")]
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean buttonAction;
@@ -20,7 +21,7 @@ public class LaserPointer : MonoBehaviour {
     void Start () {
 
         // 1
-        //laser = Instantiate(laserPrefab);
+        laser = Instantiate(laserPrefab);
         // 2
         laserTransform = laser.transform;
 
@@ -40,11 +41,13 @@ public class LaserPointer : MonoBehaviour {
             {
                 hitPoint = hit.point;
                 ShowLaser(hit);
+                Debug.Log("isActive");
             }
         }
         else // 3
         {
             laser.SetActive(false);
+            Debug.Log("isNotActive");
         }
 
 

@@ -1,8 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+
 
 public class Illuminate : MonoBehaviour {
+
+    [Header("Controller Components")]
+    public SteamVR_Input_Sources handType01;
+    public SteamVR_Input_Sources handType02;
+    public SteamVR_Behaviour_Pose leftHand;
+    public SteamVR_Behaviour_Pose rightHand;
+    public SteamVR_Action_Boolean buttonAction;
 
     private Outline_IntElement m_Outline_IntElem_Script;
     private CanBeDrag m_DragScript;
@@ -30,20 +39,28 @@ public class Illuminate : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("LaserPointer") && !isIlluminated && m_DragScript.isLocked)
+        if (other.gameObject.CompareTag("LaserPointer"))
         {
-            GetComponent<Renderer>().material = illuminated;
-            isIlluminated = true;
-            m_Boxes_Check_Script.caseNumber++;
-            Debug.Log(isIlluminated);
-        }
+            Debug.Log("in Trigger");
+            if (buttonAction.GetState(handType01) && !isIlluminated && m_DragScript.isLocked ||
+                    buttonAction.GetState(handType02) && !isIlluminated && m_DragScript.isLocked)
+            {
+                Debug.Log("Press Button");
+                GetComponent<Renderer>().material = illuminated;
+                isIlluminated = true;
+                m_Boxes_Check_Script.caseNumber++;
+                Debug.Log(isIlluminated);
+            }
 
-        else if (other.gameObject.CompareTag("LaserPointer") && isIlluminated && m_DragScript.isLocked)
-        {
-            GetComponent<Renderer>().material = notIlluminated;
-            isIlluminated = false;
-            m_Boxes_Check_Script.caseNumber--;
-            Debug.Log(isIlluminated);
+            else if (buttonAction.GetState(handType01) && isIlluminated && m_DragScript.isLocked ||
+                    buttonAction.GetState(handType02) && isIlluminated && m_DragScript.isLocked)
+            {
+                GetComponent<Renderer>().material = notIlluminated;
+                isIlluminated = false;
+                m_Boxes_Check_Script.caseNumber--;
+                Debug.Log(isIlluminated);
+
+            }
         }
     }
 
