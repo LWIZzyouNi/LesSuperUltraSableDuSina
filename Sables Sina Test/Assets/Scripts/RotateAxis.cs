@@ -1,8 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class RotateAxis : MonoBehaviour {
+
+    [Header("Controller Components")]
+    public SteamVR_Input_Sources handType01;
+    public SteamVR_Input_Sources handType02;
+    public SteamVR_Behaviour_Pose leftHand;
+    public SteamVR_Behaviour_Pose rightHand;
+    public SteamVR_Action_Boolean buttonAction;
 
     private Outline_IntElement m_MyScript;
     private CanBeDrag m_MyScript3;
@@ -43,7 +51,8 @@ public class RotateAxis : MonoBehaviour {
         if (m_MyScript.elementIsOutlined)
         {
             // Lorsque l'objet est lock, donc zoomé, les éléments interactifs sur l'objet sont activables / utilisables lorsqu'on clique droit.
-            if (Input.GetKeyDown(KeyCode.Mouse1) && m_MyScript.elementIsOutlined && m_MyScript3.isLocked)
+            if (buttonAction.GetState(handType01) && /*Input.GetKeyDown(KeyCode.Mouse1) &&*/ m_MyScript.elementIsOutlined && m_MyScript3.isLocked ||
+                        buttonAction.GetState(handType02) && m_MyScript.elementIsOutlined && m_MyScript3.isLocked)
             {
                 canPlay = false;
                 isRotating = true;
