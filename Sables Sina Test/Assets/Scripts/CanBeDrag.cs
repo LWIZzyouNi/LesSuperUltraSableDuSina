@@ -5,9 +5,12 @@ using Valve.VR;
 
 public class CanBeDrag : MonoBehaviour
 {
-    public SteamVR_Action_Boolean m_GrabAction = null;
-
-    private SteamVR_Behaviour_Pose m_Pose = null;
+    [Header("Controller Components")]
+    public SteamVR_Input_Sources handType01;
+    public SteamVR_Input_Sources handType02;
+    public SteamVR_Behaviour_Pose leftHand;
+    public SteamVR_Behaviour_Pose rightHand;
+    public SteamVR_Action_Boolean buttonGrabAction;
 
     public Outline outlineScript;
 
@@ -35,21 +38,9 @@ public class CanBeDrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // VR Inputs
+        // Inputs
 
-        /* if (m_GrabAction.GetStateDown(m_Pose.inputSource))
-         {
-             if (isLocked == false)
-             {
-                 isLocked = true;
-                 isZoomed = true;
-             }
-         }
-         */
-
-        // Mouse (+Keyboard) Inputs
-
-        OnMouseClick();
+        OnButtonClick();
        
         if (isZoomed)
         {
@@ -103,9 +94,11 @@ public class CanBeDrag : MonoBehaviour
     }
 
 
-    private void OnMouseClick()
+    private void OnButtonClick()
     {
-        if((Input.GetKeyDown(KeyCode.Mouse0)) && outlineScript.isOutlined && !isLocked && isInteractive)
+        if (/*buttonAction.GetState(rightHand) && outlineScript.isOutlined && !isLocked && isInteractive ||
+                    buttonAction.GetState(leftHand) && outlineScript.isOutlined && !isLocked && isInteractive ||*/
+                    Input.GetKeyDown(KeyCode.Mouse0) && outlineScript.isOutlined && !isLocked && isInteractive)
         {
             if (!isZoomed)
             {
@@ -114,7 +107,9 @@ public class CanBeDrag : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyDown(KeyCode.Mouse0)) && isLocked)
+        if (/*buttonAction.GetState(rightHand) && isLocked ||
+                    buttonAction.GetState(leftHand) && isLocked ||*/
+                    Input.GetKeyDown(KeyCode.Mouse0) && isLocked)
         {
             //Debug.Log("Click to dezoom");
             isDeZoomed = true;
