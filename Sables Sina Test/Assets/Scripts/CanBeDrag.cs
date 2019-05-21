@@ -23,8 +23,13 @@ public class CanBeDrag : MonoBehaviour
     public bool isLocked = false;
     public bool isInteractive = true;
 
+    private bool resetTab = false;
+    //private bool afterReset = false;
+
     public bool canRotate = false;
     public int rotationSpeed = 1;
+
+    public bool onResetButton = false;
 
     // Use this for initialization
     void Start()
@@ -49,7 +54,10 @@ public class CanBeDrag : MonoBehaviour
                 //Debug.Log("Je suis à ma position parfaite");
                 isLocked = true;
                 isZoomed = false;
-                if(gameObject.tag == "Rotating")
+                resetTab = false;
+                //afterReset = true;
+
+                if (gameObject.tag == "Rotating")
                 {
                     canRotate = true;
                 }
@@ -66,7 +74,8 @@ public class CanBeDrag : MonoBehaviour
             }
         }
 
-        if(isDeZoomed)
+        //if(isDeZoomed && afterReset)
+        if (isDeZoomed)
         {
             canRotate = false;
 
@@ -75,6 +84,7 @@ public class CanBeDrag : MonoBehaviour
                 //Debug.Log("Je suis à ma position de départ");
                 isLocked = false;
                 isDeZoomed = false;
+
             }
 
             Dezoom();
@@ -89,6 +99,12 @@ public class CanBeDrag : MonoBehaviour
 
     public void Dezoom()
     {
+        if (gameObject.name == "- BallBoard -" && resetTab == false)
+        {
+            resetTab = true;
+
+            GetComponentInChildren<ResetButton>().ResetTab();
+        }
         //Debug.Log("Je recule!");
         transform.position = Vector3.MoveTowards(transform.position, initialPos, Time.deltaTime * moveSpeed);
     }
@@ -109,7 +125,7 @@ public class CanBeDrag : MonoBehaviour
 
         if (/*buttonAction.GetState(rightHand) && isLocked ||
                     buttonAction.GetState(leftHand) && isLocked ||*/
-                    Input.GetKeyDown(KeyCode.Mouse0) && isLocked)
+                    Input.GetKeyDown(KeyCode.Mouse0) && isLocked && !onResetButton)
         {
             //Debug.Log("Click to dezoom");
             isDeZoomed = true;

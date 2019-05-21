@@ -43,12 +43,11 @@ public class RotatePlatform : MonoBehaviour {
 
         if (transform.rotation.z == 0)
         {
-            print("rentre dans le else if 0");
             if (canBoucle)
             {
                 transform.Rotate(new Vector3(0, 0, -40f));
                 canBoucle = false;
-                print("To -40");
+
                 return;
             }
 
@@ -56,7 +55,7 @@ public class RotatePlatform : MonoBehaviour {
             {
                 transform.Rotate(new Vector3(0, 0, 40f));
                 canBoucle = true;
-                print("To 40");
+
                 return;
             }
         }
@@ -66,7 +65,6 @@ public class RotatePlatform : MonoBehaviour {
             // 40
             if (canBoucle)
             {
-                print("From 40 To 0");
                 //canBoucle = true;
                 transform.Rotate(new Vector3(0, 0, -40f));
                 startRot.Set(0, 0, 0, 0);
@@ -77,7 +75,6 @@ public class RotatePlatform : MonoBehaviour {
             // -40
             if (!canBoucle)
             {
-                print("From -40 To 0");
                 //canBoucle = false;
                 transform.Rotate(new Vector3(0, 0, 40f));
                 startRot.Set(0, 0, 0, 0);
