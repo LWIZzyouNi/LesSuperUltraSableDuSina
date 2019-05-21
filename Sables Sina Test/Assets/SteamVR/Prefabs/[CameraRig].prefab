@@ -461,7 +461,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/Pose
     needsReinit: 0
   inputSource: 1
-  origin: {fileID: 0}
+  origin: {fileID: 458974}
   onTransformUpdated:
     m_PersistentCalls:
       m_Calls: []
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handType: 2
-  controllerPose: {fileID: 0}
+  controllerPose: {fileID: 114000010110554832}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handType: 1
-  controllerPose: {fileID: 0}
+  controllerPose: {fileID: 114000010876603736}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0

@@ -8,6 +8,7 @@ TagManager:
   - LaserPointer
   - Rotating
   - Board_Box
+  - Board_Ball
   layers:
   - Default
   - TransparentFX
