@@ -56,13 +56,11 @@ public class ResetButton : MonoBehaviour {
     {
         if (transform.parent.gameObject.GetComponent<CanBeDrag>().isLocked == true && transform.parent.gameObject.GetComponent<CanBeDrag>().isDeZoomed == false)
         {
-            Debug.Log("UNFREEEEEEEEZE");
             ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
             if (!doOnce)
             {
                 ballTransformSave = ball.transform.position;
-                Debug.Log("UNFREEEEEEEEZE");
                 ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
                 doOnce = true;
