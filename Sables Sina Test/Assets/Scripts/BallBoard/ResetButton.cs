@@ -30,6 +30,8 @@ public class ResetButton : MonoBehaviour {
     {
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
+        transform.parent.gameObject.GetComponent<BallBoard>().ResetPlatform();
+
         ball.transform.position = ballTransformSave;
 
         audioSRC.Play();
@@ -57,11 +59,12 @@ public class ResetButton : MonoBehaviour {
         if (transform.parent.gameObject.GetComponent<CanBeDrag>().isLocked == true && transform.parent.gameObject.GetComponent<CanBeDrag>().isDeZoomed == false)
         {
             ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
 
             if (!doOnce)
             {
                 ballTransformSave = ball.transform.position;
-                ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                //ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
                 doOnce = true;
             }
