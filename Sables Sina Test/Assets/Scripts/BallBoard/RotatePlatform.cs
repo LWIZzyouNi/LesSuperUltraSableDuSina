@@ -10,6 +10,7 @@ public class RotatePlatform : MonoBehaviour {
     public SteamVR_Behaviour_Pose leftHand;
     public SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonGrabAction;
+    public GameObject BallBoard;
 
     private Outline_IntElement m_Outline_IntElem_Script;
 
@@ -20,6 +21,8 @@ public class RotatePlatform : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        BallBoard.GetComponent<BallBoard>().AddInList(this.gameObject);
+
         m_Outline_IntElem_Script = GetComponent<Outline_IntElement>();
         startRot = transform.rotation;
     }
@@ -31,7 +34,6 @@ public class RotatePlatform : MonoBehaviour {
         {
             PlatformRotate();
             //Debug.Log(transform.eulerAngles.z);
-            print(transform.rotation.z);
         }   
     }
 

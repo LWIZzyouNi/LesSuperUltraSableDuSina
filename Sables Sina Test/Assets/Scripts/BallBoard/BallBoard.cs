@@ -8,6 +8,9 @@ public class BallBoard : MonoBehaviour
     private CanBeDrag m_DragScript;
     private Outline m_OutlineScript;
 
+    public List<Quaternion> originalTransformPlatform;
+    public List<GameObject> originalGameobjectPlatform;
+
     public bool enigmaIsSolved = false;
     private bool doOnce = false;
 
@@ -46,4 +49,23 @@ public class BallBoard : MonoBehaviour
         }
     }
 
+    public void AddInList(GameObject actualGameObject)
+    {
+        originalGameobjectPlatform.Add(actualGameObject);
+        originalTransformPlatform.Add(actualGameObject.transform.rotation);
+    }
+
+    public void ResetPlatform()
+    {
+        Debug.Log("Oui");
+
+        for (int i = 0; i < originalGameobjectPlatform.Count; i++)
+        {
+            Debug.Log(i);
+            Debug.Log("le premier: " + originalGameobjectPlatform[i].transform.rotation);
+            Debug.Log("le deuxieme: " + originalTransformPlatform[i]);
+            originalGameobjectPlatform[i].transform.rotation = originalTransformPlatform[i];
+            Debug.Log("le nouveau premier: " + originalGameobjectPlatform[i].transform.rotation);
+        }
+    }
 }
