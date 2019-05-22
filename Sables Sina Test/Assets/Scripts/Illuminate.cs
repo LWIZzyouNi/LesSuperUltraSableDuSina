@@ -21,6 +21,7 @@ public class Illuminate : MonoBehaviour {
     public Material illuminated;
 
     public bool isIlluminated = false;
+    public bool isInteracting = false;
 
     // Use this for initialization
     void Start ()
@@ -33,36 +34,52 @@ public class Illuminate : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        //IlluminateBox();
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isInteracting)
+            return;
+
         if (other.gameObject.CompareTag("LaserPointer"))
         {
             Debug.Log("in Trigger");
-            if (buttonAction.GetState(handType01) && !isIlluminated && m_DragScript.isLocked ||
-                    buttonAction.GetState(handType02) && !isIlluminated && m_DragScript.isLocked)
+            if (buttonAction.GetState(handType01) && !isIlluminated && m_DragScript.isLocked || buttonAction.GetState(handType02) && !isIlluminated && m_DragScript.isLocked)
             {
                 Debug.Log("Press Button");
                 GetComponent<Renderer>().material = illuminated;
                 isIlluminated = true;
                 m_Boxes_Check_Script.caseNumber++;
                 Debug.Log(isIlluminated);
+                StartCoroutine(WaitUntilClick());
+                return;
+
             }
 
-            else if (buttonAction.GetState(handType01) && isIlluminated && m_DragScript.isLocked ||
-                    buttonAction.GetState(handType02) && isIlluminated && m_DragScript.isLocked)
+            else if (buttonAction.GetState(handType01) && isIlluminated && m_DragScript.isLocked || buttonAction.GetState(handType02) && isIlluminated && m_DragScript.isLocked)
             {
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;
                 m_Boxes_Check_Script.caseNumber--;
                 Debug.Log(isIlluminated);
-
+                StartCoroutine(WaitUntilClick());
+                return;
             }
         }
     }
+
+    IEnumerator WaitUntilClick()
+    {
+        isInteracting = true;
+
+        yield return new WaitForSeconds(.5f);
+
+        isInteracting = false;
+    }
+}
+
+
 
     /*
     private void OnTriggerExit(Collider other)
@@ -75,4 +92,3 @@ public class Illuminate : MonoBehaviour {
         }
     }
     */
-}
