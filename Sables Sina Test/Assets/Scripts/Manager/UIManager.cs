@@ -17,8 +17,11 @@ public class UIManager : MonoBehaviour {
 
     public void ToStartGame()
     {
+        if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
+        {
             UI_Manager.SetActive(!UI_Manager.gameObject.activeSelf);
             Debug.Log("Click");
+        }
     }
 
     public void ToQuitGame()
