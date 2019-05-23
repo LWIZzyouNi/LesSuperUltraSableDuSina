@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class ResetButton : MonoBehaviour {
 
@@ -13,6 +14,12 @@ public class ResetButton : MonoBehaviour {
     private bool doOnce = false;
 
     public AudioSource audioSRC;
+
+    public SteamVR_Input_Sources handType01;
+    public SteamVR_Input_Sources handType02;
+    public SteamVR_Behaviour_Pose leftHand;
+    public SteamVR_Behaviour_Pose rightHand;
+    public SteamVR_Action_Boolean buttonAction;
 
     // Use this for initialization
     void Start () {
@@ -43,7 +50,7 @@ public class ResetButton : MonoBehaviour {
         {
             transform.parent.gameObject.GetComponent<CanBeDrag>().onResetButton = true;
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
             {
                 ResetTab();
             }
