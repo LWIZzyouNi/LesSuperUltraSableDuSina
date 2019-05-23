@@ -13,8 +13,6 @@ public class Hand : MonoBehaviour {
     private Interacting m_CurrentInterectable = null;
     public List<Interacting> m_ContactInterectables = new List<Interacting>();
 
-    public bool isInHand = false;
-
     private void Awake()
     {
         m_Pose = GetComponent<SteamVR_Behaviour_Pose>();
@@ -29,7 +27,6 @@ public class Hand : MonoBehaviour {
         {
             print(m_Pose.inputSource + " Trigger Down");
             Pickup();
-            isInHand = true;
         }
 
         //Up
@@ -37,14 +34,13 @@ public class Hand : MonoBehaviour {
         {
             print(m_Pose.inputSource + " Trigger Up");
             Drop();
-            isInHand = false;
         }
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Interectable"))
+        if (!other.gameObject.CompareTag("Interactable"))
             return;
 
         m_ContactInterectables.Add(other.gameObject.GetComponent<Interacting>());
@@ -52,7 +48,7 @@ public class Hand : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.gameObject.CompareTag("Interectable"))
+        if (!other.gameObject.CompareTag("Interactable"))
             return;
 
         m_ContactInterectables.Remove(other.gameObject.GetComponent<Interacting>());
