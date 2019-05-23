@@ -53,7 +53,7 @@ public class AxisRotation_Check : MonoBehaviour
 
     public void Check_AxisRotation()
     {
-        //270
+        //-270
         if (axis01.transform.rotation.x == -0.7071068f && axis01.transform.rotation.w == -0.7071068f && !enigmaIsSolved)
         {
             perfectRot01 = true;
