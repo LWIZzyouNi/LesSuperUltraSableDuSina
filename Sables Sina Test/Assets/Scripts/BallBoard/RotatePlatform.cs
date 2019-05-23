@@ -30,7 +30,7 @@ public class RotatePlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (/*buttonAction.GetState(rightHand) && m_Outline_IntElem_Script.elementIsOutlined || buttonAction.GetState(leftHand) && m_Outline_IntElem_Script.elementIsOutlined*/ Input.GetKeyDown(KeyCode.Mouse1))
+        if (/*buttonAction.GetState(rightHand) && m_Outline_IntElem_Script.elementIsOutlined || buttonAction.GetState(leftHand) &&*/ m_Outline_IntElem_Script.elementIsOutlined && Input.GetKeyDown(KeyCode.Mouse1))
         {
             PlatformRotate();
             //Debug.Log(transform.eulerAngles.z);
