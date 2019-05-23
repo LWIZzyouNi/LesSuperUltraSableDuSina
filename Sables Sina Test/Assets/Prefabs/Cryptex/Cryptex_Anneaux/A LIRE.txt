@@ -1,1 +1,0 @@
-Anneaux de taille différentes donc bien mettre texture 1 sur anneau 1.
