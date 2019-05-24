@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Validation()
     {
+        Debug.Log("Valide le passage");
         for (int i = 0; i < enigmeCompleteNumber; i++)
         {
             loupiotes[i].GetComponent<Display_EnigmaIsSolved>().activated = true;
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
             if(enigmeCompleteNumber == enigmeNumber && canPassRoom == true)
             {
                 int tmpDoorDetector = roomNumber - 1;
-                door[tmpDoorDetector].GetComponent<OpenDoor>().activated = true;
+                bool doorOpen = door[tmpDoorDetector].GetComponent<OpenDoor>().activated = true;
                 roomNumber++;
                 canPassRoom = false;
             }

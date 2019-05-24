@@ -15,12 +15,14 @@ public class OpenDoor : MonoBehaviour {
     private bool doOnce = false;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         animDoor = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		if(activated && doOnce == false)
         {
             doOnce = true;
