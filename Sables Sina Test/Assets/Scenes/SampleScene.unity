@@ -4932,7 +4932,7 @@ Transform:
   m_LocalScale: {x: 0.39149114, y: 0.39149114, z: 0.39149114}
   m_Children: []
   m_Father: {fileID: 1075396542}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!212 &168497258
 SpriteRenderer:
@@ -4969,7 +4969,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd9c856e508ed0d4498d6be179dada14, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4190655d1edfb6e43b39a9d21924957e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32538,7 +32538,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 14755.762
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -33417,8 +33417,8 @@ Transform:
   - {fileID: 1834759586}
   - {fileID: 968404150}
   - {fileID: 195375418}
-  - {fileID: 168497257}
   - {fileID: 1399697463}
+  - {fileID: 168497257}
   - {fileID: 1465529758}
   - {fileID: 409826856}
   - {fileID: 1217541559}
@@ -44701,10 +44701,10 @@ Transform:
   m_GameObject: {fileID: 1399697462}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 2.931, y: -0.38, z: -0.0991}
-  m_LocalScale: {x: 0.19322589, y: 0.19322589, z: 0.19322589}
+  m_LocalScale: {x: 0.29188702, y: 0.29188702, z: 0.29188702}
   m_Children: []
   m_Father: {fileID: 1075396542}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &1399697464
 SpriteRenderer:
@@ -44741,7 +44741,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4190655d1edfb6e43b39a9d21924957e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd9c856e508ed0d4498d6be179dada14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
