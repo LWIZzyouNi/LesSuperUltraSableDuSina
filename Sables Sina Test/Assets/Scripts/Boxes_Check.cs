@@ -68,6 +68,16 @@ public class Boxes_Check : MonoBehaviour {
             {
                 Debug.Log("Quatrième Case");
             }
+
+            if (boxes[7].GetComponent<Illuminate>().isIlluminated)
+            {
+                Debug.Log("5eme Case");
+            }
+
+            if (boxes[3].GetComponent<Illuminate>().isIlluminated)
+            {
+                Debug.Log("6eme Case");
+            }
         }
 
 
@@ -76,7 +86,9 @@ public class Boxes_Check : MonoBehaviour {
     private void EnigmaIsSolved()
     {
         if (boxes[0].GetComponent<Illuminate>().isIlluminated && boxes[5].GetComponent<Illuminate>().isIlluminated 
-                    && boxes[10].GetComponent<Illuminate>().isIlluminated  && boxes[12].GetComponent<Illuminate>().isIlluminated && caseNumber == 4)
+                    && boxes[10].GetComponent<Illuminate>().isIlluminated  && boxes[12].GetComponent<Illuminate>().isIlluminated &&
+                        boxes[7].GetComponent<Illuminate>().isIlluminated && boxes[3].GetComponent<Illuminate>().isIlluminated &&
+                            caseNumber == 6)
         {
             enigmaIsSolved = true;
             Debug.Log(enigmaIsSolved);

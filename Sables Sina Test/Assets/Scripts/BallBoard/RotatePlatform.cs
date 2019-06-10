@@ -9,7 +9,7 @@ public class RotatePlatform : MonoBehaviour {
     public SteamVR_Input_Sources handType02;
     public SteamVR_Behaviour_Pose leftHand;
     public SteamVR_Behaviour_Pose rightHand;
-    public SteamVR_Action_Boolean buttonGrabAction;
+    public SteamVR_Action_Boolean buttonAction;
     public GameObject BallBoard;
 
     private Outline_IntElement m_Outline_IntElem_Script;
@@ -30,7 +30,7 @@ public class RotatePlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (/*buttonAction.GetState(rightHand) && m_Outline_IntElem_Script.elementIsOutlined || buttonAction.GetState(leftHand) && m_Outline_IntElem_Script.elementIsOutlined*/ Input.GetKeyDown(KeyCode.Mouse1))
+        if (m_Outline_IntElem_Script.elementIsOutlined)
         {
             PlatformRotate();
             //Debug.Log(transform.eulerAngles.z);

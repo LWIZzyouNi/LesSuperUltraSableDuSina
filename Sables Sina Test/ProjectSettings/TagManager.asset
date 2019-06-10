@@ -9,6 +9,7 @@ TagManager:
   - Rotating
   - Board_Box
   - Board_Ball
+  - Controller
   layers:
   - Default
   - TransparentFX

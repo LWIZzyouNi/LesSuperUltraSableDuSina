@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ab41787535740f541b22f1c18cded9de
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Qhinanttika Personal Use Only
+  fontNames:
+  - Qhinanttika Personal Use Only
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2eb1b1e9e43694c42bdd99b07fc84cda, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

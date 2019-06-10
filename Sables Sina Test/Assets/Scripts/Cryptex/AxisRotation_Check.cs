@@ -53,7 +53,8 @@ public class AxisRotation_Check : MonoBehaviour
 
     public void Check_AxisRotation()
     {
-        if (axis01.transform.rotation.x == 0 && !enigmaIsSolved)
+        //-270
+        if (axis01.transform.rotation.x == -0.7071068f && axis01.transform.rotation.w == -0.7071068f && !enigmaIsSolved)
         {
             perfectRot01 = true;
             //Debug.Log(transform.rotation.w);
@@ -67,7 +68,8 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot01);
         }
 
-        if (axis02.transform.rotation.x == 0 && !enigmaIsSolved)
+        //-90
+        if (axis02.transform.rotation.x == -0.7071068f  && axis02.transform.rotation.w == 0.7071068f && !enigmaIsSolved)
         {
             perfectRot02 = true;
             Debug.Log(transform.rotation.w);
@@ -80,7 +82,8 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot02);
         }
 
-        if (axis03.transform.rotation.x == 0 && !enigmaIsSolved)
+        //-180
+        if (axis03.transform.rotation.x == -1 && !enigmaIsSolved)
         {
             perfectRot03 = true;
             Debug.Log(transform.rotation.w);
@@ -93,7 +96,8 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot03);
         }
 
-        if (axis04.transform.rotation.x == 0 && !enigmaIsSolved)
+        //0
+        if (axis04.transform.rotation.x == 0  && axis04.transform.rotation.w == 1  && !enigmaIsSolved)
         {
             perfectRot04 = true;
             Debug.Log(transform.rotation.w);
@@ -106,7 +110,8 @@ public class AxisRotation_Check : MonoBehaviour
             print(perfectRot04);
         }
 
-        if (axis05.transform.rotation.w == -1.0 && !enigmaIsSolved)
+        //-180
+        if (axis05.transform.rotation.x == -1 && !enigmaIsSolved)
         {
             perfectRot05 = true;
             Debug.Log(transform.rotation.w);

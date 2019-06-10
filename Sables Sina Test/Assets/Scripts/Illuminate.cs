@@ -39,34 +39,23 @@ public class Illuminate : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isInteracting)
-            return;
-
-        if (other.gameObject.CompareTag("LaserPointer"))
-        {
             Debug.Log("in Trigger");
-            if (buttonAction.GetState(handType01) && !isIlluminated && m_DragScript.isLocked || buttonAction.GetState(handType02) && !isIlluminated && m_DragScript.isLocked)
+     if (other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType01) && !isIlluminated && m_DragScript.isLocked || other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType02) && !isIlluminated && m_DragScript.isLocked)
             {
                 Debug.Log("Press Button");
                 GetComponent<Renderer>().material = illuminated;
                 isIlluminated = true;
                 m_Boxes_Check_Script.caseNumber++;
                 Debug.Log(isIlluminated);
-                StartCoroutine(WaitUntilClick());
-                return;
-
             }
 
-            else if (buttonAction.GetState(handType01) && isIlluminated && m_DragScript.isLocked || buttonAction.GetState(handType02) && isIlluminated && m_DragScript.isLocked)
+            else if (other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType01) && isIlluminated && m_DragScript.isLocked || other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType02) && isIlluminated && m_DragScript.isLocked)
             {
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;
                 m_Boxes_Check_Script.caseNumber--;
                 Debug.Log(isIlluminated);
-                StartCoroutine(WaitUntilClick());
-                return;
-            }
-        }
+            }       
     }
 
     IEnumerator WaitUntilClick()

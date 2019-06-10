@@ -10,7 +10,7 @@ public class CanBeDrag : MonoBehaviour
     public SteamVR_Input_Sources handType02;
     public SteamVR_Behaviour_Pose leftHand;
     public SteamVR_Behaviour_Pose rightHand;
-    public SteamVR_Action_Boolean buttonGrabAction;
+    public SteamVR_Action_Boolean buttonAction;
 
     public Outline outlineScript;
 
@@ -112,9 +112,9 @@ public class CanBeDrag : MonoBehaviour
 
     private void OnButtonClick()
     {
-        if (/*buttonAction.GetState(rightHand) && outlineScript.isOutlined && !isLocked && isInteractive ||
-                    buttonAction.GetState(leftHand) && outlineScript.isOutlined && !isLocked && isInteractive ||*/
-                    Input.GetKeyDown(KeyCode.Mouse0) && outlineScript.isOutlined && !isLocked && isInteractive)
+        if (/*buttonAction.GetState(handType01) && outlineScript.isOutlined && !isLocked && isInteractive ||
+                    buttonAction.GetState(handType02) && outlineScript.isOutlined && !isLocked && isInteractive ||*/
+                    (Input.GetKeyDown(KeyCode.Mouse0) || buttonAction.GetState(handType01) || buttonAction.GetState(handType02)) && outlineScript.isOutlined && !isLocked && isInteractive)
         {
             if (!isZoomed)
             {
@@ -123,9 +123,8 @@ public class CanBeDrag : MonoBehaviour
             }
         }
 
-        if (/*buttonAction.GetState(rightHand) && isLocked ||
-                    buttonAction.GetState(leftHand) && isLocked ||*/
-                    Input.GetKeyDown(KeyCode.Mouse0) && isLocked && !onResetButton)
+        if (/*buttonAction.GetState(handType01) && isLocked && !onResetButton || buttonAction.GetState(handType02) && isLocked && !onResetButton ||*/
+                    (Input.GetKeyDown(KeyCode.Mouse0) || buttonAction.GetState(handType01) || buttonAction.GetState(handType02)) && isLocked && !onResetButton)
         {
             //Debug.Log("Click to dezoom");
             isDeZoomed = true;
