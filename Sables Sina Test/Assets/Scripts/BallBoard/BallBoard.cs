@@ -5,8 +5,8 @@ using UnityEngine;
 public class BallBoard : MonoBehaviour
 {
     private AudioSource audioSrc_EnigmaIsComplete;
-    private CanBeDrag m_DragScript;
-    private Outline m_OutlineScript;
+    //private CanBeDrag m_DragScript;
+   // private Outline m_OutlineScript;
 
     public List<Quaternion> originalTransformPlatform;
     public List<GameObject> originalGameobjectPlatform;
@@ -17,8 +17,8 @@ public class BallBoard : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_DragScript = GetComponent<CanBeDrag>();
-        m_OutlineScript = GetComponent<Outline>();
+        //m_DragScript = GetComponent<CanBeDrag>();
+        //m_OutlineScript = GetComponent<Outline>();
         audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
     }
 
@@ -38,7 +38,7 @@ public class BallBoard : MonoBehaviour
                 audioSrc_EnigmaIsComplete.Play();
                 doOnce = true;
             }
-
+            /*
             m_DragScript.Dezoom();
             m_DragScript.isLocked = false;
             m_DragScript.isInteractive = false;
@@ -46,6 +46,7 @@ public class BallBoard : MonoBehaviour
 
             m_OutlineScript.GetComponent<Renderer>().material = m_OutlineScript.nonOutlined;
             m_OutlineScript.isOutlined = false;
+            */
         }
     }
 

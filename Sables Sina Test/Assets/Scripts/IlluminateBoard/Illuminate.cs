@@ -9,12 +9,12 @@ public class Illuminate : MonoBehaviour {
     [Header("Controller Components")]
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
-    public SteamVR_Behaviour_Pose leftHand;
-    public SteamVR_Behaviour_Pose rightHand;
+    private SteamVR_Behaviour_Pose leftHand;
+    private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
 
-    private Outline_IntElement m_Outline_IntElem_Script;
-    private CanBeDrag m_DragScript;
+    //private Outline_IntElement m_Outline_IntElem_Script;
+    //private CanBeDrag m_DragScript;
     public Boxes_Check m_Boxes_Check_Script;
 
     public Material notIlluminated;
@@ -23,12 +23,20 @@ public class Illuminate : MonoBehaviour {
     public bool isIlluminated = false;
     public bool isInteracting = false;
 
+    private void Awake()
+    {
+        GameObject m_LeftHand = GameObject.Find("Controller (left)");
+        leftHand = m_LeftHand.GetComponent<SteamVR_Behaviour_Pose>();
+
+        GameObject m_handRight = GameObject.Find("Controller (right)");
+        rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+    }
+
     // Use this for initialization
     void Start ()
     {
-        m_Outline_IntElem_Script = GetComponent<Outline_IntElement>();
-        m_DragScript = GetComponentInParent<CanBeDrag>();
-
+        //m_Outline_IntElem_Script = GetComponent<Outline_IntElement>();
+        //m_DragScript = GetComponentInParent<CanBeDrag>();
     }
 
     // Update is called once per frame
@@ -40,7 +48,7 @@ public class Illuminate : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
             Debug.Log("in Trigger");
-     if (other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType01) && !isIlluminated && m_DragScript.isLocked || other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType02) && !isIlluminated && m_DragScript.isLocked)
+     if (other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType01) && !isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType02) && !isIlluminated /*&& m_DragScript.isLocked*/)
             {
                 Debug.Log("Press Button");
                 GetComponent<Renderer>().material = illuminated;
@@ -49,7 +57,7 @@ public class Illuminate : MonoBehaviour {
                 Debug.Log(isIlluminated);
             }
 
-            else if (other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType01) && isIlluminated && m_DragScript.isLocked || other.gameObject.CompareTag("LaserPointer") && buttonAction.GetState(handType02) && isIlluminated && m_DragScript.isLocked)
+            else if (other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType01) && isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType02) && isIlluminated /*&& m_DragScript.isLocked*/)
             {
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;

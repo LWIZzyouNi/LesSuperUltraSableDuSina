@@ -7,39 +7,48 @@ public class RotatePlatform : MonoBehaviour {
     
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
-    public SteamVR_Behaviour_Pose leftHand;
-    public SteamVR_Behaviour_Pose rightHand;
+    private SteamVR_Behaviour_Pose leftHand;
+    private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
     public GameObject BallBoard;
 
-    private Outline_IntElement m_Outline_IntElem_Script;
+    private Outline m_Outline_Script;
 
     Quaternion startRot;
 
     public bool canBoucle = false;
+
+    private void Awake()
+    {
+        GameObject m_LeftHand = GameObject.Find("Controller (left)");
+        leftHand = m_LeftHand.GetComponent<SteamVR_Behaviour_Pose>();
+
+        GameObject m_handRight = GameObject.Find("Controller (right)");
+        rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+    }
 
     // Use this for initialization
     void Start ()
     {
         BallBoard.GetComponent<BallBoard>().AddInList(this.gameObject);
 
-        m_Outline_IntElem_Script = GetComponent<Outline_IntElement>();
+        m_Outline_Script = GetComponent<Outline>();
         startRot = transform.rotation;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (m_Outline_IntElem_Script.elementIsOutlined)
+        if (buttonAction.GetState(handType01) && m_Outline_Script.isOutlined || buttonAction.GetState(handType02) && m_Outline_Script.isOutlined)
         {
-            PlatformRotate();
+            PlateformRotate();
             //Debug.Log(transform.eulerAngles.z);
         }   
     }
 
     //transform.rotation.z == 0.3420201f && transform.rotation.w == 0.9396927f
 
-    private void PlatformRotate()
+    private void PlateformRotate()
     {
         //0
 

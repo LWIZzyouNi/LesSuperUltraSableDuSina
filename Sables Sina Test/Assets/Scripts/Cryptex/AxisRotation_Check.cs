@@ -29,8 +29,8 @@ public class AxisRotation_Check : MonoBehaviour
     public RotateAxis[] m_MyScript;
 
     public GameManager m_MyGameManager;
-    private CanBeDrag m_DragScript;
-    private Outline m_OutlineScript;
+    //private CanBeDrag m_DragScript;
+    //private Outline m_OutlineScript;
 
     private bool enigmaIsSolved = false;
     private bool isNumberAdded = false;
@@ -40,8 +40,8 @@ public class AxisRotation_Check : MonoBehaviour
         audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
         m_MyScript = GetComponentsInChildren<RotateAxis>();
 
-        m_DragScript = GetComponent<CanBeDrag>();
-        m_OutlineScript = GetComponent<Outline>();
+        //m_DragScript = GetComponent<CanBeDrag>();
+        //m_OutlineScript = GetComponent<Outline>();
     }
     
     void Update()
@@ -151,6 +151,7 @@ public class AxisRotation_Check : MonoBehaviour
 
             isNumberAdded = true;
 
+            /*
             m_DragScript.Dezoom();
             m_DragScript.isLocked = false;
             m_DragScript.isInteractive = false;
@@ -158,7 +159,7 @@ public class AxisRotation_Check : MonoBehaviour
 
             m_OutlineScript.GetComponent<Renderer>().material = m_OutlineScript.nonOutlined;
             m_OutlineScript.isOutlined = false;
-
+            */
         }
     }
 }

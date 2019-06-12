@@ -32,7 +32,7 @@ public class Outline_IntElement : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("LaserPointer") && m_DragScript.isLocked)
+        if (other.gameObject.CompareTag("Controller") && m_DragScript.isLocked)
         {
             GetComponent<Renderer>().material = elementOutlined;
             elementIsOutlined = true;

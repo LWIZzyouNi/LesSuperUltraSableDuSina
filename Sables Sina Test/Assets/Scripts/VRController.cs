@@ -33,9 +33,8 @@ public class VRController : MonoBehaviour {
 	void Update ()
     {
         HandleHead();
-        CalculateMovement();
         HandleHeight();
-
+        CalculateMovement();
     }
 
     private void HandleHead()
@@ -45,16 +44,60 @@ public class VRController : MonoBehaviour {
         Quaternion oldRotation = m_CameraRig.rotation;
 
         // Rotation
-        transform.eulerAngles = new Vector3 
+        transform.eulerAngles = new Vector3(0.0f, m_Head.rotation.eulerAngles.y, 0.0f);
+
+
+        // Restore
+        m_CameraRig.position = oldPosition;
+        m_CameraRig.rotation = oldRotation;
     }
 
     private void CalculateMovement()
     {
+        // Movement orientation
+        Vector3 orientationEuler = new Vector3(0, transform.eulerAngles.y, 0);
+        Quaternion orientation = Quaternion.Euler(orientationEuler);
+        Vector3 movement = Vector3.zero;
 
+        // If not moving
+        if(m_MovePress.GetStateUp(SteamVR_Input_Sources.Any))
+        {
+            m_Speed = 0;
+        }
+
+        // If button pressed
+        if(m_MovePress.state)
+        {
+            // Add clamp
+            m_Speed += m_MoveValue.axis.y * m_Sensitivity;
+            m_Speed = Mathf.Clamp(m_Speed, -m_MaxSpeed, m_MaxSpeed);
+
+            // Orientation
+            movement += orientation * (m_Speed * Vector3.forward) * Time.deltaTime;
+        }
+
+        // Apply speed
+        m_CharacterController.Move(movement);
     }
 
     private void HandleHeight()
     {
+        //  Get the head in local space
+        float headHeight = Mathf.Clamp(m_Head.localPosition.y, 1, 2);
+        m_CharacterController.height = headHeight;
 
+        // Cut in half
+        Vector3 newCenter = Vector3.zero;
+        newCenter.y = m_CharacterController.height / 2;
+        newCenter.y += m_CharacterController.skinWidth;
+
+        // Move capsule in local space
+        newCenter.x = m_Head.localPosition.x;
+        newCenter.z = m_Head.localPosition.z;
+
+        // Rotate
+        newCenter = Quaternion.Euler(0, -transform.eulerAngles.y, 0) * newCenter;
+        // Apply
+        m_CharacterController.center = newCenter;
     }
 }

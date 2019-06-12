@@ -11,7 +11,7 @@ public class Outline : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("LaserPointer"))
+        if (other.gameObject.CompareTag("Controller"))
         {
             GetComponent<Renderer>().material = outlined;
             isOutlined = true;
@@ -21,7 +21,10 @@ public class Outline : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Controller"))
+        {
             GetComponent<Renderer>().material = nonOutlined;
             isOutlined = false;
+        }
     }
 }

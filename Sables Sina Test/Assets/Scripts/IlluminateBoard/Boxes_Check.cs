@@ -9,8 +9,8 @@ public class Boxes_Check : MonoBehaviour {
 
     public AudioSource audioSrc_EnigmaIsComplete;
     public GameManager m_MyGameManager;
-    private CanBeDrag m_DragScript;
-    private Outline m_OutlineScript;
+    //private CanBeDrag m_DragScript;
+    //private Outline m_OutlineScript;
 
     private bool enigmaIsSolved = false;
     private bool isNumberAdded = false;
@@ -21,8 +21,8 @@ public class Boxes_Check : MonoBehaviour {
     void Start ()
     {
         m_IlluminateScript = GetComponentsInChildren<Illuminate>();
-        m_DragScript = GetComponent<CanBeDrag>();
-        m_OutlineScript = GetComponent<Outline>();
+        //m_DragScript = GetComponent<CanBeDrag>();
+        //m_OutlineScript = GetComponent<Outline>();
         audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
 
         getChild();
@@ -103,6 +103,8 @@ public class Boxes_Check : MonoBehaviour {
         if (enigmaIsSolved)
         {
             isNumberAdded = true;
+
+            /*
             m_DragScript.Dezoom();
             m_DragScript.isLocked = false;
             m_DragScript.isInteractive = false;
@@ -110,7 +112,7 @@ public class Boxes_Check : MonoBehaviour {
 
             m_OutlineScript.GetComponent<Renderer>().material = m_OutlineScript.nonOutlined;
             m_OutlineScript.isOutlined = false;
-
+            */
         }
     }
 }

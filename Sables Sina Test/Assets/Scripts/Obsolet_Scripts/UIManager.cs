@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour {
 
     public GameObject UI_Manager;
 
-
+    /*
     public void ToStartGame()
     {
         if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
@@ -31,4 +31,5 @@ public class UIManager : MonoBehaviour {
             Application.Quit();
         }
     }
+    */
 }

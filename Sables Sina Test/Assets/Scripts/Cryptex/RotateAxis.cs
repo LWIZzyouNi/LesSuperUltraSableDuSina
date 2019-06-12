@@ -8,12 +8,12 @@ public class RotateAxis : MonoBehaviour {
     [Header("Controller Components")]
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
-    public SteamVR_Behaviour_Pose leftHand;
-    public SteamVR_Behaviour_Pose rightHand;
+    private SteamVR_Behaviour_Pose leftHand;
+    private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
 
-    private Outline_IntElement m_MyScript;
-    private CanBeDrag m_MyScript3;
+    private Outline m_MyScript;
+    //private CanBeDrag m_MyScript3;
     
     private Animator anim;
     public Animator parentAnim;
@@ -28,11 +28,20 @@ public class RotateAxis : MonoBehaviour {
     
     public AudioSource audioSrc_AxisRota;
 
+    private void Awake()
+    {
+        GameObject m_LeftHand = GameObject.Find("Controller (left)");
+        leftHand = m_LeftHand.GetComponent<SteamVR_Behaviour_Pose>();
+
+        GameObject m_handRight = GameObject.Find("Controller (right)");
+        rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+    }
+
     // Use this for initialization
     void Start ()
     {
-        m_MyScript = GetComponent<Outline_IntElement>();
-        m_MyScript3 = GetComponentInParent<CanBeDrag>();
+        m_MyScript = GetComponent<Outline>();
+        //m_MyScript3 = GetComponentInParent<CanBeDrag>();
 
         audioSrc_AxisRota = GetComponent<AudioSource>();
     }
@@ -48,11 +57,11 @@ public class RotateAxis : MonoBehaviour {
 
     private void OnMouseClick()
     {
-        if (m_MyScript.elementIsOutlined)
+        if (m_MyScript.isOutlined)
         {
             // Lorsque l'objet est lock, donc zoomé, les éléments interactifs sur l'objet sont activables / utilisables lorsqu'on clique droit.
-            if (buttonAction.GetState(handType01) && m_MyScript.elementIsOutlined && m_MyScript3.isLocked ||
-                        buttonAction.GetState(handType02) && m_MyScript.elementIsOutlined && m_MyScript3.isLocked)
+            if (buttonAction.GetState(handType01) && m_MyScript.isOutlined /*&& m_MyScript3.isLocked*/ ||
+                        buttonAction.GetState(handType02) && m_MyScript.isOutlined /* && m_MyScript3.isLocked*/)
             {
                 canPlay = false;
                 isRotating = true;

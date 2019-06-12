@@ -17,18 +17,29 @@ public class ResetButton : MonoBehaviour {
 
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
-    public SteamVR_Behaviour_Pose leftHand;
-    public SteamVR_Behaviour_Pose rightHand;
+    private SteamVR_Behaviour_Pose leftHand;
+    private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
 
+    private void Awake()
+    {
+        GameObject m_LeftHand = GameObject.Find("Controller (left)");
+        leftHand = m_LeftHand.GetComponent<SteamVR_Behaviour_Pose>();
+
+        GameObject m_handRight = GameObject.Find("Controller (right)");
+        rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+    }
+
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         //transform.parent.gameObject.GetComponent<CanBeDrag>().onResetButton = true;
         outlineScript = GetComponent<Outline>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         MouseClick();
         SavePosition();
 	}
@@ -55,10 +66,12 @@ public class ResetButton : MonoBehaviour {
                 ResetTab();
             }
         }
+        /*
         else
         {
             transform.parent.gameObject.GetComponent<CanBeDrag>().onResetButton = false;
         }
+        */
     }
 
     private void SavePosition()
