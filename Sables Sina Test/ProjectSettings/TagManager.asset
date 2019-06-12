@@ -10,6 +10,12 @@ TagManager:
   - Board_Box
   - Board_Ball
   - Controller
+  - SpawnPoint_TabBall
+  - SpawnPoint_TabLight
+  - SpawnPoint_Cryptex
+  - BallBoard
+  - IlluminatedBoard
+  - Cryptex
   layers:
   - Default
   - TransparentFX

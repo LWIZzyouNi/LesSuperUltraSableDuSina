@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public float timer = 0;
+    private bool timerDoOnce = false;
+
     private int enigmeNumber = 0;
     public int enigmeCompleteNumber = 0;
 
@@ -37,6 +41,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimerCount();
+
         Validation();
     }
 
@@ -55,5 +61,21 @@ public class GameManager : MonoBehaviour
                 canPassRoom = false;
             }
         }
+    }
+
+    void TimerCount ()
+    {
+        timer -= 1 * Time.deltaTime;
+
+        if(timer <= 0 && timerDoOnce == false)
+        {
+            timerDoOnce = true;
+            EndGame();
+        }
+    }
+
+    void EndGame()
+    {
+        SceneManager.LoadScene("SceneTestTom");
     }
 }
