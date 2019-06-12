@@ -16,6 +16,8 @@ TagManager:
   - BallBoard
   - IlluminatedBoard
   - Cryptex
+  - Button
+  - SpawnPoint_Button
   layers:
   - Default
   - TransparentFX

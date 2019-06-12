@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // La valeur de référence pour toute la game!
+    public int gameValue = 0;
+
     public float timer = 0;
     private bool timerDoOnce = false;
 
@@ -12,6 +15,10 @@ public class GameManager : MonoBehaviour
     public int enigmeCompleteNumber = 0;
 
     public static GameManager s_Singleton;
+
+    public GameObject button;
+    public List<GameObject> spawnPointButton;
+    private int numberOfButton = 0;
 
     public GameObject[] loupiotes;
     public GameObject[] door;
@@ -35,6 +42,10 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        gameValue = Random.Range(1,4);
+
+        ButtonGestion();
+
         enigmeNumber = loupiotes.Length;
     }
 
@@ -60,6 +71,30 @@ public class GameManager : MonoBehaviour
                 roomNumber++;
                 canPassRoom = false;
             }
+        }
+    }
+
+    void ButtonGestion ()
+    {
+        int tmpsSpawnPointChoosed;
+
+        spawnPointButton.AddRange(GameObject.FindGameObjectsWithTag("SpawnPoint_Button"));
+        foreach (GameObject SpawnPoint_Button in spawnPointButton)
+        {
+            numberOfButton++;
+        }
+
+        for (int i = 0; i < gameValue; i++)
+        {
+            tmpsSpawnPointChoosed = Random.Range(0, numberOfButton);
+            GameObject tmpsButton;
+
+            Vector3 tmpsVector = spawnPointButton[tmpsSpawnPointChoosed].transform.position;
+
+            tmpsButton = Instantiate(button);
+            tmpsButton.transform.position = tmpsVector;
+            
+            spawnPointButton.Remove(spawnPointButton[tmpsSpawnPointChoosed]);
         }
     }
 
