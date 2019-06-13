@@ -9,8 +9,8 @@ public class Illuminate : MonoBehaviour {
     [Header("Controller Components")]
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
-    private SteamVR_Behaviour_Pose leftHand;
-    private SteamVR_Behaviour_Pose rightHand;
+    public SteamVR_Behaviour_Pose leftHand;
+    public SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
 
     //private Outline_IntElement m_Outline_IntElem_Script;
@@ -48,7 +48,7 @@ public class Illuminate : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
             Debug.Log("in Trigger");
-     if (other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType01) && !isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType02) && !isIlluminated /*&& m_DragScript.isLocked*/)
+     if (other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType01) && !isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && !isIlluminated /*&& m_DragScript.isLocked*/)
             {
                 Debug.Log("Press Button");
                 GetComponent<Renderer>().material = illuminated;
@@ -57,7 +57,7 @@ public class Illuminate : MonoBehaviour {
                 Debug.Log(isIlluminated);
             }
 
-            else if (other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType01) && isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetState(handType02) && isIlluminated /*&& m_DragScript.isLocked*/)
+            else if (other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType01) && isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && isIlluminated /*&& m_DragScript.isLocked*/)
             {
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;
