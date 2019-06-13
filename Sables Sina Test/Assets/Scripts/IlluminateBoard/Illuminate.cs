@@ -48,22 +48,30 @@ public class Illuminate : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
             Debug.Log("in Trigger");
-     if (buttonAction.GetState(handType01) && other.gameObject.CompareTag("Controller")  && !isIlluminated /*&& m_DragScript.isLocked*/ /*|| other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && !isIlluminated /*&& m_DragScript.isLocked*/)
+         if (other.gameObject.CompareTag("Controller") && !isIlluminated && !isInteracting /*&& m_DragScript.isLocked*/)
+        {
+            if(buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02))
             {
                 Debug.Log("Press Button");
                 GetComponent<Renderer>().material = illuminated;
                 isIlluminated = true;
                 m_Boxes_Check_Script.caseNumber++;
                 Debug.Log(isIlluminated);
-            }
+                StartCoroutine(WaitUntilClick());
+            }          
+         }
 
-            else if (buttonAction.GetStateDown(handType01) && other.gameObject.CompareTag("Controller")  && isIlluminated /*&& m_DragScript.isLocked*/ /*|| other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && isIlluminated /*&& m_DragScript.isLocked*/)
+        else if (other.gameObject.CompareTag("Controller") && isIlluminated && !isInteracting /*&& m_DragScript.isLocked*/)
+        {
+            if(buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02))
             {
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;
                 m_Boxes_Check_Script.caseNumber--;
                 Debug.Log(isIlluminated);
-            }       
+                StartCoroutine(WaitUntilClick());
+            }
+        }       
     }
 
     IEnumerator WaitUntilClick()

@@ -39,10 +39,13 @@ public class RotatePlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (buttonAction.GetState(handType01) && m_Outline_Script.isOutlined || buttonAction.GetState(handType02) && m_Outline_Script.isOutlined)
+        if (m_Outline_Script.isOutlined)
         {
-            PlateformRotate();
-            //Debug.Log(transform.eulerAngles.z);
+            if(buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
+            {
+                PlateformRotate();
+                //Debug.Log(transform.eulerAngles.z);
+            }
         }   
     }
 
