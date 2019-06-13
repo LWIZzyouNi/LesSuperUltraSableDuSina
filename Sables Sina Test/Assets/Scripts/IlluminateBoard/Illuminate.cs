@@ -48,7 +48,7 @@ public class Illuminate : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
             Debug.Log("in Trigger");
-     if (other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType01) && !isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && !isIlluminated /*&& m_DragScript.isLocked*/)
+     if (buttonAction.GetState(handType01) && other.gameObject.CompareTag("Controller")  && !isIlluminated /*&& m_DragScript.isLocked*/ /*|| other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && !isIlluminated /*&& m_DragScript.isLocked*/)
             {
                 Debug.Log("Press Button");
                 GetComponent<Renderer>().material = illuminated;
@@ -57,7 +57,7 @@ public class Illuminate : MonoBehaviour {
                 Debug.Log(isIlluminated);
             }
 
-            else if (other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType01) && isIlluminated /*&& m_DragScript.isLocked*/ || other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && isIlluminated /*&& m_DragScript.isLocked*/)
+            else if (buttonAction.GetStateDown(handType01) && other.gameObject.CompareTag("Controller")  && isIlluminated /*&& m_DragScript.isLocked*/ /*|| other.gameObject.CompareTag("Controller") && buttonAction.GetStateDown(handType02) && isIlluminated /*&& m_DragScript.isLocked*/)
             {
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;

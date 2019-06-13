@@ -57,7 +57,7 @@ public class ResetButton : MonoBehaviour {
 
     private void MouseClick()
     {
-        if (outlineScript.isOutlined && transform.parent.gameObject.GetComponent<CanBeDrag>().isLocked == true && transform.parent.gameObject.GetComponent<CanBeDrag>().isInteractive == true)
+        if (outlineScript.isOutlined)
         {
             transform.parent.gameObject.GetComponent<CanBeDrag>().onResetButton = true;
 
