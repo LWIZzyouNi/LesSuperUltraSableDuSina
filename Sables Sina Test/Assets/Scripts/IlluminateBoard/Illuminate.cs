@@ -9,8 +9,8 @@ public class Illuminate : MonoBehaviour {
     [Header("Controller Components")]
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
-    public SteamVR_Behaviour_Pose leftHand;
-    public SteamVR_Behaviour_Pose rightHand;
+    private SteamVR_Behaviour_Pose leftHand;
+    private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
 
     //private Outline_IntElement m_Outline_IntElem_Script;
@@ -52,7 +52,7 @@ public class Illuminate : MonoBehaviour {
         {
             if(buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02))
             {
-                Debug.Log("Press Button");
+                Debug.Log("Button Press");
                 GetComponent<Renderer>().material = illuminated;
                 isIlluminated = true;
                 m_Boxes_Check_Script.caseNumber++;
@@ -65,6 +65,7 @@ public class Illuminate : MonoBehaviour {
         {
             if(buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02))
             {
+                Debug.Log("Button Press Back");
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;
                 m_Boxes_Check_Script.caseNumber--;
@@ -78,7 +79,7 @@ public class Illuminate : MonoBehaviour {
     {
         isInteracting = true;
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(2f);
 
         isInteracting = false;
     }

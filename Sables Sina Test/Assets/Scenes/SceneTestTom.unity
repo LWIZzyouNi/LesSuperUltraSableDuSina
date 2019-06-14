@@ -153,8 +153,6 @@ GameObject:
   - component: {fileID: 51422942}
   - component: {fileID: 51422947}
   - component: {fileID: 51422948}
-  - component: {fileID: 51422939}
-  - component: {fileID: 51422945}
   - component: {fileID: 51422946}
   m_Layer: 0
   m_Name: '- BallBoard -'
@@ -163,21 +161,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &51422939
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 51422938}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &51422942
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -240,18 +223,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &51422945
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 51422938}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &51422946
 AudioSource:
   m_ObjectHideFlags: 0
@@ -907,8 +878,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -1016,8 +985,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -1191,8 +1158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -1325,7 +1290,6 @@ GameObject:
   - component: {fileID: 275188102}
   - component: {fileID: 275188101}
   - component: {fileID: 275188100}
-  - component: {fileID: 275188098}
   - component: {fileID: 275188103}
   - component: {fileID: 275188096}
   - component: {fileID: 275188099}
@@ -1382,21 +1346,6 @@ MonoBehaviour:
   nonOutlined: {fileID: 2100000, guid: b9c969e542460234d987350e2b8f8a06, type: 2}
   outlined: {fileID: 2100000, guid: 325c59928a0769747a988a86e60c1f61, type: 2}
   isOutlined: 0
---- !u!54 &275188098
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 275188094}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &275188099
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1499,7 +1448,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 275188094}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1576,7 +1525,6 @@ GameObject:
   - component: {fileID: 310184825}
   - component: {fileID: 310184824}
   - component: {fileID: 310184823}
-  - component: {fileID: 310184827}
   - component: {fileID: 310184828}
   - component: {fileID: 310184829}
   - component: {fileID: 310184830}
@@ -1670,21 +1618,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &310184827
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 310184820}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &310184828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,8 +2036,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -2368,8 +2299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -2649,8 +2578,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -3016,7 +2943,6 @@ GameObject:
   - component: {fileID: 607409708}
   - component: {fileID: 607409707}
   - component: {fileID: 607409706}
-  - component: {fileID: 607409704}
   - component: {fileID: 607409709}
   - component: {fileID: 607409702}
   - component: {fileID: 607409705}
@@ -3073,21 +2999,6 @@ MonoBehaviour:
   nonOutlined: {fileID: 2100000, guid: b9c969e542460234d987350e2b8f8a06, type: 2}
   outlined: {fileID: 2100000, guid: 325c59928a0769747a988a86e60c1f61, type: 2}
   isOutlined: 0
---- !u!54 &607409704
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 607409700}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &607409705
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3190,7 +3101,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607409700}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3392,8 +3303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -3586,8 +3495,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -3624,6 +3531,161 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!43 &813045771
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 9
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_VertexData:
+    serializedVersion: 2
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimized: 0
 --- !u!1 &819959566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3723,8 +3785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -3958,8 +4018,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -3968,6 +4026,39 @@ MonoBehaviour:
   illuminated: {fileID: 2100000, guid: 394a17715753d1b419c88c863cfb6ffd, type: 2}
   isIlluminated: 0
   isInteracting: 0
+--- !u!21 &931964568
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &950420360
 Prefab:
   m_ObjectHideFlags: 0
@@ -4211,8 +4302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -4515,7 +4604,6 @@ GameObject:
   - component: {fileID: 1027647750}
   - component: {fileID: 1027647749}
   - component: {fileID: 1027647748}
-  - component: {fileID: 1027647746}
   - component: {fileID: 1027647751}
   - component: {fileID: 1027647744}
   - component: {fileID: 1027647747}
@@ -4572,21 +4660,6 @@ MonoBehaviour:
   nonOutlined: {fileID: 2100000, guid: b9c969e542460234d987350e2b8f8a06, type: 2}
   outlined: {fileID: 2100000, guid: 325c59928a0769747a988a86e60c1f61, type: 2}
   isOutlined: 0
---- !u!54 &1027647746
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1027647742}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &1027647747
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4689,7 +4762,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1027647742}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4834,7 +4907,6 @@ GameObject:
   - component: {fileID: 1064125823}
   - component: {fileID: 1064125822}
   - component: {fileID: 1064125821}
-  - component: {fileID: 1064125817}
   - component: {fileID: 1064125820}
   - component: {fileID: 1064125824}
   - component: {fileID: 1064125818}
@@ -4859,21 +4931,6 @@ Transform:
   m_Father: {fileID: 1191128368}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1064125817
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1064125815}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &1064125818
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5009,7 +5066,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064125815}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -5391,8 +5448,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -5401,39 +5456,6 @@ MonoBehaviour:
   illuminated: {fileID: 2100000, guid: 394a17715753d1b419c88c863cfb6ffd, type: 2}
   isIlluminated: 0
   isInteracting: 0
---- !u!21 &1111949195
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1123397488
 GameObject:
   m_ObjectHideFlags: 0
@@ -5530,7 +5552,6 @@ GameObject:
   - component: {fileID: 1150045401}
   - component: {fileID: 1150045400}
   - component: {fileID: 1150045399}
-  - component: {fileID: 1150045398}
   - component: {fileID: 1150045397}
   - component: {fileID: 1150045394}
   - component: {fileID: 1150045395}
@@ -5701,21 +5722,6 @@ MonoBehaviour:
   parentAnim: {fileID: 1150045394}
   isRotating: 0
   audioSrc_AxisRota: {fileID: 1150045395}
---- !u!54 &1150045398
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1150045392}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1150045399
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5723,7 +5729,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1150045392}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -5869,8 +5875,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -5890,7 +5894,6 @@ GameObject:
   - component: {fileID: 1191128373}
   - component: {fileID: 1191128372}
   - component: {fileID: 1191128371}
-  - component: {fileID: 1191128374}
   - component: {fileID: 1191128369}
   - component: {fileID: 1191128376}
   - component: {fileID: 1191128377}
@@ -5997,21 +6000,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1191128367}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &1191128374
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1191128367}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!82 &1191128376
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6321,11 +6309,11 @@ Prefab:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1111949195}
+      objectReference: {fileID: 931964568}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1959657915}
+      objectReference: {fileID: 813045771}
     - target: {fileID: 114000010110554832, guid: 4d293c8e162f3874b982baadd71153d2,
         type: 2}
       propertyPath: poseAction.actionPath
@@ -6753,8 +6741,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -7247,8 +7233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
@@ -7427,161 +7411,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1933060821}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!43 &1959657915
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 9
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_VertexData:
-    serializedVersion: 2
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimized: 0
 --- !u!1 &1963586570
 GameObject:
   m_ObjectHideFlags: 0
@@ -7794,8 +7623,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType01: 1
   handType02: 2
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0

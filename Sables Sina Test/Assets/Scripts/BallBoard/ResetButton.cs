@@ -64,6 +64,7 @@ public class ResetButton : MonoBehaviour {
             if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
             {
                 ResetTab();
+                Debug.Log("Tab is reset");
             }
         }
         /*
