@@ -13,7 +13,7 @@ public class ResetButton : MonoBehaviour {
 
     private bool doOnce = false;
 
-    public AudioSource audioSRC;
+    public AudioClip pressResetButton;
 
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
@@ -52,7 +52,7 @@ public class ResetButton : MonoBehaviour {
 
         ball.transform.position = ballTransformSave;
 
-        audioSRC.Play();
+        SoundManager.instance.PlaySingle(pressResetButton);
     }
 
     private void MouseClick()

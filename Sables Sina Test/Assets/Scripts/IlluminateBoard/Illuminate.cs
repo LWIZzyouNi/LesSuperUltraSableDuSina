@@ -22,6 +22,9 @@ public class Illuminate : MonoBehaviour {
 
     public bool isIlluminated = false;
     public bool isInteracting = false;
+    public bool ctrlIsInTrigger = false;
+
+    public float timerUntilCanClick = 0.5f;
 
     private void Awake()
     {
@@ -42,44 +45,44 @@ public class Illuminate : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-            Debug.Log("in Trigger");
-         if (other.gameObject.CompareTag("Controller") && !isIlluminated && !isInteracting /*&& m_DragScript.isLocked*/)
+         if (buttonAction.GetStateDown(handType01) && isIlluminated && !isInteracting && ctrlIsInTrigger || buttonAction.GetStateDown(handType02) && isIlluminated && !isInteracting && ctrlIsInTrigger || ctrlIsInTrigger && !isIlluminated && !isInteracting && Input.GetKeyDown(KeyCode.Space))
         {
-            if(buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02))
-            {
-                Debug.Log("Button Press");
-                GetComponent<Renderer>().material = illuminated;
-                isIlluminated = true;
-                m_Boxes_Check_Script.caseNumber++;
-                Debug.Log(isIlluminated);
-                StartCoroutine(WaitUntilClick());
-            }          
-         }
+            Debug.Log("Button Press");
+            GetComponent<Renderer>().material = illuminated;
+            isIlluminated = true;
+            m_Boxes_Check_Script.caseNumber++;
+            Debug.Log(isIlluminated);
+            StartCoroutine(WaitUntilClick());
+        }
 
-        else if (other.gameObject.CompareTag("Controller") && isIlluminated && !isInteracting /*&& m_DragScript.isLocked*/)
+        else if (buttonAction.GetStateDown(handType01) && isIlluminated && !isInteracting && ctrlIsInTrigger || buttonAction.GetStateDown(handType02) && isIlluminated && !isInteracting && ctrlIsInTrigger || Input.GetKeyDown(KeyCode.Space) && isIlluminated && !isInteracting && ctrlIsInTrigger /*&& m_DragScript.isLocked*/)
         {
-            if(buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02))
-            {
                 Debug.Log("Button Press Back");
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;
                 m_Boxes_Check_Script.caseNumber--;
                 Debug.Log(isIlluminated);
                 StartCoroutine(WaitUntilClick());
-            }
-        }       
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("in Trigger");
+        ctrlIsInTrigger = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("out of Trigger");
+        ctrlIsInTrigger = false;
     }
 
     IEnumerator WaitUntilClick()
     {
         isInteracting = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timerUntilCanClick);
 
         isInteracting = false;
     }

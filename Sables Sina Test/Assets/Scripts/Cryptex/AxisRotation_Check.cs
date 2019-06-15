@@ -24,7 +24,7 @@ public class AxisRotation_Check : MonoBehaviour
     [HideInInspector]
     public bool perfectRot05 = true;
 
-    public AudioSource audioSrc_EnigmaIsComplete;
+    public AudioClip audioSrc_EnigmaIsComplete;
 
     public RotateAxis[] m_MyScript;
 
@@ -37,7 +37,6 @@ public class AxisRotation_Check : MonoBehaviour
 
     void Start()
     {
-        audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
         m_MyScript = GetComponentsInChildren<RotateAxis>();
 
         //m_DragScript = GetComponent<CanBeDrag>();
@@ -137,7 +136,7 @@ public class AxisRotation_Check : MonoBehaviour
             {
                 // Une énigme est résolue
                 m_MyGameManager.enigmeCompleteNumber++;
-                audioSrc_EnigmaIsComplete.Play();
+                SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
             }
         }
 

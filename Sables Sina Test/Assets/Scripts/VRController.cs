@@ -17,6 +17,11 @@ public class VRController : MonoBehaviour {
     private Transform m_CameraRig = null;
     private Transform m_Head = null;
 
+    public AudioClip movementSound01;
+    public AudioClip movementSound02;
+
+    private bool doOnce = false;
+
     private void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
@@ -74,6 +79,7 @@ public class VRController : MonoBehaviour {
 
             // Orientation
             movement += orientation * (m_Speed * Vector3.forward) * Time.deltaTime;
+            SoundManager.instance.RandomizeSFX(movementSound01, movementSound02);
         }
 
         // Apply speed

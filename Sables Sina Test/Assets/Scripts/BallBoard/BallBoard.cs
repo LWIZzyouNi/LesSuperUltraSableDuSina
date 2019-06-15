@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallBoard : MonoBehaviour
 {
-    private AudioSource audioSrc_EnigmaIsComplete;
+    public AudioClip audioSrc_EnigmaIsComplete;
     //private CanBeDrag m_DragScript;
    // private Outline m_OutlineScript;
 
@@ -19,7 +19,6 @@ public class BallBoard : MonoBehaviour
     {
         //m_DragScript = GetComponent<CanBeDrag>();
         //m_OutlineScript = GetComponent<Outline>();
-        audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,7 +34,7 @@ public class BallBoard : MonoBehaviour
             if (!doOnce)
             {
                 GameManager.s_Singleton.enigmeCompleteNumber++;
-                audioSrc_EnigmaIsComplete.Play();
+                SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
                 doOnce = true;
             }
 

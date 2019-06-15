@@ -12,11 +12,16 @@ public class RotatePlatform : MonoBehaviour {
     public SteamVR_Action_Boolean buttonAction;
     public GameObject BallBoard;
 
+    public AudioClip rotatingPlateformSound;
+
     private Outline m_Outline_Script;
 
     Quaternion startRot;
 
+    public bool isInteracting = false;
     public bool canBoucle = false;
+    
+    public float timerUntilCanClick = 0.5f;
 
     private void Awake()
     {
@@ -41,9 +46,11 @@ public class RotatePlatform : MonoBehaviour {
     {
         if (m_Outline_Script.isOutlined)
         {
-            if(buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
+            if(buttonAction.GetState(handType01) && !isInteracting || buttonAction.GetState(handType02) && !isInteracting || Input.GetKeyDown(KeyCode.Space) && !isInteracting)
             {
                 PlateformRotate();
+                StartCoroutine(WaitUntilClick());
+                SoundManager.instance.RandomizeSFX(rotatingPlateformSound);
                 //Debug.Log(transform.eulerAngles.z);
             }
         }   
@@ -96,5 +103,14 @@ public class RotatePlatform : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    IEnumerator WaitUntilClick()
+    {
+        isInteracting = true;
+
+        yield return new WaitForSeconds(timerUntilCanClick);
+
+        isInteracting = false;
     }
 }

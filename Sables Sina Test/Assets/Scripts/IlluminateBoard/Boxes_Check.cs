@@ -7,7 +7,7 @@ public class Boxes_Check : MonoBehaviour {
     public Illuminate[] m_IlluminateScript;
     public GameObject[] boxes;
 
-    public AudioSource audioSrc_EnigmaIsComplete;
+    public AudioClip audioSrc_EnigmaIsComplete;
     public GameManager m_MyGameManager;
     //private CanBeDrag m_DragScript;
     //private Outline m_OutlineScript;
@@ -23,7 +23,6 @@ public class Boxes_Check : MonoBehaviour {
         m_IlluminateScript = GetComponentsInChildren<Illuminate>();
         //m_DragScript = GetComponent<CanBeDrag>();
         //m_OutlineScript = GetComponent<Outline>();
-        audioSrc_EnigmaIsComplete = GetComponent<AudioSource>();
 
         getChild();
     }
@@ -96,7 +95,7 @@ public class Boxes_Check : MonoBehaviour {
             {
                 // Une énigme est résolue
                 m_MyGameManager.enigmeCompleteNumber++;
-                audioSrc_EnigmaIsComplete.Play();
+                SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
             }
         }
 

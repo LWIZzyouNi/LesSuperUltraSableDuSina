@@ -26,7 +26,7 @@ public class RotateAxis : MonoBehaviour {
     private bool canPlay = false;
     public bool isRotating = false;
     
-    public AudioSource audioSrc_AxisRota;
+    public AudioClip audioSrc_AxisRota;
 
     private void Awake()
     {
@@ -42,8 +42,6 @@ public class RotateAxis : MonoBehaviour {
     {
         m_MyScript = GetComponent<Outline>();
         //m_MyScript3 = GetComponentInParent<CanBeDrag>();
-
-        audioSrc_AxisRota = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -65,7 +63,7 @@ public class RotateAxis : MonoBehaviour {
             {
                 canPlay = false;
                 isRotating = true;
-
+                SoundManager.instance.RandomizeSFX(audioSrc_AxisRota);
                 // Si l'objet tourne, que le premier état de l'animation ne s'est pas joué, et que l'animation lui correspondant ne peut pas se jouer..
                 if (isRotating && !state01 && !canPlay)
                 {

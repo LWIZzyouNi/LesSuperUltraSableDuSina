@@ -10,7 +10,7 @@ public class OpenDoor : MonoBehaviour {
 
     public Animator animDoor;
 
-    public AudioSource audioSRC;
+    public AudioClip doorsOpenSound;
 
     private bool doOnce = false;
 
@@ -33,6 +33,6 @@ public class OpenDoor : MonoBehaviour {
     void Activated()
     {
         animDoor.SetBool("Open", true);
-        audioSRC.Play();
+        SoundManager.instance.PlaySingle(doorsOpenSound);
     }
 }
