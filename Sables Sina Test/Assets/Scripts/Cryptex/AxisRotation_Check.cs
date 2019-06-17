@@ -96,7 +96,7 @@ public class AxisRotation_Check : MonoBehaviour
         }
 
         //0
-        if (axis04.transform.rotation.x == 0  && axis04.transform.rotation.w == 1  && !enigmaIsSolved)
+        if (axis04.transform.rotation.w == 1  && !enigmaIsSolved || axis04.transform.rotation.w == -1 && !enigmaIsSolved)
         {
             perfectRot04 = true;
             Debug.Log(transform.rotation.w);

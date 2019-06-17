@@ -13,10 +13,11 @@ public class RotateAxis : MonoBehaviour {
     public SteamVR_Action_Boolean buttonAction;
 
     private Outline m_MyScript;
-    //private CanBeDrag m_MyScript3;
     
-    private Animator anim;
     public Animator parentAnim;
+
+    public float timerUntilCanClick = 0.5f;
+    public bool isInteracting = false;
 
     // États animation
     private bool state01 = false;
@@ -47,8 +48,11 @@ public class RotateAxis : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if(!isInteracting)
+        {
+            OnMouseClick();
+        }
         
-        OnMouseClick();
         //print(axis01.transform.eulerAngles.x);
 
     }
@@ -58,8 +62,8 @@ public class RotateAxis : MonoBehaviour {
         if (m_MyScript.isOutlined)
         {
             // Lorsque l'objet est lock, donc zoomé, les éléments interactifs sur l'objet sont activables / utilisables lorsqu'on clique droit.
-            if (buttonAction.GetState(handType01) && m_MyScript.isOutlined /*&& m_MyScript3.isLocked*/ ||
-                        buttonAction.GetState(handType02) && m_MyScript.isOutlined /* && m_MyScript3.isLocked*/) 
+            if (buttonAction.GetState(handType01)/*&& m_MyScript3.isLocked*/ ||
+                        buttonAction.GetState(handType02) /* && m_MyScript3.isLocked*/) 
             {
                 canPlay = false;
                 isRotating = true;
@@ -85,7 +89,7 @@ public class RotateAxis : MonoBehaviour {
                         // L'animation, correspondant au premier état se joue ("NomDeLanimation")..
                         //parentAnim.Play("RotationAxis01");
                         parentAnim.SetBool("State01", true);
-
+                        StartCoroutine(WaitUntilClick());
                         // L'objet ne tourne plus, il vient de tourner.
                         isRotating = false;
                     }
@@ -106,7 +110,7 @@ public class RotateAxis : MonoBehaviour {
                         // L'animation, correspondant au second état se joue ("NomDeLanimation")..
                         //parentAnim.Play("RotationAxis02");
                         parentAnim.SetBool("State02", true);
-
+                        StartCoroutine(WaitUntilClick());
                         // L'objet ne tourne plus, il vient de tourner.
                         isRotating = false;
                     }
@@ -127,7 +131,7 @@ public class RotateAxis : MonoBehaviour {
                         // L'animation, correspondant au troisième état se joue ("NomDeLanimation")..
                         //parentAnim.Play("RotationAxis03");
                         parentAnim.SetBool("State03", true);
-
+                        StartCoroutine(WaitUntilClick());
                         // L'objet ne tourne plus, il vient de tourner.
                         isRotating = false;
                     }
@@ -161,12 +165,21 @@ public class RotateAxis : MonoBehaviour {
                         //parentAnim.Play("RotationAxis04");
                         parentAnim.SetBool("State04", true);
                         parentAnim.SetBool("CanBoucle", true);
-
+                        StartCoroutine(WaitUntilClick());
                         // L'objet ne tourne plus, il vient de tourner.
                         isRotating = false;
                     }
                 }
             }
         }
+    }
+
+    IEnumerator WaitUntilClick()
+    {
+        isInteracting = true;
+
+        yield return new WaitForSeconds(timerUntilCanClick);
+
+        isInteracting = false;
     }
 }
