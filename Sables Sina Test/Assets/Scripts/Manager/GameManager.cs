@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameValue = Random.Range(1,4);
+        gameValue = Random.Range(2,6);
 
         ButtonGestion();
 
