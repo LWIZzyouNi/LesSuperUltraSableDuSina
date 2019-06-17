@@ -59,8 +59,6 @@ public class ResetButton : MonoBehaviour {
     {
         if (outlineScript.isOutlined)
         {
-            transform.parent.gameObject.GetComponent<CanBeDrag>().onResetButton = true;
-
             if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
             {
                 ResetTab();
@@ -77,18 +75,16 @@ public class ResetButton : MonoBehaviour {
 
     private void SavePosition()
     {
-        if (transform.parent.gameObject.GetComponent<CanBeDrag>().isLocked == true && transform.parent.gameObject.GetComponent<CanBeDrag>().isDeZoomed == false)
+        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+
+        if (!doOnce)
         {
-            ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+            ballTransformSave = ball.transform.position;
+            //ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
-            if (!doOnce)
-            {
-                ballTransformSave = ball.transform.position;
-                //ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-
-                doOnce = true;
-            }
+            doOnce = true;
         }
+        
     }
 }
