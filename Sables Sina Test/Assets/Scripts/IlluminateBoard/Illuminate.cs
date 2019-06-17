@@ -45,7 +45,7 @@ public class Illuminate : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-         if (buttonAction.GetStateDown(handType01) && isIlluminated && !isInteracting && ctrlIsInTrigger || buttonAction.GetStateDown(handType02) && isIlluminated && !isInteracting && ctrlIsInTrigger || ctrlIsInTrigger && !isIlluminated && !isInteracting && Input.GetKeyDown(KeyCode.Space))
+         if (buttonAction.GetStateDown(handType01) && !isIlluminated && !isInteracting && ctrlIsInTrigger || buttonAction.GetStateDown(handType02) && !isIlluminated && !isInteracting && ctrlIsInTrigger || ctrlIsInTrigger && !isIlluminated && !isInteracting && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Button Press");
             GetComponent<Renderer>().material = illuminated;
@@ -68,14 +68,21 @@ public class Illuminate : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("in Trigger");
-        ctrlIsInTrigger = true;
+        if(other.CompareTag("Controller"))
+        {
+            Debug.Log("in Trigger");
+            ctrlIsInTrigger = true;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("out of Trigger");
-        ctrlIsInTrigger = false;
+        if (other.CompareTag("Controller"))
+        {
+            Debug.Log("out of Trigger");
+            ctrlIsInTrigger = false;
+        }  
     }
 
     IEnumerator WaitUntilClick()
