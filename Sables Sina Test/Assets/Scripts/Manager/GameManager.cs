@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameValue = Random.Range(2,6);
-        Debug.Log(gameValue);
 
         ButtonGestion();
 
