@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject button;
     public List<GameObject> spawnPointButton;
-    private int numberOfButton = 0;
 
     public GameObject[] loupiotes;
     public GameObject[] door;
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(s_Singleton != null)
+        if (s_Singleton != null)
         {
             Destroy(gameObject);
         }
@@ -42,8 +41,6 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameValue = Random.Range(2,6);
-
         ButtonGestion();
 
         enigmeNumber = loupiotes.Length;
@@ -76,19 +73,38 @@ public class GameManager : MonoBehaviour
 
     void ButtonGestion ()
     {
+        int tmpsRandom = Random.Range(0, 4);
+        Debug.Log("tmpsRandom " + tmpsRandom);
+
+        switch (tmpsRandom)
+        {
+            case 0:
+                gameValue = 2;
+                break;
+
+            case 1:
+                gameValue = 3;
+                break;
+
+            case 2:
+                gameValue = 4;
+                break;
+
+            case 3:
+                gameValue = 5;
+                break;
+        }
+
         int tmpsSpawnPointChoosed;
 
         spawnPointButton.AddRange(GameObject.FindGameObjectsWithTag("SpawnPoint_Button"));
-        foreach (GameObject SpawnPoint_Button in spawnPointButton)
-        {
-            numberOfButton++;
-        }
 
         for (int i = 0; i < gameValue; i++)
         {
-            tmpsSpawnPointChoosed = Random.Range(0, numberOfButton);
+            tmpsSpawnPointChoosed = Random.Range(0, spawnPointButton.Count);
             GameObject tmpsButton;
 
+            Debug.Log("TmpsSpawnPointChoosed " + tmpsSpawnPointChoosed);
             Vector3 tmpsVector = spawnPointButton[tmpsSpawnPointChoosed].transform.position;
 
             tmpsButton = Instantiate(button);
