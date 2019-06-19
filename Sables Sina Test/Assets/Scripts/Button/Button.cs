@@ -30,13 +30,15 @@ public class Button : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Controller ();
 	}
 
     void Controller ()
     {
         if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
         {
+            Debug.Log("Oui!");
+
             if (DoOnce == false)
             {
                 DoOnce = true;

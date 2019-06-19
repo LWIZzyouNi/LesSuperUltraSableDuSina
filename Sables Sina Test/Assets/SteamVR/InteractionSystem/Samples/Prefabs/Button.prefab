@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4000014195058408}
   - component: {fileID: 33000012005186456}
   - component: {fileID: 65000013228355604}
+  - component: {fileID: 114597702018420230}
   - component: {fileID: 114000013560920582}
   - component: {fileID: 114000013988111622}
   - component: {fileID: 114000013679779266}
@@ -265,3 +266,19 @@ MonoBehaviour:
   engaged: 0
   buttonDown: 0
   buttonUp: 0
+--- !u!114 &114597702018420230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014042078020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfe785ec372b0b4da4df792b4efe6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType01: 1
+  handType02: 2
+  buttonAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
