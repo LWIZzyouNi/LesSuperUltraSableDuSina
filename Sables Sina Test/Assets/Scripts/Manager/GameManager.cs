@@ -5,25 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    ///// TOUT CE QUI CONCERNE LE JEU EN LUI MEME /////
     // La valeur de référence pour toute la game!
     public int gameValue = 0;
 
+    // Les Timer
     public float timer = 0;
+
+    // Les "Do Once"
     private bool timerDoOnce = false;
 
+    // Le compte des énigmes
     private int enigmeNumber = 0;
     public int enigmeCompleteNumber = 0;
-
-    public static GameManager s_Singleton;
-
-    public GameObject button;
-    public List<GameObject> spawnPointButton;
-
     public GameObject[] loupiotes;
     public GameObject[] door;
-
     public int roomNumber = 1;
     public bool canPassRoom = true;
+
+    // L'énigme des bouttons
+    public GameObject button;
+    public List<GameObject> spawnPointButton;
+    public int numberOfButtonOn = 0;
+
+    // Le singleton
+    public static GameManager s_Singleton;
 
     private void Awake()
     {
@@ -120,8 +126,18 @@ public class GameManager : MonoBehaviour
 
         if(timer <= 0 && timerDoOnce == false)
         {
+            timer = 0;
             timerDoOnce = true;
             EndGame();
+        }
+    }
+
+    public void ActivateButton ()
+    {
+        numberOfButtonOn++;
+        if(numberOfButtonOn == spawnPointButton.Count)
+        {
+            enigmeCompleteNumber++;
         }
     }
 
