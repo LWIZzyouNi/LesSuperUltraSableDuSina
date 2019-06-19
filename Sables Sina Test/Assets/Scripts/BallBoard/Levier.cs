@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public class Button : MonoBehaviour {
-
+public class Levier : MonoBehaviour
+{
     [Header("Controller Components")]
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
@@ -12,10 +12,19 @@ public class Button : MonoBehaviour {
     private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
 
-    private bool DoOnce = false;
-
     // La vérification du trigger
     public bool ctrlIsInTrigger = false;
+
+    private bool DoOnce = false;
+    public float timerUntilCanTrigger = 0.5f;
+    private float realTimer = 0f;
+
+    public GameObject RB;
+    public GameObject Ball;
+
+    public List<GameObject> spawnPointBall;
+
+    private int state = 0;
 
     private void Awake()
     {
@@ -28,22 +37,32 @@ public class Button : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        realTimer = timerUntilCanTrigger;
+
+        AddInList();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Controller ();
-	}
+        Controller();
+        Timer();
+        BallPos();
+    }
 
-    void Controller ()
+    void Controller()
     {
-        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02)) && ctrlIsInTrigger)  
+        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && ctrlIsInTrigger)
         {
             if (DoOnce == false)
             {
                 DoOnce = true;
-                GameManager.s_Singleton.ActivateButton();
+
+                //LE TRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUC
+                state++;
+                if(state >= spawnPointBall.Count)
+                {
+                    state = 0;
+                }
             }
         }
     }
@@ -64,6 +83,33 @@ public class Button : MonoBehaviour {
         {
             Debug.Log("out of Trigger");
             ctrlIsInTrigger = false;
+        }
+    }
+
+    void Timer ()
+    {
+        if (DoOnce == true)
+        {
+            realTimer -= 1 * Time.deltaTime;
+
+            if (realTimer <= 0)
+            {
+                DoOnce = false;
+                realTimer = timerUntilCanTrigger;
+            }
+        }
+    }
+
+    void AddInList ()
+    {
+        spawnPointBall.AddRange(GameObject.FindGameObjectsWithTag("SpawnPoint_BallBoard_Ball"));
+    }
+
+    void BallPos ()
+    {
+        if (RB.GetComponent<ResetButton>().inAct == false)
+        {
+            Ball.transform.position = spawnPointBall[state].transform.position;
         }
     }
 }

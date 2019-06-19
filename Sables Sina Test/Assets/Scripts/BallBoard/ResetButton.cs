@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR;
 
 public class ResetButton : MonoBehaviour {
+    public bool inAct = false;
 
     private Outline outlineScript;
 
@@ -50,7 +51,8 @@ public class ResetButton : MonoBehaviour {
 
         transform.parent.gameObject.GetComponent<BallBoard>().ResetPlatform();
 
-        ball.transform.position = ballTransformSave;
+        inAct = false;
+        //ball.transform.position = ballTransformSave;
 
         SoundManager.instance.PlaySingle(pressResetButton);
     }
@@ -59,7 +61,7 @@ public class ResetButton : MonoBehaviour {
     {
         if (outlineScript.isOutlined)
         {
-            if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
+            if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space))
             {
                 ResetTab();
                 Debug.Log("Tab is reset");
@@ -75,9 +77,6 @@ public class ResetButton : MonoBehaviour {
 
     private void SavePosition()
     {
-        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
-
         if (!doOnce)
         {
             ballTransformSave = ball.transform.position;

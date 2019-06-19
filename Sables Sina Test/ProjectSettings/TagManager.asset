@@ -20,6 +20,7 @@ TagManager:
   - SpawnPoint_Button
   - SpawnPoint_Stele
   - Stele
+  - SpawnPoint_BallBoard_Ball
   layers:
   - Default
   - TransparentFX
