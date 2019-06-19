@@ -14,6 +14,9 @@ public class Button : MonoBehaviour {
 
     private bool DoOnce = false;
 
+    // La vérification du trigger
+    public bool ctrlIsInTrigger = false;
+
     private void Awake()
     {
         GameObject m_LeftHand = GameObject.Find("Controller (left)");
@@ -35,7 +38,7 @@ public class Button : MonoBehaviour {
 
     void Controller ()
     {
-        if (buttonAction.GetState(handType01) || buttonAction.GetState(handType02))
+        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02)) && ctrlIsInTrigger)  
         {
             Debug.Log("Oui!");
 
@@ -44,6 +47,25 @@ public class Button : MonoBehaviour {
                 DoOnce = true;
                 GameManager.s_Singleton.ActivateButton();
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Controller"))
+        {
+            Debug.Log("in Trigger");
+            ctrlIsInTrigger = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Controller"))
+        {
+            Debug.Log("out of Trigger");
+            ctrlIsInTrigger = false;
         }
     }
 }
