@@ -18,6 +18,8 @@ TagManager:
   - Cryptex
   - Button
   - SpawnPoint_Button
+  - SpawnPoint_Stele
+  - Stele
   layers:
   - Default
   - TransparentFX

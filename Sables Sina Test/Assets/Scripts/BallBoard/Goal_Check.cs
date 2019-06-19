@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal_Check : MonoBehaviour {
 
     public GameObject ballBoard;
+    public int receptacleNumber = 0;
 
     // Use this for initialization
     void Start () {
@@ -18,7 +19,7 @@ public class Goal_Check : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Board_Ball")
+        if(other.gameObject.tag == "Board_Ball" && (GameManager.s_Singleton.spawnPointSteleBallBoard == (receptacleNumber--)))
         {
             other.gameObject.SetActive(false);
 

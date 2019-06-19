@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     public List<GameObject> spawnPointButton;
     public int numberOfButtonOn = 0;
 
+    // Les variables pour la stèle du BallBoard
+    public GameObject steleBallBoard;
+    public List<GameObject> spawnSteleBallBoard;
+    public int spawnPointSteleBallBoard = 0;
+
     // Le singleton
     public static GameManager s_Singleton;
 
@@ -48,6 +53,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ButtonGestion();
+        SpawnStele();
 
         enigmeNumber = loupiotes.Length;
     }
@@ -109,8 +115,7 @@ public class GameManager : MonoBehaviour
         {
             tmpsSpawnPointChoosed = Random.Range(0, spawnPointButton.Count);
             GameObject tmpsButton;
-
-            Debug.Log("TmpsSpawnPointChoosed " + tmpsSpawnPointChoosed);
+            
             Vector3 tmpsVector = spawnPointButton[tmpsSpawnPointChoosed].transform.position;
 
             tmpsButton = Instantiate(button);
@@ -118,6 +123,22 @@ public class GameManager : MonoBehaviour
             
             spawnPointButton.Remove(spawnPointButton[tmpsSpawnPointChoosed]);
         }
+    }
+
+    void SpawnStele()
+    {
+        spawnSteleBallBoard.AddRange(GameObject.FindGameObjectsWithTag("SpawnPoint_Stele"));
+
+        spawnPointSteleBallBoard = Random.Range(0, spawnSteleBallBoard.Count);
+        GameObject tmpsButton;
+
+        Vector3 tmpsVector = spawnSteleBallBoard[spawnPointSteleBallBoard].transform.position;
+
+        tmpsButton = Instantiate(steleBallBoard);
+        tmpsButton.transform.position = tmpsVector;
+
+        spawnSteleBallBoard.Remove(spawnSteleBallBoard[spawnPointSteleBallBoard]);
+
     }
 
     void TimerCount ()
