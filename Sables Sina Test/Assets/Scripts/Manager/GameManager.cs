@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     ///// TOUT CE QUI CONCERNE LE JEU EN LUI MEME /////
     // La valeur de référence pour toute la game!
     public int gameValue = 0;
+    public int error = 0;
+    public int numberMaxError = 1;
 
     // Les Timer
     public float timer = 0;
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         TimerCount();
-
+        CheckError();
         Validation();
     }
 
@@ -163,6 +165,14 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("enigme ++");
             enigmeCompleteNumber++;
+        }
+    }
+
+    void CheckError ()
+    {
+        if(error == numberMaxError)
+        {
+            EndGame();
         }
     }
 

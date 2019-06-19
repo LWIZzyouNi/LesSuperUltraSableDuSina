@@ -19,11 +19,18 @@ public class Goal_Check : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Board_Ball" && (GameManager.s_Singleton.spawnPointSteleBallBoard == (receptacleNumber--)))
+        if(other.gameObject.tag == "Board_Ball")
         {
-            other.gameObject.SetActive(false);
+            if (GameManager.s_Singleton.spawnPointSteleBallBoard == receptacleNumber--)
+            {
+                other.gameObject.SetActive(false);
 
-            ballBoard.GetComponent<BallBoard>().enigmaIsSolved = true;
+                ballBoard.GetComponent<BallBoard>().enigmaIsSolved = true;
+            }
+            else
+            {
+                GameManager.s_Singleton.error++;
+            }
         }
     }
 
