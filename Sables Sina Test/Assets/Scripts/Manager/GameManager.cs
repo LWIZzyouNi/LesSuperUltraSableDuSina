@@ -135,8 +135,12 @@ public class GameManager : MonoBehaviour
     public void ActivateButton ()
     {
         numberOfButtonOn++;
-        if(numberOfButtonOn == spawnPointButton.Count)
+        Debug.Log("++");
+        Debug.Log("SPBC " + gameValue);
+
+        if(numberOfButtonOn == gameValue)
         {
+            Debug.Log("enigme ++");
             enigmeCompleteNumber++;
         }
     }
