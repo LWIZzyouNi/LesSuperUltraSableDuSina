@@ -21,6 +21,9 @@ TagManager:
   - SpawnPoint_Stele
   - Stele
   - SpawnPoint_BallBoard_Ball
+  - ColoredZones
+  - StatueSpawnPoint
+  - Statue
   layers:
   - Default
   - TransparentFX

@@ -1,16 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class Boxes_Check : MonoBehaviour {
-
-    public Illuminate[] m_IlluminateScript;
+    
     public GameObject[] boxes;
+
+    public List<Illuminate> m_Illuminate;
+    public StatuesManager m_StatuesManager;
+    
+    public SteamVR_Fade m_SteamVR_Fade;
 
     public AudioClip audioSrc_EnigmaIsComplete;
     public GameManager m_MyGameManager;
-    //private CanBeDrag m_DragScript;
-    //private Outline m_OutlineScript;
+
+    private float fadeTime = 0.5f;
 
     private bool enigmaIsSolved = false;
     private bool isNumberAdded = false;
@@ -20,18 +26,18 @@ public class Boxes_Check : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        m_IlluminateScript = GetComponentsInChildren<Illuminate>();
-        //m_DragScript = GetComponent<CanBeDrag>();
-        //m_OutlineScript = GetComponent<Outline>();
-
         getChild();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        CheckBoxes();
-        EnigmaIsSolved();
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            CheckResult();
+        }
+
     }
 
     private void getChild()
@@ -41,77 +47,419 @@ public class Boxes_Check : MonoBehaviour {
         for (int i = 0; i < transform.childCount; i++)
         {
             boxes[i] = transform.GetChild(i).gameObject;
+            boxes[i].GetComponent<Illuminate>();
+            m_Illuminate.Add(boxes[i].GetComponent<Illuminate>());
         }
     }
 
-    private void CheckBoxes()
+    private void CheckResult()
     {
-        for(int i = 0; i < boxes.Length; i++)
+        //1
+        if (m_StatuesManager.statue01IsHigher)
         {
-            if (boxes[0].GetComponent<Illuminate>().isIlluminated)
+            if (m_StatuesManager.statue01IsNinety && m_StatuesManager.statue02IsNinety)
             {
-                Debug.Log("Première Case");
+                Debug.Log("Higher. " + " 90 / 90 ");
+
+                if (m_Illuminate[7].isIlluminated && m_Illuminate[12].isIlluminated && m_Illuminate[3].isIlluminated && m_Illuminate[6].isIlluminated && m_Illuminate[2].isIlluminated && m_Illuminate[8].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
             }
 
-            if (boxes[5].GetComponent<Illuminate>().isIlluminated)
+            if (m_StatuesManager.statue01IsNinety && m_StatuesManager.statue02IsTwoHundredSeventy)
             {
-                Debug.Log("Deuxième Case");
+                Debug.Log("Higher. " + " 90 / 270 ");
+
+                if (m_Illuminate[5].isIlluminated && m_Illuminate[4].isIlluminated && m_Illuminate[9].isIlluminated && m_Illuminate[11].isIlluminated && m_Illuminate[15].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
             }
 
-            if (boxes[10].GetComponent<Illuminate>().isIlluminated)
+            if (m_StatuesManager.statue01IsTwoHundredSeventy && m_StatuesManager.statue02IsNinety)
             {
-                Debug.Log("Troisième Case");
+                Debug.Log("Higher. " + " 270 / 90 ");
+
+                if (m_Illuminate[15].isIlluminated && m_Illuminate[12].isIlluminated && m_Illuminate[1].isIlluminated && m_Illuminate[2].isIlluminated && m_Illuminate[4].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
             }
 
-            if (boxes[12].GetComponent<Illuminate>().isIlluminated)
+            if (m_StatuesManager.statue01IsTwoHundredSeventy && m_StatuesManager.statue02IsTwoHundredSeventy)
             {
-                Debug.Log("Quatrième Case");
-            }
+                Debug.Log("Higher. " + " 270 / 270 ");
 
-            if (boxes[7].GetComponent<Illuminate>().isIlluminated)
-            {
-                Debug.Log("5eme Case");
-            }
+                if (m_Illuminate[4].isIlluminated && m_Illuminate[15].isIlluminated && m_Illuminate[10].isIlluminated && m_Illuminate[6].isIlluminated && m_Illuminate[7].isIlluminated)
+                {
+                    Debug.Log("You win !");
 
-            if (boxes[3].GetComponent<Illuminate>().isIlluminated)
-            {
-                Debug.Log("6eme Case");
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
             }
         }
 
+        //2
+        if (m_StatuesManager.statue01IsLower)
+        {
+            if (m_StatuesManager.statue01IsNinety && m_StatuesManager.statue02IsNinety)
+            {
+                Debug.Log("Lower. " + " 90 / 90 ");
 
+                if (m_Illuminate[5].isIlluminated && m_Illuminate[6].isIlluminated && m_Illuminate[11].isIlluminated && m_Illuminate[13].isIlluminated && m_Illuminate[14].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+
+            if (m_StatuesManager.statue01IsNinety && m_StatuesManager.statue02IsTwoHundredSeventy)
+            {
+                Debug.Log("Lower. " + " 90 / 270 ");
+
+                if (m_Illuminate[14].isIlluminated && m_Illuminate[11].isIlluminated && m_Illuminate[10].isIlluminated && m_Illuminate[9].isIlluminated && m_Illuminate[6].isIlluminated && m_Illuminate[5].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+
+            if (m_StatuesManager.statue01IsTwoHundredSeventy && m_StatuesManager.statue02IsNinety)
+            {
+                Debug.Log("Lower. " + " 270 / 90 ");
+
+                if (m_Illuminate[3].isIlluminated && m_Illuminate[14].isIlluminated && m_Illuminate[10].isIlluminated && m_Illuminate[6].isIlluminated && m_Illuminate[2].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+
+            if (m_StatuesManager.statue01IsTwoHundredSeventy && m_StatuesManager.statue02IsTwoHundredSeventy)
+            {
+                Debug.Log("Lower. " + " 270 / 270 ");
+
+                if (m_Illuminate[4].isIlluminated && m_Illuminate[12].isIlluminated && m_Illuminate[8].isIlluminated && m_Illuminate[5].isIlluminated && m_Illuminate[1].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+        }
+
+        //3
+        if (m_StatuesManager.statuesAreEquals)
+        {
+            if (m_StatuesManager.statue01IsNinety && m_StatuesManager.statue02IsNinety)
+            {
+                Debug.Log("Equals. " + " 90 / 90 ");
+
+                if (m_Illuminate[1].isIlluminated && m_Illuminate[2].isIlluminated && m_Illuminate[5].isIlluminated && m_Illuminate[6].isIlluminated && m_Illuminate[10].isIlluminated && m_Illuminate[11].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+
+            if (m_StatuesManager.statue01IsNinety && m_StatuesManager.statue02IsTwoHundredSeventy)
+            {
+                Debug.Log("Equals. " + " 90 / 270 ");
+
+                if (m_Illuminate[3].isIlluminated && m_Illuminate[4].isIlluminated && m_Illuminate[8].isIlluminated && m_Illuminate[7].isIlluminated && m_Illuminate[13].isIlluminated && m_Illuminate[14].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+
+            if (m_StatuesManager.statue01IsTwoHundredSeventy && m_StatuesManager.statue02IsNinety)
+            {
+
+                Debug.Log("Equals. " + " 270 / 90 ");
+
+                if (m_Illuminate[4].isIlluminated && m_Illuminate[13].isIlluminated && m_Illuminate[14].isIlluminated && m_Illuminate[11].isIlluminated && m_Illuminate[1].isIlluminated && m_Illuminate[3].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+
+            if (m_StatuesManager.statue01IsTwoHundredSeventy && m_StatuesManager.statue02IsTwoHundredSeventy)
+            {
+                Debug.Log("Equals. " + " 270 / 270 ");
+
+                if (m_Illuminate[15].isIlluminated && m_Illuminate[1].isIlluminated && m_Illuminate[8].isIlluminated && m_Illuminate[5].isIlluminated && m_Illuminate[7].isIlluminated && m_Illuminate[4].isIlluminated)
+                {
+                    Debug.Log("You win !");
+
+                    enigmaIsSolved = true;
+                    Debug.Log(enigmaIsSolved);
+                    if (!isNumberAdded)
+                    {
+                        // Une énigme est résolue
+                        m_MyGameManager.enigmeCompleteNumber++;
+                        SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
+                    }
+
+                    if (enigmaIsSolved)
+                    {
+                        isNumberAdded = true;
+                    }
+                }
+
+                else
+                {
+                    Debug.Log("You loose, this is not the correct answer !");
+
+                    // Rappel des fonctions, remise à zéro et nouveau pattern en cas d'échec du joueur
+                    StartCoroutine(FadeAway());
+                }
+            }
+        }
     }
-    
-    private void EnigmaIsSolved()
+
+    IEnumerator FadeAway()
     {
-        if (boxes[0].GetComponent<Illuminate>().isIlluminated && boxes[5].GetComponent<Illuminate>().isIlluminated 
-                    && boxes[10].GetComponent<Illuminate>().isIlluminated  && boxes[12].GetComponent<Illuminate>().isIlluminated &&
-                        boxes[7].GetComponent<Illuminate>().isIlluminated && boxes[3].GetComponent<Illuminate>().isIlluminated &&
-                            caseNumber == 6)
-        {
-            enigmaIsSolved = true;
-            Debug.Log(enigmaIsSolved);
-            if(!isNumberAdded)
-            {
-                // Une énigme est résolue
-                m_MyGameManager.enigmeCompleteNumber++;
-                SoundManager.instance.PlaySingle(audioSrc_EnigmaIsComplete);
-            }
-        }
+        SteamVR_Fade.Start(Color.black, fadeTime, true);
 
-        if (enigmaIsSolved)
-        {
-            isNumberAdded = true;
+        Debug.Log(" Fade is starting ");
 
-            /*
-            m_DragScript.Dezoom();
-            m_DragScript.isLocked = false;
-            m_DragScript.isInteractive = false;
-            m_DragScript.canRotate = false;
+        yield return new WaitForSeconds(fadeTime);
 
-            m_OutlineScript.GetComponent<Renderer>().material = m_OutlineScript.nonOutlined;
-            m_OutlineScript.isOutlined = false;
-            */
-        }
+        SceneManager.LoadScene(0);
     }
 }

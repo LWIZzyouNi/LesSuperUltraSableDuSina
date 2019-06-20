@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 54313581705752546}
   - component: {fileID: 138406603360228492}
   - component: {fileID: 114299536893357404}
+  - component: {fileID: 114294822504473984}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Controller
@@ -31,6 +32,7 @@ GameObject:
   - component: {fileID: 2348914}
   - component: {fileID: 3380982}
   - component: {fileID: 11489174}
+  - component: {fileID: 114239630794561492}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Untagged
@@ -67,6 +69,7 @@ GameObject:
   - component: {fileID: 135898643018012630}
   - component: {fileID: 138330648524390090}
   - component: {fileID: 114344876826468536}
+  - component: {fileID: 114049198129432864}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Controller
@@ -284,6 +287,7 @@ GameObject:
   - component: {fileID: 4000013889601590}
   - component: {fileID: 20000014031267948}
   - component: {fileID: 114752983219330656}
+  - component: {fileID: 114116574406972120}
   m_Layer: 0
   m_Name: HeadSetCamera
   m_TagString: Untagged
@@ -487,6 +491,61 @@ MonoBehaviour:
     m_TypeName: Valve.VR.SteamVR_Behaviour_Pose_DeviceIndexChangedEvent, SteamVR,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   broadcastDeviceChanges: 1
+--- !u!114 &114049198129432864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52eaa3775e6d9224db4ea070b9129893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GrabAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_ContactInterectables: []
+--- !u!114 &114116574406972120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014254142504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 0}
+  _ears: {fileID: 0}
+  wireframe: 0
+--- !u!114 &114239630794561492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad1e469d4e3e04489f9a36419f1a4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114294822504473984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52eaa3775e6d9224db4ea070b9129893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GrabAction:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  m_ContactInterectables: []
 --- !u!114 &114299536893357404
 MonoBehaviour:
   m_ObjectHideFlags: 1
