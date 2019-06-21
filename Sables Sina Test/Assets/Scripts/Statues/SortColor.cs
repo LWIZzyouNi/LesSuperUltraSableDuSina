@@ -10,7 +10,12 @@ public class SortColor : MonoBehaviour {
     int randomColor02 = 0;
     int randomColor03 = 0;
 
-    public Color[] colors = { Color.blue, Color.red, Color.yellow, Color.green };
+    public Color color01;
+    public Color color02;
+    public Color color03;
+    public Color color04;
+
+    public Color[] colors = new Color[4];
 
     [SerializeField]
     public List<Renderer> renderers;
@@ -27,6 +32,7 @@ public class SortColor : MonoBehaviour {
     void Start()
     {
         getChild();
+        InitialiseListOfColor();
         FirstColorAttribution();
         CheckColor();
         SetForbiddenZone();
@@ -45,6 +51,14 @@ public class SortColor : MonoBehaviour {
         }
     }
 
+    private void InitialiseListOfColor()
+    {
+        colors[0] = color01;
+        colors[1] = color02;
+        colors[2] = color03;
+        colors[3] = color04;
+    }
+
     public void FirstColorAttribution()
     {
         randomColor01 = Random.Range(0, colors.Length);
@@ -59,9 +73,9 @@ public class SortColor : MonoBehaviour {
 
         //First Color is Blue
 
-        if (renderers[0].material.color == Color.blue)
+        if (renderers[0].material.color == color01)
         {
-            Color[] colorsAfterFirstAttribution = { Color.red, Color.yellow, Color.green };
+            Color[] colorsAfterFirstAttribution = { color02, color03, color04 };
 
             randomColor02 = Random.Range(0, colorsAfterFirstAttribution.Length);
 
@@ -71,82 +85,82 @@ public class SortColor : MonoBehaviour {
 
             //Second Color is Red (B, R, ?, ?)
 
-            if (renderers[1].material.color == Color.red)
+            if (renderers[1].material.color == color02)
            {
                 Debug.Log("Second color is red");
 
-                Color[] colorsAfterSecondAttribution = { Color.yellow, Color.green };
+                Color[] colorsAfterSecondAttribution = { color03, color04 };
 
                     randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Yellow (B, R, Y, ?)
-                if(renderers[2].material.color == Color.yellow)
+                if(renderers[2].material.color == color03)
                 {
                     //Fourth Color is Green (B, R, Y, G)
-                    renderers[3].material.color = Color.green;
+                    renderers[3].material.color = color04;
                 }
 
                 //Third Color is Green (B, R, G, ?)
-                else if (renderers[2].material.color == Color.green)
+                else if (renderers[2].material.color == color04)
                 {
                     //Fourth Color is Yellow (B, R, G, Y)
-                    renderers[3].material.color = Color.yellow;
+                    renderers[3].material.color = color03;
                 }
             }
 
             //Second Color is Yellow (B, Y, ?, ?)
 
-            else if (renderers[1].material.color == Color.yellow)
+            else if (renderers[1].material.color == color03)
             {
                 Debug.Log("Second color is yellow");
 
-                Color[] colorsAfterSecondAttribution = { Color.green, Color.red };
+                Color[] colorsAfterSecondAttribution = { color04, color02 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Green (B, Y, G, ?)
-                if (renderers[2].material.color == Color.green)
+                if (renderers[2].material.color == color04)
                 {
                     //Fourth Color is Red (B, Y, G, R)
-                    renderers[3].material.color = Color.red;
+                    renderers[3].material.color = color02;
                 }
 
                 //Third Color is Red (B, Y, R, ?)
-                else if (renderers[2].material.color == Color.red)
+                else if (renderers[2].material.color == color02)
                 {
                     //Fourth Color is Green (B, Y, R, G)
-                    renderers[3].material.color = Color.green;
+                    renderers[3].material.color = color04;
                 }
             }
 
             //Second Color is Green (B, G, ?, ?)
 
-            else if (renderers[1].material.color == Color.green)
+            else if (renderers[1].material.color == color04)
             {
                 Debug.Log("Second color is green");
 
-                Color[] colorsAfterSecondAttribution = { Color.red, Color.yellow };
+                Color[] colorsAfterSecondAttribution = { color02, color03 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Red (B, G, R, ?)
-                if (renderers[2].material.color == Color.red)
+                if (renderers[2].material.color == color02)
                 {
                     //Fourth Color is Yellow (B, G, R, Y)
-                    renderers[3].material.color = Color.yellow;
+                    renderers[3].material.color = color03;
                 }
 
                 //Third Color is Yellow (B, G, Y, ?)
-                else if (renderers[2].material.color == Color.yellow)
+                else if (renderers[2].material.color == color03)
                 {
                     //Fourth Color is Red (B, G, Y, R)
-                    renderers[3].material.color = Color.red;
+                    renderers[3].material.color = color02;
                 }
                 
             }
@@ -155,9 +169,9 @@ public class SortColor : MonoBehaviour {
 
         //First Color is Red
 
-        else if (renderers[0].material.color == Color.red)
+        else if (renderers[0].material.color == color02)
         {
-            Color[] colorsAfterFirstAttribution = { Color.blue, Color.yellow, Color.green };
+            Color[] colorsAfterFirstAttribution = { color01, color03, color04 };
 
             randomColor02 = Random.Range(0, colorsAfterFirstAttribution.Length);
 
@@ -167,84 +181,84 @@ public class SortColor : MonoBehaviour {
             // Checking second color
             // Second Color is Blue (R, B, ?, ?)
 
-            if (renderers[1].material.color == Color.blue)
+            if (renderers[1].material.color == color01)
              {
                 Debug.Log("Second color is blue");
 
-                Color[] colorsAfterSecondAttribution = { Color.yellow, Color.green };
+                Color[] colorsAfterSecondAttribution = { color03, color04 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Yellow (R, B, Y, ?)
-                if (renderers[2].material.color == Color.yellow)
+                if (renderers[2].material.color == color03)
                 {
                     //Fourth Color is Green (R, B, Y, G)
-                    renderers[3].material.color = Color.green;
+                    renderers[3].material.color = color04;
                 }
 
                 //Third Color is Green (R, B, G, ?)
-                else if (renderers[2].material.color == Color.green)
+                else if (renderers[2].material.color == color04)
                 {
                     //Fourth Color is Yellow (R, B, G, Y)
-                    renderers[3].material.color = Color.yellow;
+                    renderers[3].material.color = color03;
                 }
                 
             }
 
             // Second Color is Yellow (R, Y, ?, ?)
 
-            else if (renderers[1].material.color == Color.yellow)
+            else if (renderers[1].material.color == color03)
             {
                 Debug.Log("Second color is yellow");
 
-                Color[] colorsAfterSecondAttribution = { Color.green, Color.blue };
+                Color[] colorsAfterSecondAttribution = { color04, color01 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Green (R, Y, G, ?)
-                if (renderers[2].material.color == Color.green)
+                if (renderers[2].material.color == color04)
                 {
                     //Fourth Color is Blue (R, Y, G, B)
-                    renderers[3].material.color = Color.blue;
+                    renderers[3].material.color = color01;
                 }
 
                 //Third Color is Blue (R, Y, B, ?)
-                else if (renderers[2].material.color == Color.blue)
+                else if (renderers[2].material.color == color01)
                 {
                     //Fourth Color is Green (R, Y, B, G)
-                    renderers[3].material.color = Color.green;
+                    renderers[3].material.color = color04;
                 }
                 
             }
 
             // Second Color is Green (R, G, ?, ?)
 
-            else if (renderers[1].material.color == Color.green)
+            else if (renderers[1].material.color == color04)
             {
                 Debug.Log("Second color is green");
 
-                Color[] colorsAfterSecondAttribution = { Color.blue, Color.yellow };
+                Color[] colorsAfterSecondAttribution = { color01, color03 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Blue (R, G, B, ?)
-                if (renderers[2].material.color == Color.blue)
+                if (renderers[2].material.color == color01)
                 {
                     //Fourth Color is Yellow (R, G, B, ?)
-                    renderers[3].material.color = Color.yellow;
+                    renderers[3].material.color = color03;
                 }
 
                 //Third Color is Yellow (R, G, Y, ?)
-                else if (renderers[2].material.color == Color.yellow)
+                else if (renderers[2].material.color == color03)
                 {
                     //Fourth Color is Blue (R, G, Y, B)
-                    renderers[3].material.color = Color.blue;
+                    renderers[3].material.color = color01;
                 }
                 
             }
@@ -252,9 +266,9 @@ public class SortColor : MonoBehaviour {
 
         //First Color is Green
 
-        else if (renderers[0].material.color == Color.green)
+        else if (renderers[0].material.color == color04)
         {
-            Color[] colorsAfterFirstAttribution = { Color.red, Color.blue, Color.yellow };
+            Color[] colorsAfterFirstAttribution = { color02, color01, color03 };
 
             randomColor02 = Random.Range(0, colorsAfterFirstAttribution.Length);
 
@@ -263,93 +277,93 @@ public class SortColor : MonoBehaviour {
             // Checking second color
             // Second Color is Red (G, R, ?, ?)
 
-            if (renderers[1].material.color == Color.red)
+            if (renderers[1].material.color == color02)
             {
                 Debug.Log("Second color is red");
 
-                Color[] colorsAfterSecondAttribution = { Color.blue, Color.yellow };
+                Color[] colorsAfterSecondAttribution = { color01, color03 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Blue (G, R, B, ?)
-                if (renderers[2].material.color == Color.blue)
+                if (renderers[2].material.color == color01)
                 {
                     //Fourth Color is Yellow (G, R, B, Y)
-                    renderers[3].material.color = Color.yellow;
+                    renderers[3].material.color = color03;
                 }
 
                 //Third Color is Yellow (G, R, Y, ?)
-                else if (renderers[2].material.color == Color.yellow)
+                else if (renderers[2].material.color == color03)
                 {
                     //Fourth Color is Blue (G, R, Y, B)
-                    renderers[3].material.color = Color.blue;
+                    renderers[3].material.color = color01;
                 }
                 
             }
 
             // Second Color is Blue (G, B, ?, ?)
 
-            else if (renderers[1].material.color == Color.blue)
+            else if (renderers[1].material.color == color01)
             {
                 Debug.Log("Second color is blue");
 
-                Color[] colorsAfterSecondAttribution = { Color.yellow, Color.red };
+                Color[] colorsAfterSecondAttribution = { color03, color02 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Yellow (G, B, Y, ?)
-                if (renderers[2].material.color == Color.yellow)
+                if (renderers[2].material.color == color03)
                 {
                     //Fourth Color is Red (G, B, Y, R)
-                    renderers[3].material.color = Color.red;
+                    renderers[3].material.color = color02;
                 }
 
                 //Third Color is Red (G, B, R, ?)
-                else if (renderers[2].material.color == Color.red)
+                else if (renderers[2].material.color == color02)
                 {
                     //Fourth Color is Yellow (G, B, R, Y)
-                    renderers[3].material.color = Color.yellow;
+                    renderers[3].material.color = color03;
                 }
                 
             }
 
             // Second Color is Yellow (G, Y, ?, ?)
 
-            else if (renderers[1].material.color == Color.yellow)
+            else if (renderers[1].material.color == color03)
             {
                 Debug.Log("Second color is yellow");
 
-                Color[] colorsAfterSecondAttribution = { Color.red, Color.blue };
+                Color[] colorsAfterSecondAttribution = { color02, color01 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Red (G, Y, R, ?)
-                if (renderers[2].material.color == Color.red)
+                if (renderers[2].material.color == color02)
                 {
                     //Fourth Color is Blue (G, Y, R, B)
-                    renderers[3].material.color = Color.blue;
+                    renderers[3].material.color = color01;
                 }
                 
                 //Third Color is Blue (G, Y, B, ?)
-                else if (renderers[2].material.color == Color.blue)
+                else if (renderers[2].material.color == color01)
                 {
                     //Fourth Color is Red (G, Y, B, R)
-                    renderers[3].material.color = Color.red;
+                    renderers[3].material.color = color02;
                 }
             }
         }
 
         //First Color is Yellow
 
-        else if (renderers[0].material.color == Color.yellow)
+        else if (renderers[0].material.color == color03)
         {
-            Color[] colorsAfterFirstAttribution = { Color.red, Color.blue, Color.green };
+            Color[] colorsAfterFirstAttribution = { color02, color01, color04 };
 
             randomColor02 = Random.Range(0, colorsAfterFirstAttribution.Length);
 
@@ -358,84 +372,84 @@ public class SortColor : MonoBehaviour {
             // Checking second color
             // Second Color is Red (Y, R, ?, ?)
 
-            if (renderers[1].material.color == Color.red)
+            if (renderers[1].material.color == color02)
             {
                 Debug.Log("Second color is red");
 
-                Color[] colorsAfterSecondAttribution = { Color.blue, Color.green };
+                Color[] colorsAfterSecondAttribution = { color01, color04 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Blue (Y, R, B, ?)
-                if (renderers[2].material.color == Color.blue)
+                if (renderers[2].material.color == color01)
                 {
                     //Fourth Color is Green (Y, R, B, G)
-                    renderers[3].material.color = Color.green;
+                    renderers[3].material.color = color04;
                 }
 
                 //Third Color is Green (Y, R, G, ?)
-                else if (renderers[2].material.color == Color.green)
+                else if (renderers[2].material.color == color04)
                 {
                     //Fourth Color is Blue (Y, R, G, B)
-                    renderers[3].material.color = Color.blue;
+                    renderers[3].material.color = color01;
                 }
                 
             }
 
             // Second Color is Blue (Y, B, ?, ?)
 
-            else if (renderers[1].material.color == Color.blue)
+            else if (renderers[1].material.color == color01)
             {
                 Debug.Log("Second color is blue");
 
-                Color[] colorsAfterSecondAttribution = { Color.green, Color.red };
+                Color[] colorsAfterSecondAttribution = { color04, color02 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Green (Y, B, G, ?)
-                if (renderers[2].material.color == Color.green)
+                if (renderers[2].material.color == color04)
                 {
                     //Fourth Color is Red (Y, B, G, R)
-                    renderers[3].material.color = Color.red;
+                    renderers[3].material.color = color02;
                 }
 
                 //Third Color is Red (Y, B, R, ?)
-                else if (renderers[2].material.color == Color.red)
+                else if (renderers[2].material.color == color02)
                 {
                     //Fourth Color is Green (Y, B, R, G)
-                    renderers[3].material.color = Color.green;
+                    renderers[3].material.color = color04;
                 }
                 
             }
 
             // Second Color is Green (Y, G, ?, ?)
 
-            else if (renderers[1].material.color == Color.green)
+            else if (renderers[1].material.color == color04)
             {
                 Debug.Log("Second color is green");
 
-                Color[] colorsAfterSecondAttribution = { Color.red, Color.blue };
+                Color[] colorsAfterSecondAttribution = { color02, color01 };
 
                 randomColor03 = Random.Range(0, colorsAfterSecondAttribution.Length);
 
                 renderers[2].material.color = colorsAfterSecondAttribution[randomColor03];
 
                 //Third Color is Red (Y, G, R, ?)
-                if (renderers[2].material.color == Color.red)
+                if (renderers[2].material.color == color02)
                 {
                     //Fourth Color is Blue (Y, G, R, B)
-                    renderers[3].material.color = Color.blue;
+                    renderers[3].material.color = color01;
                 }
 
                 //Third Color is Blue (Y, G, B, ?)
-                else if (renderers[2].material.color == Color.blue)
+                else if (renderers[2].material.color == color01)
                 {
                     //Fourth Color is Red (Y, G, B, R)
-                    renderers[3].material.color = Color.red;
+                    renderers[3].material.color = color02;
                 }
                 
             }
@@ -444,25 +458,25 @@ public class SortColor : MonoBehaviour {
 
     public void SetForbiddenZone()
     {
-        if (objectToColor[1].GetComponent<Renderer>().material.color == Color.red)
+        if (objectToColor[1].GetComponent<Renderer>().material.color == color02)
         {
             forbiddenZoneIsGreen = true;
             Debug.Log("Forbidden color is green");
         }
 
-        else if (objectToColor[1].GetComponent<Renderer>().material.color == Color.green)
+        else if (objectToColor[1].GetComponent<Renderer>().material.color == color04)
         {
             forbiddenZoneIsBlue = true;
             Debug.Log("Forbidden color is blue");
         }
 
-        else if(objectToColor[1].GetComponent<Renderer>().material.color == Color.blue)
+        else if(objectToColor[1].GetComponent<Renderer>().material.color == color01)
         {
             forbiddenZoneIsRed = true;
             Debug.Log("Forbidden color is red");
         }
 
-        else if(objectToColor[1].GetComponent<Renderer>().material.color == Color.yellow)
+        else if(objectToColor[1].GetComponent<Renderer>().material.color == color03)
         {
             forbiddenZoneIsYellow = true;
             Debug.Log("Forbidden color is yellow");
@@ -473,33 +487,33 @@ public class SortColor : MonoBehaviour {
     {
         if(forbiddenZoneIsGreen)
         {
-            if (renderers[2].material.color == Color.red)
+            if (renderers[2].material.color == color02)
             {
                 forbiddenZoneIsDownLeft = true;
             }
-            else if (renderers[3].material.color == Color.red)
+            else if (renderers[3].material.color == color02)
             {
                 forbiddenZoneIsDownRight = true;
             }
         }
         else if (forbiddenZoneIsBlue)
         {
-            if (renderers[2].material.color == Color.green)
+            if (renderers[2].material.color == color04)
             {
                 forbiddenZoneIsDownLeft = true;
             }
-            else if (renderers[3].material.color == Color.green)
+            else if (renderers[3].material.color == color04)
             {
                 forbiddenZoneIsDownRight = true;
             }
         }
         else if (forbiddenZoneIsRed)
         {
-            if (renderers[2].material.color == Color.blue)
+            if (renderers[2].material.color == color01)
             {
                 forbiddenZoneIsDownLeft = true;
             }
-            else if (renderers[3].material.color == Color.blue)
+            else if (renderers[3].material.color == color01)
             {
                 forbiddenZoneIsDownRight = true;
             }

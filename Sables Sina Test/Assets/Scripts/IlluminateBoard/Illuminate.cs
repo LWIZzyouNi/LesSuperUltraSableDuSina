@@ -46,7 +46,12 @@ public class Illuminate : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-         if (buttonAction.GetStateDown(handType01) && !isIlluminated && !isInteracting && ctrlIsInTrigger || buttonAction.GetStateDown(handType02) && !isIlluminated && !isInteracting && ctrlIsInTrigger || ctrlIsInTrigger && !isIlluminated && !isInteracting && Input.GetKeyDown(KeyCode.Space))
+        InputsCheck();
+    }
+
+    private void InputsCheck()
+    {
+        if ((buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02) || Input.GetKeyDown(KeyCode.Space)) && ctrlIsInTrigger && !isIlluminated && !isInteracting)
         {
             Debug.Log("Button Press");
             GetComponent<Renderer>().material = illuminated;
@@ -55,15 +60,16 @@ public class Illuminate : MonoBehaviour {
             StartCoroutine(WaitUntilClick());
         }
 
-        else if (buttonAction.GetStateDown(handType01) && isIlluminated && !isInteracting && ctrlIsInTrigger || buttonAction.GetStateDown(handType02) && isIlluminated && !isInteracting && ctrlIsInTrigger || Input.GetKeyDown(KeyCode.Space) && isIlluminated && !isInteracting && ctrlIsInTrigger /*&& m_DragScript.isLocked*/)
+        else if ((buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02) || Input.GetKeyDown(KeyCode.Space)) && ctrlIsInTrigger && !isIlluminated && !isInteracting)
         {
-                Debug.Log("Button Press Back");
-                GetComponent<Renderer>().material = notIlluminated;
-                isIlluminated = false;
-                Debug.Log(isIlluminated);
-                StartCoroutine(WaitUntilClick());
+            Debug.Log("Button Press Back");
+            GetComponent<Renderer>().material = notIlluminated;
+            isIlluminated = false;
+            Debug.Log(isIlluminated);
+            StartCoroutine(WaitUntilClick());
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -39,12 +39,17 @@ public class Activation : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        InputsCheck();
+    }
+    
+    private void InputsCheck()
+    {
         if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)
         {
             Act();
         }
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Controller"))

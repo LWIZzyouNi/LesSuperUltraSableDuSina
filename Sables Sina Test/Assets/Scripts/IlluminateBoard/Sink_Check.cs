@@ -33,11 +33,15 @@ public class Sink_Check : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)
+        InputsCheck();
+    }
+
+    private void InputsCheck()
+    {
+        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)
         {
             m_Boxes_Check.CheckResult();
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

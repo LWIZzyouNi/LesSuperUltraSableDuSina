@@ -49,14 +49,18 @@ public class Levier : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        InputsCheck();
+        Timer();
+        BallPos();
+    }
 
+
+    void InputsCheck()
+    {
         if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)
         {
             Controller();
         }
-
-        Timer();
-        BallPos();
     }
 
     void Controller()

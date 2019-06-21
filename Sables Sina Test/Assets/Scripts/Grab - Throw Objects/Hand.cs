@@ -22,8 +22,13 @@ public class Hand : MonoBehaviour {
 
 	private void Update ()
     {
-		//Down
-        if(m_GrabAction.GetStateDown(m_Pose.inputSource))
+        InputsCheck();
+    }
+
+    void InputsCheck()
+    {
+        //Down
+        if (m_GrabAction.GetStateDown(m_Pose.inputSource))
         {
             print(m_Pose.inputSource + " Trigger Down");
             Pickup();
@@ -35,7 +40,6 @@ public class Hand : MonoBehaviour {
             print(m_Pose.inputSource + " Trigger Up");
             Drop();
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

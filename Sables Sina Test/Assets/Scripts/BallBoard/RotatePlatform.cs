@@ -44,19 +44,20 @@ public class RotatePlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (m_Outline_Script.isOutlined)
-        {
-            if((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && !isInteracting)
-            {
-                PlateformRotate();
-                StartCoroutine(WaitUntilClick());
-                SoundManager.instance.RandomizeSFX(rotatingPlateformSound);
-                //Debug.Log(transform.eulerAngles.z);
-            }
-        }   
+        InputsCheck();
     }
 
     //transform.rotation.z == 0.3420201f && transform.rotation.w == 0.9396927f
+
+    void InputsCheck()
+    {
+        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && !isInteracting && m_Outline_Script.isOutlined)
+        {
+            PlateformRotate();
+            StartCoroutine(WaitUntilClick());
+            SoundManager.instance.RandomizeSFX(rotatingPlateformSound);
+        }
+    }
 
     private void PlateformRotate()
     {
