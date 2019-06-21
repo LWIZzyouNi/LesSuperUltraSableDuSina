@@ -46,7 +46,7 @@ public class RotatePlatform : MonoBehaviour {
     {
         if (m_Outline_Script.isOutlined)
         {
-            if(buttonAction.GetState(handType01) && !isInteracting || buttonAction.GetState(handType02) && !isInteracting || Input.GetKeyDown(KeyCode.Space) && !isInteracting)
+            if((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && !isInteracting)
             {
                 PlateformRotate();
                 StartCoroutine(WaitUntilClick());

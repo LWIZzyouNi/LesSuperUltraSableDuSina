@@ -11,8 +11,6 @@ public class Boxes_Check : MonoBehaviour {
     public List<Illuminate> m_Illuminate;
     public StatuesManager m_StatuesManager;
     
-    public SteamVR_Fade m_SteamVR_Fade;
-
     public AudioClip audioSrc_EnigmaIsComplete;
     public GameManager m_MyGameManager;
 
@@ -30,12 +28,7 @@ public class Boxes_Check : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            CheckResult();
-        }
-
+        
     }
 
     private void getChild()
@@ -50,7 +43,7 @@ public class Boxes_Check : MonoBehaviour {
         }
     }
 
-    private void CheckResult()
+    public void CheckResult()
     {
         //1
         if (m_StatuesManager.statue01IsHigher)

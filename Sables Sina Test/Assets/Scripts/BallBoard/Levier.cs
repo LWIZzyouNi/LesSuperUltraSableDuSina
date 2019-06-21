@@ -12,13 +12,15 @@ public class Levier : MonoBehaviour
     private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
 
+    private Outline m_Outline_Script;
+
     // La vérification du trigger
     public bool ctrlIsInTrigger = false;
 
     private bool DoOnce = false;
     public float timerUntilCanTrigger = 0.5f;
     private float realTimer = 0f;
-
+    
     public GameObject RB;
     public GameObject Ball;
 
@@ -33,6 +35,8 @@ public class Levier : MonoBehaviour
 
         GameObject m_handRight = GameObject.Find("Controller (right)");
         rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+
+        m_Outline_Script = GetComponent<Outline>();
     }
 
     // Use this for initialization
@@ -43,26 +47,29 @@ public class Levier : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        Controller();
+	void Update ()
+    {
+
+        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)
+        {
+            Controller();
+        }
+
         Timer();
         BallPos();
     }
 
     void Controller()
     {
-        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && ctrlIsInTrigger)
+        if (!DoOnce)
         {
-            if (DoOnce == false)
-            {
-                DoOnce = true;
+            DoOnce = true;
 
-                //LE TRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUC
-                state++;
-                if(state >= spawnPointBall.Count)
-                {
-                    state = 0;
-                }
+            //LE TRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUC
+            state++;
+            if (state >= spawnPointBall.Count)
+            {
+                state = 0;
             }
         }
     }

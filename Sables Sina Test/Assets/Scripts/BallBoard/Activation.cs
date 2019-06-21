@@ -5,11 +5,14 @@ using Valve.VR;
 
 public class Activation : MonoBehaviour {
 
+    [Header("Controller Components")]
     public SteamVR_Input_Sources handType01;
     public SteamVR_Input_Sources handType02;
     private SteamVR_Behaviour_Pose leftHand;
     private SteamVR_Behaviour_Pose rightHand;
     public SteamVR_Action_Boolean buttonAction;
+
+    private Outline m_Outline_Script;
 
     // La vérification du trigger
     public bool ctrlIsInTrigger = false;
@@ -24,6 +27,8 @@ public class Activation : MonoBehaviour {
 
         GameObject m_handRight = GameObject.Find("Controller (right)");
         rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+
+        m_Outline_Script = GetComponent<Outline>();
     }
 
     // Use this for initialization
@@ -32,18 +37,14 @@ public class Activation : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        Controller();
-	}
-
-    void Controller()
+	void Update ()
     {
-        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && ctrlIsInTrigger)
+        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)
         {
             Act();
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Controller"))
