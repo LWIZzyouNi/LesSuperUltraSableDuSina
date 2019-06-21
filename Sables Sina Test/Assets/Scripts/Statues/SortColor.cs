@@ -20,6 +20,9 @@ public class SortColor : MonoBehaviour {
     public bool forbiddenZoneIsRed = false;
     public bool forbiddenZoneIsYellow = false;
 
+    public bool forbiddenZoneIsDownLeft = false;
+    public bool forbiddenZoneIsDownRight = false;
+
     // Use this for initialization
     void Start()
     {
@@ -27,6 +30,7 @@ public class SortColor : MonoBehaviour {
         FirstColorAttribution();
         CheckColor();
         SetForbiddenZone();
+        LimitationAttribution();
     }
 
     private void getChild()
@@ -462,6 +466,43 @@ public class SortColor : MonoBehaviour {
         {
             forbiddenZoneIsYellow = true;
             Debug.Log("Forbidden color is yellow");
+        }
+    }
+
+    void LimitationAttribution ()
+    {
+        if(forbiddenZoneIsGreen)
+        {
+            if (renderers[2].material.color == Color.red)
+            {
+                forbiddenZoneIsDownLeft = true;
+            }
+            else if (renderers[3].material.color == Color.red)
+            {
+                forbiddenZoneIsDownRight = true;
+            }
+        }
+        else if (forbiddenZoneIsBlue)
+        {
+            if (renderers[2].material.color == Color.green)
+            {
+                forbiddenZoneIsDownLeft = true;
+            }
+            else if (renderers[3].material.color == Color.green)
+            {
+                forbiddenZoneIsDownRight = true;
+            }
+        }
+        else if (forbiddenZoneIsRed)
+        {
+            if (renderers[2].material.color == Color.blue)
+            {
+                forbiddenZoneIsDownLeft = true;
+            }
+            else if (renderers[3].material.color == Color.blue)
+            {
+                forbiddenZoneIsDownRight = true;
+            }
         }
     }
 }
