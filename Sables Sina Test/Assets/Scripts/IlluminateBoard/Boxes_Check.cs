@@ -21,8 +21,6 @@ public class Boxes_Check : MonoBehaviour {
     private bool enigmaIsSolved = false;
     private bool isNumberAdded = false;
 
-    public int caseNumber = 0;
-
     // Use this for initialization
     void Start ()
     {
@@ -455,11 +453,10 @@ public class Boxes_Check : MonoBehaviour {
     IEnumerator FadeAway()
     {
         SteamVR_Fade.Start(Color.black, fadeTime, true);
-
+        
         Debug.Log(" Fade is starting ");
 
         yield return new WaitForSeconds(fadeTime);
-
-        SceneManager.LoadScene(0);
+         SceneManager.LoadScene(0);
     }
 }

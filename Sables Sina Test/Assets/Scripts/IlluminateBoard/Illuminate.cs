@@ -24,6 +24,7 @@ public class Illuminate : MonoBehaviour {
     public bool isInteracting = false;
     public bool ctrlIsInTrigger = false;
 
+    [HideInInspector]
     public float timerUntilCanClick = 0.5f;
 
     private void Awake()
@@ -50,7 +51,6 @@ public class Illuminate : MonoBehaviour {
             Debug.Log("Button Press");
             GetComponent<Renderer>().material = illuminated;
             isIlluminated = true;
-            m_Boxes_Check_Script.caseNumber++;
             Debug.Log(isIlluminated);
             StartCoroutine(WaitUntilClick());
         }
@@ -60,7 +60,6 @@ public class Illuminate : MonoBehaviour {
                 Debug.Log("Button Press Back");
                 GetComponent<Renderer>().material = notIlluminated;
                 isIlluminated = false;
-                m_Boxes_Check_Script.caseNumber--;
                 Debug.Log(isIlluminated);
                 StartCoroutine(WaitUntilClick());
         }
@@ -94,17 +93,3 @@ public class Illuminate : MonoBehaviour {
         isInteracting = false;
     }
 }
-
-
-
-    /*
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "LaserPointer" && !isIlluminated && m_DragScript.isLocked)
-        {
-            GetComponent<Renderer>().material = notIlluminated;
-            isIlluminated = false;
-            Debug.Log(isIlluminated);
-        }
-    }
-    */
