@@ -50,19 +50,16 @@ public class StatuesBehaviour : MonoBehaviour
 
         if (transform.rotation.w == 1f)
         {
-            Debug.Log(gameObject.name + "Position  0");
             rotIs0 = true;
         }
 
         else if (transform.rotation.y == 0.7071068f && transform.rotation.w == 0.7071068f)
         {
-            Debug.Log(gameObject.name + "Position 90");
             rotIs90 = true;
         }
 
         else if (transform.rotation.y == 0.7071068f && transform.rotation.w == -0.7071068f)
         {
-            Debug.Log(gameObject.name + "Position 270");
             rotIs270 = true;
         }
     }

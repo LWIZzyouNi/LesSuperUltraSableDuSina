@@ -62,8 +62,9 @@ public class RotateAxis : MonoBehaviour {
         if (m_MyScript.isOutlined)
         {
             // Lorsque l'objet est lock, donc zoomé, les éléments interactifs sur l'objet sont activables / utilisables lorsqu'on clique droit.
-            if (buttonAction.GetState(handType01)/*&& m_MyScript3.isLocked*/ ||
-                        buttonAction.GetState(handType02) /* && m_MyScript3.isLocked*/) 
+            if (buttonAction.GetState(handType01) ||
+                        buttonAction.GetState(handType02) ||
+                        Input.GetKeyDown(KeyCode.Space)) 
             {
                 canPlay = false;
                 isRotating = true;

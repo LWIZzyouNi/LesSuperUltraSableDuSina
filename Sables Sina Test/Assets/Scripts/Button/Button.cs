@@ -14,6 +14,11 @@ public class Button : MonoBehaviour {
 
     private bool DoOnce = false;
 
+    private Outline m_Outline_Script;
+    private Animator m_Animator;
+
+    public Vector3 startPos = Vector3.zero;
+
     // La vérification du trigger
     public bool ctrlIsInTrigger = false;
 
@@ -27,23 +32,29 @@ public class Button : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+        m_Outline_Script = GetComponent<Outline>();
+        m_Animator = GetComponent<Animator>();
+
+        startPos = gameObject.transform.localPosition;
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         Controller ();
-	}
+    }
 
     void Controller ()
     {
-        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02)) && ctrlIsInTrigger)  
+        if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)  
         {
             if (DoOnce == false)
             {
                 DoOnce = true;
                 GameManager.s_Singleton.ActivateButton();
+                m_Animator.SetBool("Push", true);
             }
         }
     }

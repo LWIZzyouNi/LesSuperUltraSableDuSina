@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     void ButtonGestion ()
     {
         int tmpsRandom = Random.Range(0, 4);
-        Debug.Log("tmpsRandom " + tmpsRandom);
+        //Debug.Log("tmpsRandom " + tmpsRandom);
 
         switch (tmpsRandom)
         {
@@ -120,8 +120,8 @@ public class GameManager : MonoBehaviour
             
             Vector3 tmpsVector = spawnPointButton[tmpsSpawnPointChoosed].transform.position;
 
-            tmpsButton = Instantiate(button);
-            tmpsButton.transform.position = tmpsVector;
+            tmpsButton = Instantiate(button, spawnPointButton[tmpsSpawnPointChoosed].transform.position, spawnPointButton[tmpsSpawnPointChoosed].transform.rotation);
+            //tmpsButton.transform.position = tmpsVector;
             
             spawnPointButton.Remove(spawnPointButton[tmpsSpawnPointChoosed]);
         }
