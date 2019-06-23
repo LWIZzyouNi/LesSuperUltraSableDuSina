@@ -450,6 +450,6 @@ public class Boxes_Check : MonoBehaviour {
         Debug.Log(" Fade is starting ");
 
         yield return new WaitForSeconds(fadeTime);
-         SceneManager.LoadScene(0);
+         SceneManager.LoadScene("SceneLDClement");
     }
 }
