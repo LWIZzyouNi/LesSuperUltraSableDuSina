@@ -20,11 +20,6 @@ public class StatuesManager : MonoBehaviour {
     public bool statuesAreEquals = false;
     public bool statuesAreLittleOnes = false;
     public bool statuesAreMediumOnes = false;
-    //[HideInInspector] public bool statue03IsHigher = false;
-    //[HideInInspector] public bool statue03IsLower = false;
-
-    //rotIs0
-    //public bool zero = false;
 
     //statue01 90 / 270
     public bool statue01IsNinety = false;
@@ -33,16 +28,10 @@ public class StatuesManager : MonoBehaviour {
     //rstatue02 90 / 270
     public bool statue02IsNinety = false;
     public bool statue02IsTwoHundredSeventy = false;
-    
-    //public int numberOfZero = 0;
-    //public int numberOfNinety = 0;
-    //public int numberOfTwoHundredSeventy = 0;
-
     private int[] numbers = { 1, 2, 3, 4, 5, 6 };
     private int randomNumber = 0;
 
     private float offSet25 = 0.25f;
-    //private float offSet50 = 0.5f;
 
     // Use this for initialization
     void Start ()
