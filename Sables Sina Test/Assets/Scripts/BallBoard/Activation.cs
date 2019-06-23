@@ -17,6 +17,8 @@ public class Activation : MonoBehaviour {
     // La vérification du trigger
     public bool ctrlIsInTrigger = false;
 
+    public bool ballBoardGameAsStarted = false;
+
     public GameObject ball;
     public GameObject resetButton;
 
@@ -71,6 +73,7 @@ public class Activation : MonoBehaviour {
 
     void Act ()
     {
+        ballBoardGameAsStarted = true;
         resetButton.GetComponent<ResetButton>().inAct = true;
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;

@@ -1,9 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class AxisRotation_Check : MonoBehaviour
 {
+    [Header("Controller Components")]
+    public SteamVR_Input_Sources handType01;
+    public SteamVR_Input_Sources handType02;
+    private SteamVR_Behaviour_Pose leftHand;
+    private SteamVR_Behaviour_Pose rightHand;
+    public SteamVR_Action_Boolean buttonAction;
+    public bool ctrlIsInTrigger = false;
+
     public GameObject[] buttonsInGame;
     public int numberOfButton = 0;
 
@@ -22,6 +32,7 @@ public class AxisRotation_Check : MonoBehaviour
     public bool perfectRot05 = false;
 
     public AudioClip audioSrc_EnigmaIsComplete;
+    private Outline m_Outline;
 
     public GameManager m_MyGameManager;
     private bool enigmaIsSolved = false;
@@ -29,10 +40,20 @@ public class AxisRotation_Check : MonoBehaviour
 
     public CluesManager m_CluesManager;
 
+    private float fadeTime = 0.5f;
+
+    private void Awake()
+    {
+        GameObject m_LeftHand = GameObject.Find("Controller (left)");
+        leftHand = m_LeftHand.GetComponent<SteamVR_Behaviour_Pose>();
+
+        GameObject m_handRight = GameObject.Find("Controller (right)");
+        rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+    }
 
     void Start()
     {
-        CheckFourthAxis();
+        m_Outline = GetComponent<Outline>();
     }
     
     void Update()
@@ -40,7 +61,16 @@ public class AxisRotation_Check : MonoBehaviour
         CheckFirstAndSecondAxis();
         CheckThirdAxis();
         CheckFourthAxis();
-        EnigmaIsSolved();
+        InputsCheck();
+    }
+
+    private void InputsCheck()
+    {
+        Debug.Log("Checking Cryptex results");
+        if ((buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline.isOutlined && ctrlIsInTrigger)
+        {
+            CheckResults();
+        }
     }
 
     public void CheckFirstAndSecondAxis()
@@ -408,7 +438,7 @@ public class AxisRotation_Check : MonoBehaviour
         }
     }
 
-    private void EnigmaIsSolved()
+    private void CheckResults()
     {
         if (perfectRot01 && perfectRot02 && perfectRot03 && perfectRot04 && perfectRot05)
         {
@@ -424,6 +454,11 @@ public class AxisRotation_Check : MonoBehaviour
             }
         }
 
+        else if (!perfectRot01 || !perfectRot02 || !perfectRot03 || !perfectRot04 || !perfectRot05)
+        {
+            StartCoroutine(FadeAway());
+        }
+
         if (enigmaIsSolved)
         {
             perfectRot01 = false;
@@ -434,6 +469,35 @@ public class AxisRotation_Check : MonoBehaviour
 
             isNumberAdded = true;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Controller"))
+        {
+            Debug.Log("in Trigger");
+            ctrlIsInTrigger = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Controller"))
+        {
+            Debug.Log("out of Trigger");
+            ctrlIsInTrigger = false;
+        }
+    }
+
+    IEnumerator FadeAway()
+    {
+        SteamVR_Fade.Start(Color.black, fadeTime, true);
+
+        Debug.Log(" Fade is starting ");
+
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene("SceneLDClement");
     }
 }
 

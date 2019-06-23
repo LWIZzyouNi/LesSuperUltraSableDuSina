@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class SortColor : MonoBehaviour {
 
@@ -10,7 +12,7 @@ public class SortColor : MonoBehaviour {
     int randomColor02 = 0;
     int randomColor03 = 0;
 
-    public Color color01;
+    public Color color01 = Color.green;
     public Color color02;
     public Color color03;
     public Color color04;
@@ -28,11 +30,13 @@ public class SortColor : MonoBehaviour {
     public bool forbiddenZoneIsDownLeft = false;
     public bool forbiddenZoneIsDownRight = false;
 
+    private float fadeTime = 0.5f;
+
     // Use this for initialization
     void Start()
     {
         getChild();
-        InitialiseListOfColor();
+        InitializeListOfColor();
         FirstColorAttribution();
         CheckColor();
         SetForbiddenZone();
@@ -51,7 +55,7 @@ public class SortColor : MonoBehaviour {
         }
     }
 
-    private void InitialiseListOfColor()
+    private void InitializeListOfColor()
     {
         colors[0] = color01;
         colors[1] = color02;
@@ -518,5 +522,17 @@ public class SortColor : MonoBehaviour {
                 forbiddenZoneIsDownRight = true;
             }
         }
+    }
+
+    ///// Pour lutiliser l'énumérator, ajoute : StartCoroutine(FadeAway()); aux endroits où le joueur perd \\\\\
+
+    IEnumerator FadeAway()
+    {
+        SteamVR_Fade.Start(Color.black, fadeTime, true);
+
+        Debug.Log(" Fade is starting ");
+
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene("SceneLDClement");
     }
 }
