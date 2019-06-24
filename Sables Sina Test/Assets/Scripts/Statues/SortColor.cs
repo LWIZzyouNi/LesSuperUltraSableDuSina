@@ -462,25 +462,25 @@ public class SortColor : MonoBehaviour {
 
     public void SetForbiddenZone()
     {
-        if (objectToColor[1].GetComponent<Renderer>().material.color == color02)
+        if (objectToColor[1].GetComponent<Renderer>().material.color == color02 /* red */)
         {
             forbiddenZoneIsGreen = true;
             Debug.Log("Forbidden color is green");
         }
 
-        else if (objectToColor[1].GetComponent<Renderer>().material.color == color04)
+        else if (objectToColor[1].GetComponent<Renderer>().material.color == color04 /* green */)
         {
             forbiddenZoneIsBlue = true;
             Debug.Log("Forbidden color is blue");
         }
-
-        else if(objectToColor[1].GetComponent<Renderer>().material.color == color01)
+         
+        else if(objectToColor[1].GetComponent<Renderer>().material.color == color01 /* blue */)
         {
             forbiddenZoneIsRed = true;
             Debug.Log("Forbidden color is red");
         }
 
-        else if(objectToColor[1].GetComponent<Renderer>().material.color == color03)
+        else if(objectToColor[1].GetComponent<Renderer>().material.color == color03 /*yellow */)
         {
             forbiddenZoneIsYellow = true;
             Debug.Log("Forbidden color is yellow");
