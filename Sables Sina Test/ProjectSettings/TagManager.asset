@@ -25,6 +25,10 @@ TagManager:
   - StatueSpawnPoint
   - Statue
   - Pillar
+  - ColoredZone01
+  - ColoredZone02
+  - ColoredZone03
+  - ColoredZone04
   layers:
   - Default
   - TransparentFX
