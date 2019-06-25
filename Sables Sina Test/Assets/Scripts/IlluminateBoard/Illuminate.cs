@@ -60,7 +60,7 @@ public class Illuminate : MonoBehaviour {
             StartCoroutine(WaitUntilClick());
         }
 
-        else if ((buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02) || Input.GetKeyDown(KeyCode.Space)) && ctrlIsInTrigger && !isIlluminated && !isInteracting)
+        else if ((buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02) || Input.GetKeyDown(KeyCode.Space)) && ctrlIsInTrigger && isIlluminated && !isInteracting)
         {
             Debug.Log("Button Press Back");
             GetComponent<Renderer>().material = notIlluminated;
