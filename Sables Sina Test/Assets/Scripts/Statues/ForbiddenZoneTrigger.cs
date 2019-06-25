@@ -24,127 +24,131 @@ public class ForbiddenZoneTrigger : MonoBehaviour {
 
     private void CheckBallPos()
     {
-        if(m_Ball_CheckPos.ballInZone01)
+        if(m_Activation.ballBoardGameAsStarted)
         {
-            if(m_SortColor.forbiddenZoneIsGreen)
+            if (m_Ball_CheckPos.ballInZone01)
             {
-                Debug.Log(" forbiddenZoneIsGreen ");
-
-                if (m_SortColor.renderers[0].material.color == m_SortColor.color04)
+                if (m_SortColor.forbiddenZoneIsGreen)
                 {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
+                    Debug.Log(" forbiddenZoneIsGreen ");
+
+                    if (m_SortColor.renderers[0].material.color == m_SortColor.color04)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
+                }
+
+                else if (m_SortColor.forbiddenZoneIsBlue)
+                {
+                    Debug.Log(" forbiddenZoneIsBlue ");
+
+                    if (m_SortColor.renderers[0].material.color == m_SortColor.color01)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
+                }
+
+                else if (m_SortColor.forbiddenZoneIsRed)
+                {
+                    Debug.Log(" forbiddenZoneIsRed ");
+
+                    if (m_SortColor.renderers[0].material.color == m_SortColor.color02)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
                 }
             }
 
-            else if (m_SortColor.forbiddenZoneIsBlue)
+            else if (m_Ball_CheckPos.ballInZone02)
             {
-                Debug.Log(" forbiddenZoneIsBlue ");
-
-                if(m_SortColor.renderers[0].material.color == m_SortColor.color01)
+                if (m_SortColor.forbiddenZoneIsYellow)
                 {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
+                    Debug.Log(" forbiddenZoneIsYellow ");
+
+                    if (m_SortColor.renderers[1].material.color == m_SortColor.color03)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
                 }
             }
 
-            else if (m_SortColor.forbiddenZoneIsRed)
+            else if (m_Ball_CheckPos.ballInZone03)
             {
-                Debug.Log(" forbiddenZoneIsRed ");
-
-                if (m_SortColor.renderers[0].material.color == m_SortColor.color02)
+                if (m_SortColor.forbiddenZoneIsGreen)
                 {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
+                    Debug.Log(" forbiddenZoneIsGreen ");
+
+                    if (m_SortColor.renderers[2].material.color == m_SortColor.color04)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
+                }
+
+                else if (m_SortColor.forbiddenZoneIsBlue)
+                {
+                    Debug.Log(" forbiddenZoneIsBlue ");
+
+                    if (m_SortColor.renderers[2].material.color == m_SortColor.color01)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
+                }
+
+                else if (m_SortColor.forbiddenZoneIsRed)
+                {
+                    Debug.Log(" forbiddenZoneIsRed ");
+
+                    if (m_SortColor.renderers[2].material.color == m_SortColor.color02)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
+                }
+            }
+
+            else if (m_Ball_CheckPos.ballInZone04)
+            {
+                if (m_SortColor.forbiddenZoneIsGreen)
+                {
+                    Debug.Log(" forbiddenZoneIsGreen ");
+
+                    if (m_SortColor.renderers[3].material.color == m_SortColor.color04)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
+                }
+
+                else if (m_SortColor.forbiddenZoneIsBlue)
+                {
+                    Debug.Log(" forbiddenZoneIsBlue ");
+
+                    if (m_SortColor.renderers[3].material.color == m_SortColor.color01)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
+                }
+
+                else if (m_SortColor.forbiddenZoneIsRed)
+                {
+                    Debug.Log(" forbiddenZoneIsRed ");
+
+                    if (m_SortColor.renderers[3].material.color == m_SortColor.color02)
+                    {
+                        Debug.Log(" You lose ! Sorry not sorry");
+                        StartCoroutine(FadeAway());
+                    }
                 }
             }
         }
-
-        else if (m_Ball_CheckPos.ballInZone02)
-        {
-            if (m_SortColor.forbiddenZoneIsYellow)
-            {
-                Debug.Log(" forbiddenZoneIsYellow ");
-
-                if (m_SortColor.renderers[1].material.color == m_SortColor.color03)
-                {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
-                }
-            }
-        }
-
-        else if (m_Ball_CheckPos.ballInZone03)
-        {
-            if (m_SortColor.forbiddenZoneIsGreen)
-            {
-                Debug.Log(" forbiddenZoneIsGreen ");
-
-                if (m_SortColor.renderers[2].material.color == m_SortColor.color04)
-                {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
-                }
-            }
-
-            else if (m_SortColor.forbiddenZoneIsBlue)
-            {
-                Debug.Log(" forbiddenZoneIsBlue ");
-
-                if (m_SortColor.renderers[2].material.color == m_SortColor.color01)
-                {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
-                }
-            }
-
-            else if (m_SortColor.forbiddenZoneIsRed)
-            {
-                Debug.Log(" forbiddenZoneIsRed ");
-
-                if (m_SortColor.renderers[2].material.color == m_SortColor.color02)
-                {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
-                }
-            }
-        }
-
-        else if (m_Ball_CheckPos.ballInZone04)
-        {
-            if (m_SortColor.forbiddenZoneIsGreen)
-            {
-                Debug.Log(" forbiddenZoneIsGreen ");
-
-                if (m_SortColor.renderers[3].material.color == m_SortColor.color04)
-                {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
-                }
-            }
-
-            else if (m_SortColor.forbiddenZoneIsBlue)
-            {
-                Debug.Log(" forbiddenZoneIsBlue ");
-
-                if (m_SortColor.renderers[3].material.color == m_SortColor.color01)
-                {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
-                }
-            }
-
-            else if (m_SortColor.forbiddenZoneIsRed)
-            {
-                Debug.Log(" forbiddenZoneIsRed ");
-
-                if (m_SortColor.renderers[3].material.color == m_SortColor.color02)
-                {
-                    Debug.Log(" You lose ! Sorry not sorry");
-                    StartCoroutine(FadeAway());
-                }
-            }
-        }
+        
     }
 
     IEnumerator FadeAway()

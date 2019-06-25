@@ -6,26 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class Goal_Check : MonoBehaviour {
 
-    public GameObject ballBoard;
+    private GameObject ballBoard;
+    private GameObject Stele;
+
     public int receptacleNumber = 0;
 
     private float fadeTime = 0.5f;
 
     // Use this for initialization
     void Start () {
-        
+        Stele = GameObject.FindGameObjectWithTag("Stele");
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Indexing();
+    }
+
+    private void Indexing()
+    {
+        if (Stele.GetComponent<Stele_Elem>().hasBeenChecked)
+        {
+            Debug.Log("ALORS MON CHèRE AMI LA RéPONSE EST: " + Stele.GetComponent<Stele_Elem>().elementalNumber);
+            Stele.GetComponent<Stele_Elem>().hasBeenChecked = false;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Board_Ball")
         {
-            if (GameManager.s_Singleton.spawnPointSteleBallBoard == receptacleNumber--)
+            if (receptacleNumber == Stele.GetComponent<Stele_Elem>().elementalNumber /* GameManager.s_Singleton.spawnPointSteleBallBoard == receptacleNumber-- */)
             {
                 other.gameObject.SetActive(false);
 
