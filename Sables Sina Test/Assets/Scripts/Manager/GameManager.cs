@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int gameValue = 0;
     public int error = 0;
     public int numberMaxError = 1;
-
+    public float fadeTime = 0.5f;
     // Les Timer
     public float timer = 0;
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject button;
     public List<GameObject> spawnPointButton;
     public int numberOfButtonOn = 0;
+    private  GameObject tmpsButton;
 
     // Les variables pour la stèle du BallBoard
     public GameObject steleBallBoard;
@@ -116,13 +118,12 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < gameValue; i++)
         {
             tmpsSpawnPointChoosed = Random.Range(0, spawnPointButton.Count);
-            GameObject tmpsButton;
-            
+
             Vector3 tmpsVector = spawnPointButton[tmpsSpawnPointChoosed].transform.position;
 
             tmpsButton = Instantiate(button, spawnPointButton[tmpsSpawnPointChoosed].transform.position, spawnPointButton[tmpsSpawnPointChoosed].transform.rotation);
+            tmpsButton.transform.eulerAngles += new Vector3(0f, 0f, 90f);
             //tmpsButton.transform.position = tmpsVector;
-            
             spawnPointButton.Remove(spawnPointButton[tmpsSpawnPointChoosed]);
         }
     }
@@ -179,5 +180,16 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         SceneManager.LoadScene("SceneTestTom");
+        StartCoroutine(FadeAway());
+    }
+
+    IEnumerator FadeAway()
+    {
+        SteamVR_Fade.Start(Color.black, fadeTime, true);
+
+        Debug.Log(" Fade is starting ");
+
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene("SceneLDClement");
     }
 }

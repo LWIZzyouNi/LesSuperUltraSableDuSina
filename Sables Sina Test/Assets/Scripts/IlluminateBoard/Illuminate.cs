@@ -56,7 +56,6 @@ public class Illuminate : MonoBehaviour {
             Debug.Log("Button Press");
             GetComponent<Renderer>().material = illuminated;
             isIlluminated = true;
-            Debug.Log(isIlluminated);
             StartCoroutine(WaitUntilClick());
         }
 
@@ -65,7 +64,6 @@ public class Illuminate : MonoBehaviour {
             Debug.Log("Button Press Back");
             GetComponent<Renderer>().material = notIlluminated;
             isIlluminated = false;
-            Debug.Log(isIlluminated);
             StartCoroutine(WaitUntilClick());
         }
     }
