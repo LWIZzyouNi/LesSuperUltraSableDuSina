@@ -8,8 +8,7 @@ public class Stele_Elem : MonoBehaviour {
 
     private int randomNumber = 0;
     public int elementalNumber = 0;
-        
-    public bool hasBeenChecked = false;
+
 
     // Use this for initialization
     void Start () {
@@ -34,8 +33,6 @@ public class Stele_Elem : MonoBehaviour {
 
     private void ActiveChild()
     {
-        hasBeenChecked = true;
-
         randomNumber = Random.Range(0, element.Length);
 
         element[randomNumber].SetActive(true);
@@ -44,21 +41,26 @@ public class Stele_Elem : MonoBehaviour {
         {
             elementalNumber = 1;
             Debug.Log("elemental 0 is active" + elementalNumber);
+            Debug.LogWarning("Axis05 Rot expected is 0");
+
         }
         else if (element[1].activeInHierarchy)
         {
             elementalNumber = 2;
             Debug.Log("elemental 1 is active" + elementalNumber);
+            Debug.LogWarning("Axis05 Rot expected is 90");
         }
         else if (element[2].activeInHierarchy)
         {
             elementalNumber = 3;
             Debug.Log("elemental 2 is active" + elementalNumber);
+            Debug.LogWarning("Axis05 Rot expected is 180");
         }
         else if (element[3].activeInHierarchy)
         {
             elementalNumber = 4;
             Debug.Log("elemental 3 is active" + elementalNumber);
+            Debug.Log("Axis05 Rot expected is 270");
         }
     }
     /*

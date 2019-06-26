@@ -1,11 +1,11 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 using UnityEngine.SceneManagement;
 
 public class Goal_Check : MonoBehaviour {
-
+    
     private GameObject ballBoard;
     private GameObject Stele;
 
@@ -36,7 +36,7 @@ public class Goal_Check : MonoBehaviour {
     {
         if(other.gameObject.tag == "Board_Ball")
         {
-            if (receptacleNumber == Stele.GetComponent<Stele_Elem>().elementalNumber /* GameManager.s_Singleton.spawnPointSteleBallBoard == receptacleNumber-- */)
+            if (receptacleNumber == Stele.GetComponent<Stele_Elem>().elementalNumber  GameManager.s_Singleton.spawnPointSteleBallBoard == receptacleNumber-- )
             {
                 other.gameObject.SetActive(false);
 
@@ -61,3 +61,4 @@ public class Goal_Check : MonoBehaviour {
     }
 
 }
+*/

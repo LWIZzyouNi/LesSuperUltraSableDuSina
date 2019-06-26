@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        ButtonGestion();
-        SpawnStele();
+       ButtonGestion();
+       SpawnStele();
 
         enigmeNumber = loupiotes.Length;
     }

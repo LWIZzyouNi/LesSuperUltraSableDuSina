@@ -39,7 +39,10 @@ public class AxisRotation_Check : MonoBehaviour
     private bool isNumberAdded = false;
 
     public CluesManager m_CluesManager;
+    public Stele_Elem m_Stele_Elem;
 
+    public GameObject stele;
+    public int number = 0;
     private float fadeTime = 0.5f;
 
     private void Awake()
@@ -54,13 +57,17 @@ public class AxisRotation_Check : MonoBehaviour
     void Start()
     {
         m_Outline = GetComponent<Outline>();
+        stele = GameObject.FindGameObjectWithTag("Stele");
+        m_Stele_Elem = stele.GetComponent<Stele_Elem>();
+        number = m_Stele_Elem.elementalNumber;
     }
-    
+
     void Update()
     {
         CheckFirstAndSecondAxis();
         CheckThirdAxis();
         CheckFourthAxis();
+        CheckFifthAxis();
         InputsCheck();
     }
 
@@ -76,51 +83,51 @@ public class AxisRotation_Check : MonoBehaviour
     public void CheckFirstAndSecondAxis()
     {
         // PREMIER AXE DU CRYPTEX
-        
+
         // booléan 01 de CluesManager + position de l'axe 01
         // 0
-        if ((axis01.transform.rotation.w == 1 || axis01.transform.rotation.w == -1) && m_CluesManager.axis01RotaExpectedIs0 && !enigmaIsSolved)
+        if ((axis01.transform.localRotation.w == 1 || axis01.transform.localRotation.w == -1) && m_CluesManager.axis01RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot01 = true;
         }
 
-        else if ((axis01.transform.rotation.w != 1 || axis01.transform.rotation.w != -1) && m_CluesManager.axis01RotaExpectedIs0 && !enigmaIsSolved)
+        else if ((axis01.transform.localRotation.w != 1 || axis01.transform.localRotation.w != -1) && m_CluesManager.axis01RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot01 = false;
         }
 
         // booléan 02 de CluesManager + position de l'axe 01
         // 90
-        if (axis01.transform.rotation.x == -0.7071068f && axis01.transform.rotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && !enigmaIsSolved)
+        if (axis01.transform.localRotation.x == -0.7071068f && axis01.transform.localRotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot01 = true;
         }
 
-        else if (axis01.transform.rotation.x != -0.7071068f && axis01.transform.rotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && !enigmaIsSolved)
+        else if (axis01.transform.localRotation.x != -0.7071068f && axis01.transform.localRotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot01 = false;
         }
 
         // booléan 03 de CluesManager + position de l'axe 01
         // 180
-        if (axis01.transform.rotation.x == -1 && m_CluesManager.axis01RotaExpectedIs180 && !enigmaIsSolved)
+        if (axis01.transform.localRotation.x == -1 && m_CluesManager.axis01RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot01 = true;
         }
 
-        else if(axis01.transform.rotation.x != -1 && m_CluesManager.axis01RotaExpectedIs180 && !enigmaIsSolved)
+        else if (axis01.transform.localRotation.x != -1 && m_CluesManager.axis01RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot01 = false;
         }
-        
+
         // booléan 04 de CluesManager + position de l'axe 01
         // 270
-        if (axis01.transform.rotation.x == -0.7071068f && axis01.transform.rotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && !enigmaIsSolved)
+        if (axis01.transform.localRotation.x == -0.7071068f && axis01.transform.localRotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot01 = true;
         }
 
-        else if ( axis01.transform.rotation.x != -0.7071068f && axis01.transform.rotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && !enigmaIsSolved)
+        else if (axis01.transform.localRotation.x != -0.7071068f && axis01.transform.localRotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot01 = false;
         }
@@ -129,51 +136,51 @@ public class AxisRotation_Check : MonoBehaviour
 
         // booléan 01 de CluesManager + position de l'axe 02
         // 0
-        if ((axis02.transform.rotation.w == 1 || axis02.transform.rotation.w == -1) && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        if ((axis02.transform.localRotation.w == 1 || axis02.transform.localRotation.w == -1) && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot02 = true;
         }
 
-        else if ((axis02.transform.rotation.w != 1 || axis02.transform.rotation.w != -1) && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        else if ((axis02.transform.localRotation.w != 1 || axis02.transform.localRotation.w != -1) && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot02 = false;
         }
 
         // booléan 02 de CluesManager + position de l'axe 02
         // 90
-        if (axis02.transform.rotation.x == -0.7071068f && axis02.transform.rotation.w == 0.7071068f && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        if (axis02.transform.localRotation.x == -0.7071068f && axis02.transform.localRotation.w == 0.7071068f && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot02 = true;
         }
 
-        else if (axis02.transform.rotation.x != -0.7071068f && axis02.transform.rotation.w != 0.7071068f && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        else if (axis02.transform.localRotation.x != -0.7071068f && axis02.transform.localRotation.w != 0.7071068f && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot02 = false;
         }
 
         // booléan 03 de CluesManager + position de l'axe 02
         // 180
-        if (axis02.transform.rotation.x == -1 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        if (axis02.transform.localRotation.x == -1 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot02 = true;
         }
 
-        else if (axis02.transform.rotation.x != -1 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        else if (axis02.transform.localRotation.x != -1 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot02 = false;
         }
-        
+
         // booléan 04 de CluesManager + position de l'axe 02
         // 270
-        if (axis02.transform.rotation.x == -0.7071068f && axis02.transform.rotation.w == -0.7071068f && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        if (axis02.transform.localRotation.x == -0.7071068f && axis02.transform.localRotation.w == -0.7071068f && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot02 = true;
         }
 
-        else if (axis02.transform.rotation.x != -0.7071068f && axis02.transform.rotation.w != -0.7071068f && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        else if (axis02.transform.localRotation.x != -0.7071068f && axis02.transform.localRotation.w != -0.7071068f && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot02 = false;
-        } 
+        }
     }
 
     private void CheckThirdAxis()
@@ -183,45 +190,45 @@ public class AxisRotation_Check : MonoBehaviour
         ///// PREMIER CAS \\\\\
 
         // AA 0 / 0 = 270
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
-        
+
         // AB 0 / 90 = 0
-        if ((axis03.transform.rotation.w == 1 || axis03.transform.rotation.w == -1) && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        if ((axis03.transform.localRotation.w == 1 || axis03.transform.localRotation.w == -1) && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if ((axis03.transform.rotation.w != 1 || axis03.transform.rotation.w != -1) && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        else if ((axis03.transform.localRotation.w != 1 || axis03.transform.localRotation.w != -1) && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
-        
+
         // AC 0 / 180 = 90
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
-        {
-            perfectRot03= true;
-        }
-
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
-        {
-            perfectRot03 = false;
-        }
-        
-        // AD 0 / 270 = 180
-        if (axis03.transform.rotation.x == -1 && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -1 && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        {
+            perfectRot03 = false;
+        }
+
+        // AD 0 / 270 = 180
+        if (axis03.transform.localRotation.x == -1 && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        {
+            perfectRot03 = true;
+        }
+
+        else if (axis03.transform.localRotation.x != -1 && m_CluesManager.axis01RotaExpectedIs0 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
@@ -229,45 +236,45 @@ public class AxisRotation_Check : MonoBehaviour
         ///// DEUXIEME CAS \\\\\
 
         // BA 90 / 0 = 180
-        if (axis03.transform.rotation.x == -1 && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -1 && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -1 && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -1 && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BB 90 / 90 = 270
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BC 90 / 180 = 0
-        if ((axis03.transform.rotation.w == 1 || axis03.transform.rotation.w == -1) && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        if ((axis03.transform.localRotation.w == 1 || axis03.transform.localRotation.w == -1) && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if ((axis03.transform.rotation.w != 1 || axis03.transform.rotation.w != -1) && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        else if ((axis03.transform.localRotation.w != 1 || axis03.transform.localRotation.w != -1) && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BD 90 / 270 = 90
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs90 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
@@ -275,45 +282,45 @@ public class AxisRotation_Check : MonoBehaviour
         ///// TROISIEME CAS \\\\\
 
         // BA 180 / 0 = 90
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BB 180 / 90 = 180
-        if (axis03.transform.rotation.x == -1 && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -1 && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -1 && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -1 && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BC 180 / 180 = 270
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BD 180 / 270 = 0
-        if ((axis03.transform.rotation.w == 1 || axis03.transform.rotation.w == -1) && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        if ((axis03.transform.localRotation.w == 1 || axis03.transform.localRotation.w == -1) && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if ((axis03.transform.rotation.w != 1 || axis03.transform.rotation.w != -1) && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        else if ((axis03.transform.localRotation.w != 1 || axis03.transform.localRotation.w != -1) && m_CluesManager.axis01RotaExpectedIs180 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
@@ -322,45 +329,45 @@ public class AxisRotation_Check : MonoBehaviour
         ///// QUATRIEME CAS \\\\\
 
         // BA 270 / 0 = 0
-        if ((axis03.transform.rotation.w == 1 || axis03.transform.rotation.w == -1) && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        if ((axis03.transform.localRotation.w == 1 || axis03.transform.localRotation.w == -1) && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if ((axis03.transform.rotation.w != 1 || axis03.transform.rotation.w != -1) && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
+        else if ((axis03.transform.localRotation.w != 1 || axis03.transform.localRotation.w != -1) && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs0 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BB 270 / 90 = 90
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == 0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != 0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs90 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BC 270 / 180 = 180
-        if (axis03.transform.rotation.x == -1 && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -1 && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -1 && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -1 && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs180 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
 
         // BD 270 / 270 = 270
-        if (axis03.transform.rotation.x == -0.7071068f && axis03.transform.rotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        if (axis03.transform.localRotation.x == -0.7071068f && axis03.transform.localRotation.w == -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot03 = true;
         }
 
-        else if (axis03.transform.rotation.x != -0.7071068f && axis03.transform.rotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
+        else if (axis03.transform.localRotation.x != -0.7071068f && axis03.transform.localRotation.w != -0.7071068f && m_CluesManager.axis01RotaExpectedIs270 && m_CluesManager.axis02RotaExpectedIs270 && !enigmaIsSolved)
         {
             perfectRot03 = false;
         }
@@ -372,17 +379,17 @@ public class AxisRotation_Check : MonoBehaviour
         buttonsInGame = GameObject.FindGameObjectsWithTag("Button");
         numberOfButton = buttonsInGame.Length;
 
-        if(numberOfButton == 2)
+        if (numberOfButton == 2)
         {
             Debug.Log("Two buttons here");
             Debug.LogWarning("Axis 04 Rot is 0");
 
-            if ((axis04.transform.rotation.w == 1 || axis04.transform.rotation.w == -1) && !enigmaIsSolved)
+            if ((axis04.transform.localRotation.w == 1 || axis04.transform.localRotation.w == -1) && !enigmaIsSolved)
             {
                 perfectRot04 = true;
             }
 
-            else if ((axis04.transform.rotation.w != 1 || axis04.transform.rotation.w != -1) && !enigmaIsSolved)
+            else if ((axis04.transform.localRotation.w != 1 || axis04.transform.localRotation.w != -1) && !enigmaIsSolved)
             {
                 perfectRot04 = false;
             }
@@ -393,12 +400,12 @@ public class AxisRotation_Check : MonoBehaviour
             Debug.Log("Three buttons here");
             Debug.LogWarning("Axis 04 Rot is 90");
 
-            if (axis04.transform.rotation.x == -0.7071068f && axis04.transform.rotation.w == 0.7071068f && !enigmaIsSolved)
+            if (axis04.transform.localRotation.x == -0.7071068f && axis04.transform.localRotation.w == 0.7071068f && !enigmaIsSolved)
             {
                 perfectRot04 = true;
             }
 
-            else if (axis04.transform.rotation.x != -0.7071068f && axis04.transform.rotation.w != 0.7071068f && !enigmaIsSolved)
+            else if (axis04.transform.localRotation.x != -0.7071068f && axis04.transform.localRotation.w != 0.7071068f && !enigmaIsSolved)
             {
                 perfectRot04 = false;
             }
@@ -409,12 +416,12 @@ public class AxisRotation_Check : MonoBehaviour
             Debug.Log("Four buttons here");
             Debug.LogWarning("Axis 04 Rot is 270");
 
-            if (axis04.transform.rotation.x == -0.7071068f && axis04.transform.rotation.w == -0.7071068f && !enigmaIsSolved)
+            if (axis04.transform.localRotation.x == -0.7071068f && axis04.transform.localRotation.w == -0.7071068f && !enigmaIsSolved)
             {
                 perfectRot04 = true;
             }
 
-            else if (axis04.transform.rotation.x != -0.7071068f && axis04.transform.rotation.w != -0.7071068f && !enigmaIsSolved)
+            else if (axis04.transform.localRotation.x != -0.7071068f && axis04.transform.localRotation.w != -0.7071068f && !enigmaIsSolved)
             {
                 perfectRot04 = false;
             }
@@ -425,14 +432,85 @@ public class AxisRotation_Check : MonoBehaviour
             Debug.Log("Five buttons here");
             Debug.LogWarning("Axis 04 Rot is 180");
 
-            if (axis04.transform.rotation.x == -1 && !enigmaIsSolved)
+            if (axis04.transform.localRotation.x == -1 && !enigmaIsSolved)
             {
                 perfectRot04 = true;
             }
 
-            else if (axis04.transform.rotation.x != -1 && !enigmaIsSolved)
+            else if (axis04.transform.localRotation.x != -1 && !enigmaIsSolved)
             {
                 perfectRot04 = false;
+            }
+        }
+    }
+
+    private void CheckFifthAxis()
+    {
+        number = m_Stele_Elem.elementalNumber;
+
+        if (number == 1 && !enigmaIsSolved)
+        {
+            Debug.Log("elementalNumber = 1");
+            Debug.LogWarning("Axis 05 Rot is 0");
+
+            if ((axis05.transform.localRotation.w == 1 || axis05.transform.localRotation.w == -1) && !enigmaIsSolved)
+            {
+                perfectRot05 = true;
+            }
+
+            else if ((axis05.transform.localRotation.w != 1 || axis05.transform.localRotation.w != -1) && !enigmaIsSolved)
+            {
+                perfectRot05 = false;
+            }
+        }
+
+        else if (number == 2 && !enigmaIsSolved)
+        {
+            Debug.Log("elementalNumber = 2");
+            Debug.LogWarning("Axis 05 Rot is 90");
+
+            if (axis05.transform.localRotation.x == -0.7071068f && axis05.transform.localRotation.w == 0.7071068f && !enigmaIsSolved)
+            {
+                perfectRot05 = true;
+            }
+
+            else if (axis05.transform.localRotation.x != -0.7071068f && axis05.transform.localRotation.w != 0.7071068f && !enigmaIsSolved)
+            {
+                perfectRot05 = false;
+            }
+        }
+
+
+        else if (number == 3 && !enigmaIsSolved)
+        {
+            Debug.Log("elementalNumber = 3");
+            Debug.LogWarning("Axis 05 Rot is 180");
+
+            if (axis05.transform.localRotation.x == -1 && !enigmaIsSolved)
+            {
+                perfectRot05 = true;
+            }
+
+            else if (axis05.transform.localRotation.x != -1 && !enigmaIsSolved)
+            {
+                perfectRot05 = false;
+            }
+        }
+
+
+        else if (number == 4 && !enigmaIsSolved)
+        {
+            Debug.Log("elementalNumber = 4");
+            Debug.LogWarning("Axis 05 Rot is 270");
+
+            if (axis05.transform.localRotation.x == -0.7071068f && axis05.transform.localRotation.w == -0.7071068f && !enigmaIsSolved)
+            {
+                perfectRot05 = true;
+            }
+
+            else if (axis05.transform.localRotation.x != -0.7071068f && axis05.transform.localRotation.w != -0.7071068f && !enigmaIsSolved)
+            {
+                perfectRot05 = false;
             }
         }
     }
