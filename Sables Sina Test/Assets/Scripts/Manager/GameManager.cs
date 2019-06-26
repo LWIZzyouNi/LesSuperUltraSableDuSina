@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
 
     void Validation()
     {
-        Debug.Log("Valide le passage");
         for (int i = 0; i < enigmeCompleteNumber; i++)
         {
             loupiotes[i].GetComponent<Display_EnigmaIsSolved>().activated = true;

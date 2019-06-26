@@ -76,8 +76,7 @@ public class AxisRotation_Check : MonoBehaviour
     public void CheckFirstAndSecondAxis()
     {
         // PREMIER AXE DU CRYPTEX
-
-        Debug.Log("Checking rotations !");
+        
         // booléan 01 de CluesManager + position de l'axe 01
         // 0
         if ((axis01.transform.rotation.w == 1 || axis01.transform.rotation.w == -1) && m_CluesManager.axis01RotaExpectedIs0 && !enigmaIsSolved)
