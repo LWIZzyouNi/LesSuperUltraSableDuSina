@@ -63,22 +63,22 @@ public class StatuesManager : MonoBehaviour {
         {
             case 1:
                 Instantiate(prefabs[0], spawnPointsPos01.position, spawnPointsPos01.rotation);
-                Instantiate(prefabs[1], spawnPointsPos02.position += new Vector3(0, offSet25, 0), spawnPointsPos02.rotation);
+                Instantiate(prefabs[1], spawnPointsPos02.position, spawnPointsPos02.rotation);
                 break;
 
             case 2:
                 Instantiate(prefabs[0], spawnPointsPos01.position, spawnPointsPos01.rotation);
-                Instantiate(prefabs[0], spawnPointsPos02.position += new Vector3(0, 0, 0), spawnPointsPos02.rotation);
+                Instantiate(prefabs[0], spawnPointsPos02.position, spawnPointsPos02.rotation);
                 break;
 
             case 3:
-                Instantiate(prefabs[1], spawnPointsPos01.position += new Vector3(0, offSet25, 0), spawnPointsPos01.rotation);
+                Instantiate(prefabs[1], spawnPointsPos01.position, spawnPointsPos01.rotation);
                 Instantiate(prefabs[0], spawnPointsPos02.position, spawnPointsPos02.rotation);
                 break;
                 
             default:
-                Instantiate(prefabs[1], spawnPointsPos01.position += new Vector3(0, offSet25, 0), spawnPointsPos01.rotation);
-                Instantiate(prefabs[1], spawnPointsPos02.position += new Vector3(0, offSet25, 0), spawnPointsPos02.rotation);
+                Instantiate(prefabs[1], spawnPointsPos01.position, spawnPointsPos01.rotation);
+                Instantiate(prefabs[1], spawnPointsPos02.position, spawnPointsPos02.rotation);
                 break;
         }
     }

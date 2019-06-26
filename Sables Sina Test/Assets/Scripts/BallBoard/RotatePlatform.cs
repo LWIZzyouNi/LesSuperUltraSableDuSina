@@ -12,6 +12,8 @@ public class RotatePlatform : MonoBehaviour {
     public SteamVR_Action_Boolean buttonAction;
     public GameObject BallBoard;
 
+    private Rigidbody rb;
+
     public AudioClip rotatingPlateformSound;
 
     private Outline m_Outline_Script;
@@ -30,6 +32,8 @@ public class RotatePlatform : MonoBehaviour {
 
         GameObject m_handRight = GameObject.Find("Controller (right)");
         rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
+
+        rb = GetComponent<Rigidbody>();
     }
 
     // Use this for initialization
@@ -42,7 +46,7 @@ public class RotatePlatform : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         InputsCheck();
     }
@@ -67,6 +71,7 @@ public class RotatePlatform : MonoBehaviour {
         {
             if (canBoucle)
             {
+                rb.AddTorque(transform.forward * -40 * Time.deltaTime);
                 transform.Rotate(new Vector3(0, 0, -40f));
                 canBoucle = false;
 
@@ -75,6 +80,7 @@ public class RotatePlatform : MonoBehaviour {
 
             if (!canBoucle)
             {
+                rb.AddTorque(transform.forward * 40 * Time.deltaTime);
                 transform.Rotate(new Vector3(0, 0, 40f));
                 canBoucle = true;
 
@@ -88,6 +94,7 @@ public class RotatePlatform : MonoBehaviour {
             if (canBoucle)
             {
                 //canBoucle = true;
+                rb.AddTorque(transform.forward * -40 * Time.deltaTime);
                 transform.Rotate(new Vector3(0, 0, -40f));
                 startRot.Set(0, 0, 0, 0);
                 transform.rotation = startRot;
@@ -98,6 +105,7 @@ public class RotatePlatform : MonoBehaviour {
             if (!canBoucle)
             {
                 //canBoucle = false;
+                rb.AddTorque(transform.forward * 40 * Time.deltaTime);
                 transform.Rotate(new Vector3(0, 0, 40f));
                 startRot.Set(0, 0, 0, 0);
                 transform.rotation = startRot;
