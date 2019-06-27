@@ -16,6 +16,7 @@ public class Button : MonoBehaviour {
 
     private Outline m_Outline_Script;
     private Animator m_Animator;
+    public AudioClip activateButton;
 
     public Vector3 startPos = Vector3.zero;
 
@@ -55,6 +56,7 @@ public class Button : MonoBehaviour {
                 DoOnce = true;
                 GameManager.s_Singleton.ActivateButton();
                 m_Animator.SetBool("Push", true);
+                SoundManager.instance.PlaySingle(activateButton);
             }
         }
     }

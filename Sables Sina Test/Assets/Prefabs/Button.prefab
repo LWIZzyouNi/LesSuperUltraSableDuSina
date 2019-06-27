@@ -206,6 +206,7 @@ MonoBehaviour:
   buttonAction:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
+  activateButton: {fileID: 8300000, guid: 0e220b97baa73db4fab6fba879e1b024, type: 3}
   startPos: {x: 0, y: 0, z: 0}
   ctrlIsInTrigger: 0
 --- !u!114 &114977569802022934

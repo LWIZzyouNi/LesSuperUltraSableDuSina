@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> spawnPointButton;
     public int numberOfButtonOn = 0;
     private  GameObject tmpsButton;
+    public AudioClip ad_EnigmaIsSolved;
 
     // Les variables pour la stèle du BallBoard
     public GameObject steleBallBoard;
@@ -51,13 +52,15 @@ public class GameManager : MonoBehaviour
         {
             s_Singleton = this;
         }
+
+        SpawnStele();
     }
 
     // Use this for initialization
     void Start()
     {
        ButtonGestion();
-       SpawnStele();
+     
 
         enigmeNumber = loupiotes.Length;
     }

@@ -29,6 +29,12 @@ TagManager:
   - ColoredZone02
   - ColoredZone03
   - ColoredZone04
+  - C_Axis01
+  - C_Axis02
+  - C_Axis03
+  - C_Axis04
+  - C_Axis05
+  - InteractText
   layers:
   - Default
   - TransparentFX

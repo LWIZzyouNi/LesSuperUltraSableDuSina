@@ -17,6 +17,8 @@ public class Sink_Check : MonoBehaviour {
     private Outline m_Outline_Script;
 
     public bool ctrlIsInTrigger = false;
+    public AudioClip usingSink;
+    private Animator m_Animator;
 
     // Use this for initialization
     void Start ()
@@ -28,6 +30,7 @@ public class Sink_Check : MonoBehaviour {
         rightHand = m_handRight.GetComponent<SteamVR_Behaviour_Pose>();
 
         m_Outline_Script = GetComponent<Outline>();
+        m_Animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -41,6 +44,8 @@ public class Sink_Check : MonoBehaviour {
         if ((buttonAction.GetState(handType01) || buttonAction.GetState(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline_Script.isOutlined && ctrlIsInTrigger)
         {
             m_Boxes_Check.CheckResult();
+            StartCoroutine(SinkAnimation());
+            SoundManager.instance.RandomizeSFX(usingSink);
         }
     }
 
@@ -61,5 +66,14 @@ public class Sink_Check : MonoBehaviour {
             Debug.Log("out of Trigger");
             ctrlIsInTrigger = false;
         }
+    }
+
+    private IEnumerator SinkAnimation()
+    {
+        m_Animator.SetBool("Push", true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        m_Animator.SetBool("Push", false);
     }
 }

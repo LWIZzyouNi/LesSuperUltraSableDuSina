@@ -26,6 +26,7 @@ public class ClosingDoor : MonoBehaviour {
         getChild();
         pillar = GameObject.FindGameObjectWithTag("Pillar");
         m_PillarAnimator = pillar.GetComponent<Animator>();
+        maxTimerValue = GameManager.s_Singleton.timer / 10;
 
     }
 	
@@ -57,7 +58,6 @@ public class ClosingDoor : MonoBehaviour {
     private void TimerCount()
     {
         timer += Time.deltaTime;
-        maxTimerValue = GameManager.s_Singleton.timer / 10;
 
         if (timer >= maxTimerValue)
         {

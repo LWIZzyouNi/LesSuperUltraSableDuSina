@@ -33,6 +33,7 @@ public class AxisRotation_Check : MonoBehaviour
 
     public AudioClip audioSrc_EnigmaIsComplete;
     private Outline m_Outline;
+    private Animator m_Animator;
 
     public GameManager m_MyGameManager;
     private bool enigmaIsSolved = false;
@@ -60,6 +61,8 @@ public class AxisRotation_Check : MonoBehaviour
         stele = GameObject.FindGameObjectWithTag("Stele");
         m_Stele_Elem = stele.GetComponent<Stele_Elem>();
         number = m_Stele_Elem.elementalNumber;
+
+        m_Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -77,6 +80,7 @@ public class AxisRotation_Check : MonoBehaviour
         if ((buttonAction.GetStateDown(handType01) || buttonAction.GetStateDown(handType02) || Input.GetKeyDown(KeyCode.Space)) && m_Outline.isOutlined && ctrlIsInTrigger)
         {
             CheckResults();
+            StartCoroutine(SinkAnimation());
         }
     }
 
@@ -548,6 +552,8 @@ public class AxisRotation_Check : MonoBehaviour
         }
     }
 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Controller"))
@@ -575,6 +581,15 @@ public class AxisRotation_Check : MonoBehaviour
 
         yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene("SceneLDClement");
+    }
+
+    private IEnumerator SinkAnimation()
+    {
+        m_Animator.SetBool("Push", true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        m_Animator.SetBool("Push", false);
     }
 }
 
