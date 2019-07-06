@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         TimerCount();
         CheckError();
         Validation();
+        Winning();
     }
 
     void Validation()
@@ -171,6 +172,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    private void Winning()
+    {
+        if(enigmeCompleteNumber == loupiotes.Length)
+        {
+            Debug.Log("You're free now !");
+            StartCoroutine(WhiteFadeAway());
+        }
+    }
+
     void CheckError ()
     {
         if(error == numberMaxError)
@@ -188,6 +199,16 @@ public class GameManager : MonoBehaviour
     IEnumerator FadeAway()
     {
         SteamVR_Fade.Start(Color.black, fadeTime, true);
+
+        Debug.Log(" Fade is starting ");
+
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene("SceneLDClement");
+    }
+
+    IEnumerator WhiteFadeAway()
+    {
+        SteamVR_Fade.Start(Color.white, fadeTime, true);
 
         Debug.Log(" Fade is starting ");
 
